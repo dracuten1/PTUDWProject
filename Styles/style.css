@@ -1,34 +1,112 @@
-.resizeimgpopular{
-    height:400px;
+body {
+    background-color: #000;
+}
+
+.resizeimgpopular {
+    height: 400px;
     width: 100%;
 }
 
-.top-left{
-    color:#FFF;
+.top-left {
+    color: #FFF;
     text-align: center;
     width: 100px;
     position: absolute;
-    top:0px;
-    left:0px;
-    background-color:red
+    top: 0px;
+    left: 0px;
+    background-color: red
 }
-.bottom-left{
-    color:#FFF;
+
+.bottom-left {
+    color: #FFF;
     text-align: center;
     width: 300px;
     position: absolute;
-    bottom:0px;
-    left:0px;
-    background-color:rgb(0, 255, 106)
+    bottom: 0px;
+    left: 0px;
+    background-color: rgb(0, 255, 106)
 }
 
-.separate{
-    margin:50px 0px;
+.separate {
+    margin: 50px 0px;
 }
-.mostViewer{
-    background-color:#ffde76;
+
+.mostViewer {
+    background-color: #ffde76;
     padding: 50px;
 }
-.innerSildeShow{
+
+.innerSildeShow {
     margin: 0 0 20px 0;
+}
+
+.dropdown:hover>.dropdown-menu {
+    display: block;
+}
+
+.dropdown>.dropdown-toggle:active {
+    /*Without this, clicking will make it sticky*/
+    pointer-events: none;
+}
+
+.marginmenubutton {
+    margin: 0px 10px;
+}
+
+/* Page content */
+.container {
+    margin-top: 30px;
+}
+
+
+/* The sticky class is added to the header with JS when it reaches its scroll position */
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
+.sticky+.container {
+    padding-top: 102px;
+}
+
+.follow {
+    background-image: linear-gradient(to bottom right, red, yellow);
+    border: 5px solid white;
+    border-radius: 10px;
+
+}
+
+.footer {
+    background-image: linear-gradient(to bottom right, red, yellow);
+}
+
+.title {
+    color: rgb(224, 213, 213);
+    text-align: center;
+    text-decoration: underline;
+}
+
+.categorytop10 {
+    border: 5px solid red;
+}
+
+.categorynew {
+    border: 5px solid yellow;
+}
+
+.categorytop10img {
+    padding:0;
+    margin:0;
+}
+.topcenter{
+    color: #FFF;
+    text-align: center;
+    width: 100px;
+    top: 0px;
+    right:0;
+    background-color: black;
+    margin:10px;
+
 }
