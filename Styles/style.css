@@ -1,6 +1,5 @@
 body {
     background-color: #000;
-   
 }
 
 .resizeimgpopular {
@@ -24,6 +23,15 @@ body {
 	transition: .3s ease-in-out;
     
 }
+.imghover{
+
+    opacity: 1;
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+.imghover:hover{
+    opacity: .5;
+}
 .resizeimgmostview:hover {
     opacity: .5;
 }
@@ -37,8 +45,6 @@ body {
     border: 2px solid white;
     
 }
-
-
 
 .top-center {
     color: #FFF;
@@ -140,7 +146,7 @@ body {
 }
 
 .title {
-    color: rgb(224, 213, 213);
+    color:#FFF;
     text-align: center;
     text-decoration: underline;
 }
@@ -154,9 +160,13 @@ body {
 }
 
 .categorytop10img {
+
+    width: 100%;
+    height: 90%;;
     padding:0;
     margin:0;
 }
+
 .topcenter{
     color: #FFF;
     text-align: center;
@@ -197,5 +207,9 @@ body {
     text-decoration: none;
     color: rgb(231, 15, 62)
 }
+.marginbottonrow{
+margin-bottom: 20%;
+}
+
     
     
