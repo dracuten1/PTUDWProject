@@ -1,30 +1,87 @@
 body {
     background-color: #000;
+   
 }
 
 .resizeimgpopular {
     height: 400px;
     width: 100%;
+    -webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+    
+}
+.resizeimgpopular:hover {
+    -webkit-transform: scale(1.3);
+	transform: scale(1.3);
+}
+.resizeimgmostview {
+    height: 200px;
+    width: 100%;
+    opacity: 1;
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+    
+}
+.resizeimgmostview:hover {
+    opacity: .5;
+}
+.card-text{
+    height: 80px;
 }
 
+.card{
+
+    margin:10px;
+    border: 2px solid white;
+    
+}
+
+
+
+.top-center {
+    color: #FFF;
+    text-align: center;
+    width: 150px;
+    position: absolute;
+    top: 0px;
+    right: 40%;
+    padding: 5px;
+    background-color:rgb(107, 36, 36);
+    font-weight: bold;
+}
 .top-left {
     color: #FFF;
     text-align: center;
-    width: 100px;
-    position: absolute;
+    width: 100%;
+   margin: 0;
     top: 0px;
-    left: 0px;
-    background-color: red
+    left:0px;
+    padding: 5px;
+    background-color:rgb(107, 36, 36);
+    font-weight: bold;
 }
 
 .bottom-left {
+    font-weight: bold;
     color: #FFF;
     text-align: center;
     width: 300px;
     position: absolute;
     bottom: 0px;
     left: 0px;
-    background-color: rgb(0, 255, 106)
+    background-color: black;
+}
+.bottom {
+    font-weight: bold;
+    color: #FFF;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    background-color: black;
 }
 
 .separate {
@@ -89,11 +146,11 @@ body {
 }
 
 .categorytop10 {
-    border: 5px solid red;
+    border: 2px solid red;
 }
 
 .categorynew {
-    border: 5px solid yellow;
+    border: 2px solid yellow;
 }
 
 .categorytop10img {
@@ -108,5 +165,37 @@ body {
     right:0;
     background-color: black;
     margin:10px;
+}
+
+#login{
+  
+    margin-left: 10px;
+    color:red;
+}
+#login:hover{
+    cursor:pointer;
+    color:blue;
+}
+
+.space{
+    background-color: #FFF;
+    height: 10px;
+    width: 100%;
+    position: relative;
+}
+
+.topnews{
+    background-color: #FFF;
 
 }
+.topnews_link{
+    font-weight: bold;
+    text-decoration: none;
+    color:black;
+}
+.topnews_link:hover{
+    text-decoration: none;
+    color: rgb(231, 15, 62)
+}
+    
+    
