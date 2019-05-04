@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../Styles/bootstrap-4.3.1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../Styles/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../Styles/cssPost.css">
+    <link rel="stylesheet" href="../Styles/style.css">
+
+    <link rel="shortcut icon" type="image/png" href="" />
+</head>
+
+<body>
+    <div class="text-center " style="padding:10px;background-color:cornflowerblue">
+        <img src="../Img/baodientu.png" style="width:10%" alt="...">
+    </div>
+    <!---------------------------------------------------Header menu ------------------------------------------------------------------------------------------------>
+    <div class="header ">
+        <nav class="navbar navbar-expand-lg navbar-light p-3 sps sps--abv bg-warning" >
+            <a class="navbar-brand" href="../index.html"><i class="fa fa-home" aria-hidden="true"></i>Trang chủ</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" style="padding: 0px" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto menu" style="padding: 0">
+                    <li class="nav-item dropdown marginmenubutton">
+                        <button class="btn dropdown-toggle" type="button" id="navbarThoisu" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-globe" aria-hidden="true"></i>
+                            Thời sự
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="navbarThoiSu">
+                            <a class="dropdown-item" href="#">Chính trị</a>
+                            <a class="dropdown-item" href="#">Giao thông</a>
+                            <a class="dropdown-item" href="#">Đô thị</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown marginmenubutton">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-ambulance" aria-hidden="true"></i>Pháp luật
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="navbarThoiSu">
+                            <a class="dropdown-item" href="#">Pháp đình</a>
+                            <a class="dropdown-item" href="#">Vụ án</a>
+
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown marginmenubutton">
+                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-globe" aria-hidden="true"></i>Thế giới
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="navbarThoiSu">
+                            <a class="dropdown-item" href="#">Quân sự</a>
+                            <a class="dropdown-item" href="#">Tư liệu</a>
+                            <a class="dropdown-item" href="#">Phân tích</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown marginmenubutton">
+                        <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-money" aria-hidden="true"></i> Kinh doanh
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="navbarThoiSu">
+                            <a class="dropdown-item" href="#">Bất động sản</a>
+                            <a class="dropdown-item" href="#">Hàng không</a>
+                            <a class="dropdown-item" href="#">Tài chính</a>
+                            <a class="dropdown-item" href="#">Tiêu dùng</a>
+                            <a class="dropdown-item" href="#">Doanh nhân</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown marginmenubutton">
+                        <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-laptop" aria-hidden="true"></i>Công nghệ
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="navbarThoiSu">
+                            <a class="dropdown-item" href="#">Mobile</a>
+                            <a class="dropdown-item" href="#">Internet</a>
+                            <a class="dropdown-item" href="#">eSport</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown marginmenubutton">
+                        <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-car" aria-hidden="true"></i> Thể thao
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="navbarThoiSu">
+                            <a class="dropdown-item" href="#">Thể thao Việt Nam</a>
+                            <a class="dropdown-item" href="#">Thể thao thế giới</a>
+                            <a class="dropdown-item" href="#">Cup châu Âu</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown marginmenubutton">
+                        <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-table" aria-hidden="true"></i>More
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="navbarThoiSu">
+                            <a class="dropdown-item" href="#">Thời trang</a>
+                            <a class="dropdown-item" href="#">Ẩm thực</a>
+                            <a class="dropdown-item" href="#">Giải trí</a>
+                            <a class="dropdown-item" href="#">Sức khỏe</a>
+                            <a class="dropdown-item" href="#">Âm nhạc</a>
+                            <a class="dropdown-item" href="#">Du lịch</a>
+                        </div>
+                    </li>
+
+                    <i class="fa fa-user-circle-o fa-3x" id="login" aria-hidden="true"></i>
+                </ul>
+
+                <div>
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success  my-2 my-sm-0" type="submit" style="width:30px">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="space">
+    </div>
+    <!--------------------------------------------------------Content---------------------------------------------------------------------------------- -->
+
+    <div class="container" style="background-color: #FFF;">
+        <div class=" row content">
+            <div class="col-sm-12  ">
+                    <h1 class="the-article-title">Hạ gục nhanh GRF, Faker và đồng đội sẽ đến Việt Nam ăn phở</h1>
+                    <p class="title1">eSport </p>
+                    <a href="https://www.facebook.com/TuanPenSpinner"> <b>Nguyễn Thanh Tuấn</b></a> <small>đăng lúc 20:50 13/04/2019</small>
+                    <p class="the-article-summary">Nhờ kỹ năng và kinh nghiệm vượt trội, các tuyển thủ của SKT T1 đã giành chiến thắng 3-0 trước kình địch Griffin để lên ngôi vô địch LCK (League of Legends Champions) mùa xuân 2019.</p>
+                    <p class="">Khác với mong đợi từ khán giả về một cặp đấu cân tài cân sức, trận đấu chỉ hấp dẫn tại ván đấu đầu tiên. Ở 2 ván tiếp theo, GRF hoàn toàn bế tắc trước màn trình diễn hoàn hảo của SKT.</p>
+                    <h3 class="the-article-summary">Trận 1 - bài dị không giúp GRF thắng ván đấu</h3>
+                    <p>Trong ván đầu tiên của trận chung kết, đội tuyển trẻ GRF sử dụng Sylas, Olaf, Akali, Pantheon và Taliyah đường dưới. Theo các chuyên gia, đội hình trên khá lạ lẫm vì không có vị tướng thuần xạ thủ.</p>
+                    <p ><strongr>Bên kia chiến tuyến, SKT chọn đội hình cần khá nhiều trang bị như Hecarim, Rek’sai, Ryze, Ezreal và Braum.</strongr></p>
+                    <p >Với chất tướng Pantheon đánh nhau mạnh mẽ, GRF di chuyển cùng nhau ngay từ cấp 1 và có được chiến công đầu với mạng của Braum. Chiến công đầu dành cho Taliyah của Viper.</p>
+                    <table align="center">
+                        <tbody>
+                            <tr>
+                                <td ><img   alt="Ha guc nhanh GRF, Faker va dong doi se den Viet Nam an pho hinh anh 1 " src="https://znews-photo.zadn.vn/w660/Uploaded/mdf_qsklky/2019_04_13/chien_cong_dau_cho_Viper.jpg" class="pic"/></td>
+                            </tr>
+                            <tr>
+                                <td class="pCaption caption">Chiến công đầu cho GRF.&nbsp;</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p >Thế trận tỏ ra hoà hoãn vì không đội nào muốn mắc sai lầm. Phút 35, GRF tổ chức tấn công trước nhưng SKT phản công rất hay và lấy được mạng của 3 thành viên GRF. SKT sở hữu bùa lợi Baron.</p>
+                    <p >Phút 37, SKT khởi động Rồng ngàn tuổi. GRF lao ra và cướp thành công với chiêu cuối của Pantheon. Tuy nhiên, sau đó SKT đã tiêu diệt 4 thành viên của GRF và chỉ còn mỗi Akali. </p>
+                    <p >SKT tiến thẳng vào nhà chính của GRF. Cú chiêu cuối cực hay của Ezreal đã ngăn pha biến về của Akali, đem về chiến thắng cho SKT.</p>
+                    <h3 class="the-article-summary">Trận&nbsp;2 - Sai lầm tai hại đầu trận khiến GRF sụp đổ</h3>
+                    <p >Khác với ván đầu tiên, GRF chọn đội hình quen tay hơn với Hecarim, Olaf, Lissandra, Ezreal và Braum. Trong khi đó, Faker sử dụng Azir, Akali dành cho Khan và SKT hoàn thiện đội hình với Jarvan IV, Lucian và Galio.</p>
+                    <p >GRF tiếp tục di chuyển chủ động sang nhà SKT như ván một. Lần này,  SKT đã đáp trả không thể tốt hơn. 2 mạng của GRF phải bỏ lại ngay từ phút đầu của ván 2.</p>
+                    <table align="center">
+                        <tbody>
+                            <tr>
+                                <td ><img  alt="Ha guc nhanh GRF, Faker va dong doi se den Viet Nam an pho hinh anh 2 " src="https://znews-photo.zadn.vn/w660/Uploaded/mdf_qsklky/2019_04_13/Game2.jpg" class="pic" /></td>
+                            </tr>
+                            <tr>
+                                <td class="pCaption caption">Thế trận nghiên về SKT ở những phút đầu tiên.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p dir="ltr">Nếu như ván đấu đầu tiên chứng kiến sự chủ động của GRF trong thời gian đầu thì thế trận bị đảo ngược ở ván 2. </p>
+                    <p dir="ltr">SKT dẫn 8-2 chỉ sau 18 phút với Faker cực kì xanh với KDA 3/0/3. Hàng loạt những tình huống giao tranh chủ động khiến khoảng cách tiền ngày càng nới rộng cho SKT.</p>
+                    <p dir="ltr">Phút 28, Galio tốc biến mở đầu giao tranh tốt. Đội hình GRF bị chia cắt và không thể chống đỡ trước sát thương quá mạnh từ SKT. SKT tiêu diệt 4 thành viên và đẩy thẳng vào nhà chính kết thúc ván đấu.</p>
+                    <h3 class="the-article-summary"><span>Trận&nbsp;3 - SKT sở hữu tấm vé MSI tới Hà Nội</span></h3>
+                    <p dir="ltr">Bước vào thế chân tường nhưng GRF vẫn tin tưởng vào cặp đôi Pantheon và Taliyah cùng các vị tướng dồn sát thương rất nhanh với Aatrox, Elise và Sylas. SKT đáp trả với Riven, Jarvan IV, Ryze, Ezreal và Braum.</p>
+                    <p dir="ltr">Phút thứ 2, Jarvan IV có pha đi gank tốt và giúp cho Ezreal có được mạng chiến công đầu.</p>
+                    <table align="center">
+                        <tbody>
+                            <tr>
+                                <td ><img  alt="Ha guc nhanh GRF, Faker va dong doi se den Viet Nam an pho hinh anh 3 " src="https://znews-photo.zadn.vn/w660/Uploaded/mdf_qsklky/2019_04_13/game3Early.jpg" class="pic" /></td>
+                            </tr>
+                            <tr>
+                                <td class="pCaption caption">Chiến công đầu cho SKT báo hiệu điềm gở của GRF.&nbsp;</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p >Phút 22, Aatrox vòng sau lưng và GRF mở giao tranh với mục tiêu chính là Ryze của Faker. Tuy nhiên, “Quỷ vương” với con bài đã làm nên tên tuổi Ryze trả đòn và hủy diệt với sự trợ giúp từ các đồng đội. Bùa lợi Baron dễ dàng  cho SKT khi GRF đã bị quét sạch.</p>
+                    <p >Phút 29, GRF tiếp tục chủ động giao tranh và đã tiêu diệt thành công Braum. Tuy nhiên, khi Riven của Khan đến thì cũng là dấu chấm hết cho mọi hy vọng của GRF. </p>
+                    <p>Ezreal thoải mái xả sát thương và cú quét sạch đồng thời là chiến thắng dành cho SKT trong trận chung kết LCK mùa xuân 2019. Faker và đồng đội sẽ đến Hà Nội để tham dự giải đấu MSI (Mid-Season Invitational) vào tháng 5 tới.</p>
+                                
+            </div>           
+        </div>
+        <div class="row">
+                <div class="detailBox">
+                        <div class="titleBox">
+                          <h2 > 3 Bình luận</h2> 
+                        </div>
+                        <div class="actionBox">
+                            <ul class="commentList">
+                                <li>
+                                    <div class="commenterImage">
+                                      <img src="http://placekitten.com/50/50" />
+                                    </div>
+                                    <h3 class="namefb">Phạm Tiến Dũng</h3>
+                                    <div class="commentText">
+                                        <p class="">Skt đã quay trở lại! Hi vọng họ sẽ giữ phong độ đến chung kết thế giới</p>
+                                        <a href="javascript:void(0)">Trả lời</a>
+                                        <i class="fa fa-thumbs-up" aria-hidden="true">11</i>
+                                        <a href="javascript:void(0)">Thích</a>
+                                        <i class="fa fa-thumbs-down" aria-hidden="true">22</i>
+                                        <a href="javascript:void(0)">Không thích</a>
+                                        <span class="date sub-text">on March 5th, 2014</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="commenterImage">
+                                      <img src="http://placekitten.com/45/45" />
+                                    </div>
+                                    <h3 class="namefb">Nguyễn Tuấn</h3>
+                                    <div class="commentText">
+                                        <p class="">Cảm thấy rất vui vì web có những bài viết về esport</p>
+                                        <a href="javascript:void(0)">Trả lời</a>
+                                        <i class="fa fa-thumbs-up" aria-hidden="true">121</i>
+                                        <a href="javascript:void(0)">Thích</a>
+                                        <i class="fa fa-thumbs-down" aria-hidden="true">232</i>
+                                        <a href="javascript:void(0)">Không thích</a>
+                                        <span class="date sub-text">on March 5th, 2014</span>
+                
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="commenterImage">
+                                      <img src="http://placekitten.com/40/40" />
+                                    </div>
+                                    <h3 class="namefb">Nguyễn Thanh Tuấn</h3>
+                                    <div class="commentText">
+                                        <p class="">Trận này hấp dẫn ghê</p>
+                                        <a href="javascript:void(0)">Trả lời</a>
+                                        <i class="fa fa-thumbs-up" aria-hidden="true">0</i>
+                                        <a href="javascript:void(0)">Thích</a>
+                                        <i class="fa fa-thumbs-down" aria-hidden="true">2</i>
+                                        <a href="javascript:void(0)">Không thích</a>
+                                        <span class="date sub-text">on March 5th, 2014</span>
+                    
+                                    </div>
+                                </li>
+                            </ul>
+                            <form class="form-inline" role="form">
+                                <div class="form-group">
+                                    
+                                    <input class="form-control" type="text" placeholder="Bình luận" />
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-default">Gửi bình luận</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+        </div>
+        <div class="row content">
+            <h3 class="the-article-summary">Bài viết liên quan</h3>
+            <div class="row categorynew marginbottonrow ">
+                    <div class="col-md-6">
+                        <p class="topcenter">eSport </p>
+                        <img src="../Img/Top1.jpg" class="card-img  imghover" alt="...">
+                    </div>
+                    <div class="col-md-6" >
+                        <div class="card-body  ">
+                            <a href="" class="topnews_link">
+                                <h3>
+                                    Bộ Y tế yêu cầu báo cáo vụ sản phụ tử vong sau mổ sinh ở Hà Tĩnh
+                                </h3>
+                            </a>
+                            <p>Bộ Y tế yêu cầu Sở Y tế Hà Tĩnh rà soát lại quy trình xử lý, theo
+                                dõi liên quan đến cái chết ..</p>
+                            <small class="text-muted">Last updated 3 mins ago</small>
+                        </div>
+                    </div>
+            </div>
+            <div class="row categorynew marginbottonrow">
+                    <div class="col-md-6">
+                        <p class="topcenter">eSport </p>
+                        <img src="../Img/Top1.jpg" class="card-img  imghover" alt="...">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card-body ">
+                            <a href="" class="topnews_link">
+                                <h3>
+                                    Bộ Y tế yêu cầu báo cáo vụ sản phụ tử vong sau mổ sinh ở Hà Tĩnh
+                                </h3>
+                            </a>
+                            <p>Bộ Y tế yêu cầu Sở Y tế Hà Tĩnh rà soát lại quy trình xử lý, theo
+                                dõi liên quan đến cái chết ..</p>
+                            <small class="text-muted">Last updated 3 mins ago</small>
+                        </div>
+                    </div>
+            </div>
+            <div class="row categorynew marginbottonrow  ">
+                    <div class="col-md-6">
+                        <p class="topcenter">eSport </p>
+                        <img src="../Img/Top1.jpg" class="card-img  imghover" alt="...">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card-body ">
+                            <a href="" class="topnews_link">
+                                <h3>
+                                    Bộ Y tế yêu cầu báo cáo vụ sản phụ tử vong sau mổ sinh ở Hà Tĩnh
+                                </h3>
+                            </a>
+                            <p>Bộ Y tế yêu cầu Sở Y tế Hà Tĩnh rà soát lại quy trình xử lý, theo
+                                dõi liên quan đến cái chết ..</p>
+                            <small class="text-muted">Last updated 3 mins ago</small>
+                        </div>
+                    </div>
+            </div>
+        </div >
+        
+    </di>
+    <!-- -------------------------------------Footer --------------------------------------------------------------------->
+    <div class="space">
+    </div>
+    <div class="jumbotron text-center footer" style="margin-bottom:0">
+        <img src="../Img/baodientu.png" style="width:10%;height: 10%" alt="">
+        Copyright &copy; 2019 - Tin tức mới nhất - <a href="https://www.facebook.com/TuanPenSpinner" target="_blank">Thông tin liên hệ</a>
+    </div>
+    <script src="../Styles/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../Styles/js.js"></script>
+    <script src="../Styles/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>
