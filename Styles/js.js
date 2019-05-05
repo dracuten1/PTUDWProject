@@ -1,6 +1,6 @@
 // Đăng nhập
 $("#login").click(function () {
-  window.open('../Writer/Login.html', '_self');
+  window.open('Writer/Login.html', '_self');
 });
 //Lên đầu trang
 $(document).ready(function () {

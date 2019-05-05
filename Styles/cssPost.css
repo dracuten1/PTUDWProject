@@ -4,7 +4,7 @@
 .title1{
     color: #FFF;
     text-align: center;
-    width: 100px;
+    width: 200px;
     background-color: black;
     margin-top:10px;
 }
@@ -13,7 +13,7 @@ a:hover{
 }
 .pic{
     width: 100%;
-    height: 100%;;
+   
 }
 .the-article-title{
     margin-top:20px;
