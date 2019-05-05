@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Google Assistant đã có thể phiên dịch trực tiếp tiếng Việt</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../Styles/bootstrap-4.3.1-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../Styles/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../Styles/cssPost.css">
+    <link rel="stylesheet" href="../../Styles/style.css">
+
+    <link rel="shortcut icon" type="image/png" href="../../Img/baodientu.png" />
+</head>
+
+<body>
+    <div class="text-center " style="padding:10px;background-color:cornflowerblue">
+        <img src="../../Img/baodientu.png" style="width:10%" alt="...">
+    </div>
+    <!---------------------------------------------------Header menu ------------------------------------------------------------------------------------------------>
+    <div class="header ">
+        <nav class="navbar navbar-expand-lg navbar-light p-3 sps sps--abv bg-warning">
+            <a class="navbar-brand" href="../../index.html" class="fa fa-home" aria-hidden="true"></i>Trang chủ</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" style="padding: 0px" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto menu" style="padding: 0">
+                    <li class="nav-item dropdown marginmenubutton">
+                        <button class="btn dropdown-toggle" type="button" id="navbarThoisu" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-globe" aria-hidden="true"></i>
+                            Thời sự
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="navbarThoiSu">
+                            <a class="dropdown-item" href="#">Chính trị</a>
+                            <a class="dropdown-item" href="#">Giao thông</a>
+                            <a class="dropdown-item" href="#">Đô thị</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown marginmenubutton">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-ambulance" aria-hidden="true"></i>Pháp luật
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="navbarThoiSu">
+                            <a class="dropdown-item" href="#">Pháp đình</a>
+                            <a class="dropdown-item" href="#">Vụ án</a>
+
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown marginmenubutton">
+                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-globe" aria-hidden="true"></i>Thế giới
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="navbarThoiSu">
+                            <a class="dropdown-item" href="#">Quân sự</a>
+                            <a class="dropdown-item" href="#">Tư liệu</a>
+                            <a class="dropdown-item" href="#">Phân tích</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown marginmenubutton">
+                        <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-money" aria-hidden="true"></i> Kinh doanh
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="navbarThoiSu">
+                            <a class="dropdown-item" href="#">Bất động sản</a>
+                            <a class="dropdown-item" href="#">Hàng không</a>
+                            <a class="dropdown-item" href="#">Tài chính</a>
+                            <a class="dropdown-item" href="#">Tiêu dùng</a>
+                            <a class="dropdown-item" href="#">Doanh nhân</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown marginmenubutton">
+                        <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-laptop" aria-hidden="true"></i>Công nghệ
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="navbarThoiSu">
+                            <a class="dropdown-item" href="#">Mobile</a>
+                            <a class="dropdown-item" href="#">Internet</a>
+                            <a class="dropdown-item" href="#">eSport</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown marginmenubutton">
+                        <button class="btn btn-dark dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-car" aria-hidden="true"></i> Thể thao
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="navbarThoiSu">
+                            <a class="dropdown-item" href="#">Thể thao Việt Nam</a>
+                            <a class="dropdown-item" href="#">Thể thao thế giới</a>
+                            <a class="dropdown-item" href="#">Cup châu Âu</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown marginmenubutton">
+                        <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-table" aria-hidden="true"></i>More
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="navbarThoiSu">
+                            <a class="dropdown-item" href="#">Thời trang</a>
+                            <a class="dropdown-item" href="#">Ẩm thực</a>
+                            <a class="dropdown-item" href="#">Giải trí</a>
+                            <a class="dropdown-item" href="#">Sức khỏe</a>
+                            <a class="dropdown-item" href="#">Âm nhạc</a>
+                            <a class="dropdown-item" href="#">Du lịch</a>
+                        </div>
+                    </li>
+
+                    <i class="fa fa-user-circle-o fa-3x" id="login" aria-hidden="true"></i>
+                </ul>
+
+                <div>
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2 " type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success  my-2 my-sm-0" type="submit" style="width:30px">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="space">
+    </div>
+    <!--------------------------------------------------------Content---------------------------------------------------------------------------------- -->
+
+    <div class="container" style="background-color: #FFF;">
+        <div class=" row content">
+
+            <div class="col-sm-12  ">
+                <div style="margin-top:20px">
+                    <a href="">Trang chủ</a> >
+                    <a href="">Công nghệ</a> >
+                    <a href="">Mobile</a>
+                </div>
+                <h1 class="the-article-title">
+                    Giả mạo Apple, lừa chiếm iPhone đòi tiền chuộc ở Việt Nam
+                </h1>
+                <p class="title1">Mobile </p>
+                <a href="https://www.facebook.com/TuanPenSpinner">
+                    <b>Nguyễn Thanh Tuấn</b></a>
+                <small>đăng lúc 20:50 13/04/2019</small>
+                <br>
+                <i>Tag</i> <a href="">Iphone</a> ,<a href="">Mobile</a>
+                <div class="main">
+                    <p class="the-article-summary">Những kẻ lừa đảo đã mạo danh tin nhắn, website của Apple để lấy tài
+                        khoản iCloud từ người dùng sau đó đòi tiền chuộc.
+
+                    </p>
+                    <div class="the-article-body">
+                        <p dir="ltr">"Bắt cóc" <a href="https://news.zing.vn/tieu-diem/iphone.html"
+                                title="Tin tức iPhone" class="topic company autolink" topic-id="4022">iPhone</a> và đòi
+                            tiền chuộc là trường hợp không hiếm tại Việt Nam. Tuy nhiên, gần đây các đối tượng xấu đã
+                            nâng cấp chiêu thức lừa đảo bằng cách làm giả cả hệ thống tin nhắn, website của <a
+                                href="https://news.zing.vn/tieu-diem/cong-ty-apple.html" title="Tin tức Apple"
+                                class="topic company autolink" topic-id="3474">Apple</a> khiến nhiều người dùng sập bẫy.
+                        </p>
+                        <h3 dir="ltr">Lừa đảo tinh vi&nbsp;</h3>
+                        <p dir="ltr">Sau khi bị các đối tượng lừa đảo giả danh Apple nhắn tin vào ngày 15/4, anh Lê Việt
+                            (quận Bình Thạnh, TP.HCM) đã chia sẻ thông tin lên trang Facebook cá nhân để cảnh báo bạn
+                            bè, người thân.</p>
+                        <table class="picture" align="center">
+                            <tbody>
+                                <tr>
+                                    <td class="pic"><img
+                                            alt="Gia mao Apple, lua chiem iPhone doi tien chuoc o Viet Nam hinh anh 1 "
+                                            src="https://znews-photo.zadn.vn/w480/Uploaded/neg_wpeczyr/2019_05_03/Screenshot_1.jpg"
+                                            data-src="https://znews-photo.zadn.vn/Uploaded/neg_wpeczyr/2019_05_03/Screenshot_1.jpg"
+                                            class="pic" /></td>
+                                </tr>
+                                <tr>
+                                    <td class="pCaption caption">Những kẻ&nbsp;lừa đảo giả làm hệ thống tin nhắn của
+                                        Apple.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p dir="ltr">“Kẻ lừa đảo giả làm hệ thống tin nhắn của Apple (đăng ký luôn thành một tổng đài có
+                            tên Apple, cái này nhà mạng Việt Nam quá dễ dãi cho đăng ký). Sau đó bọn chúng nhắn tin
+                            đường dẫn trang web giống hệt như của Apple, nhưng khi nhấn vào thì sẽ nhảy ra trang web giả
+                            mạo. Nếu không để ý, các bạn sẽ nhập tài khoản iCloud của mình vào, khi đó sẽ gửi đến hệ
+                            thống của những tên lừa đảo này, chúng sẽ khoá máy iPhone các bạn, rồi nhắn tin đòi tiền
+                            chuộc”, anh Lê Việt chia sẻ trên trang cá nhân.</p>
+                        <p dir="ltr">Trao đổi với <em>Zing.vn</em>, anh Việt cho biết thêm, kẻ gian làm giả được hệ
+                            thống nhắn tin, gửi đường dẫn hệt như Apple, trang web ngoài tên miền sai là apple-vn.xyz,
+                            còn lại giao diện như website thật của Apple. </p>
+                        <table class="picture" align="center">
+                            <tbody>
+                                <tr>
+                                    <td class="pic"><img
+                                            alt="Gia mao Apple, lua chiem iPhone doi tien chuoc o Viet Nam hinh anh 2 "
+                                            src="https://znews-photo.zadn.vn/w480/Uploaded/neg_wpeczyr/2019_05_03/Screenshot_2.jpg"
+                                            data-src="https://znews-photo.zadn.vn/Uploaded/neg_wpeczyr/2019_05_03/Screenshot_2.jpg"
+                                            class="pic" /></td>
+                                </tr>
+                                <tr>
+                                    <td class="pCaption caption">Website được thiết kế giống như của Apple nhưng chỉ
+                                        khác tên miền.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p dir="ltr">“Thủ đoạn trên khá mới mẻ và tinh vi. Apple không bao giờ tự ý gửi tin nhắn và đòi
+                            hỏi những tài khoản cá nhân của khách. Không riêng gì Apple mà còn các hãng khác như
+                            Samsung, LG… cũng tương tự", anh Minh Tuấn, chủ hệ thống chuyên bán lẻ iPhone ở TP.HCM chia
+                            sẻ.</p>
+                        <p dir="ltr">“Nhiều khách hàng của mình đã bị lừa bởi chiêu trò này. Cách đây khoảng tầm 2
+                            tháng, có một khách hàng dùng <a href="https://news.zing.vn/tieu-diem/iphone-xs.html"
+                                title="Tin tức iPhone XS" class="topic company autolink" topic-id="4608">iPhone XS</a>
+                            bị các đối tượng xấu giả hệ thống Apple nhắn tin, do không để ý nên vị khách này đã nhập
+                            iCloud vào trang web giả, kết quả bị khóa máy và đòi 6 triệu đồng tiền chuộc”, anh Việt tâm
+                            sự.</p>
+                        <p dir="ltr">Sau khi bị lấy iCloud, chúng sẽ nhanh chóng đổi mật khẩu và khóa thiết bị lại. Lúc
+                            này người dùng chỉ có hai lựa chọn trả tiền chuộc để mở lại máy hoặc mang ra các cửa hàng để
+                            bẻ khóa iCloud. Tuy nhiên, việc bẻ khóa iCloud cũng tốn tiền triệu và khả năng lấy lại không
+                            cao.</p>
+                        <p dir="ltr">Ngoài cách giả tin nhắn, website của Apple để lừa các khách hàng sơ ý, những đối
+                            tượng lừa đảo còn nhiều chiêu trò khác nhau.</p>
+                        <p dir="ltr">"Cách đây 2 tuần, mình định mua ứng dụng Analog Wedding trên Apple Store (giá <abbr
+                                class="rate-usd">1 USD</abbr>). Tuy nhiên khi lướt&nbsp;Instagram, mình thấy có quảng
+                            cáo mua phần mềm này với giá 10.000 đồng, thanh toán bằng thẻ điện thoại.&nbsp;Sau khi nạp
+                            thẻ thành công, kẻ gian yêu cầu mình đăng nhập một tài khoản iCloud khác để tải app về máy.
+                            Làm theo hướng dẫn, sau khi đăng nhập, máy mình lập tức bị khoá. Kẻ gian đòi 1 triệu đồng để
+                            mở khoá thiết bị", chị Nguyễn Thu Ngân (quận 12, TP.HCM), chia sẻ.</p>
+                        <p dir="ltr">Theo anh Tuấn, người dùng không nên cung cấp bất cứ thông tin gì khi nhận được tin
+                            nhắn hoặc cuộc gọi đến. Bên cạnh đó, người dùng cũng nên cảnh giác với các ứng dụng hoặc
+                            game miễn phí trên các trang mạng xã hội. Kẻ xấu sẽ tận dụng cơ hội này để thực hiện các
+                            hành vi lừa đảo, chiếm đoạt quyền điều khiển thiết bị của nạn nhân.</p>
+                        <p dir="ltr">Ngày 17/4 anh Việt bị các đối tượng xấu nhắn tin uy hiếp đòi xóa tất cả các bài
+                            viết trên trang Facebook cá nhân liên quan đến việc vạch trần chiêu thức lừa đảo để lấy
+                            iCloud của người dùng.</p>
+                        <p dir="ltr">“Bọn nó sử dụng 3 thủ đoạn để hãm hại mình. Gọi điện, nhắn tin hù dọa đòi xử lí
+                            mình nếu không xóa bài. Tạo tài khoản Facebook khác, đi kết bạn với bạn bè mình để hòng tố
+                            cáo rồi khóa Facebook mình. Lại giả tin nhắn Apple, gửi tin nhắn tới người bị hại và nói
+                            rằng mình đang giữ thông tin tài khoản iCloud”, anh Việt nói.</p>
+                        <table class="picture" align="center">
+                            <tbody>
+                                <tr>
+                                    <td class="pic"><img
+                                            alt="Gia mao Apple, lua chiem iPhone doi tien chuoc o Viet Nam hinh anh 3 "
+                                            src="https://znews-photo.zadn.vn/w480/Uploaded/neg_wpeczyr/2019_05_03/Screenshot_3_1.jpg"
+                                            data-src="https://znews-photo.zadn.vn/Uploaded/neg_wpeczyr/2019_05_03/Screenshot_3_1.jpg"
+                                            class="pic" /></td>
+                                </tr>
+                                <tr>
+                                    <td class="pCaption caption">Tin nhắn đe dọa của những tên lừa đảo.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p dir="ltr">Anh Việt cho biết, hiện tại mình đang thu thập thêm thông tin để đưa lên cơ quan
+                            chức năng. Các đối tượng này liên tục uy hiếp và làm phiền mình với mục đích tạo sức ép để
+                            được xóa bài viết trên Facebook.</p>
+                        <h3>Tổng đài giả Apple "như thật", nhà mạng Việt đang tiếp tay?</h3>
+                        <p dir="ltr">SMS Brand Name (tin nhắn thương hiệu) là dịch vụ cho phép các doanh nghiệp gửi tin
+                            nhắn chăm sóc khách hàng và quảng bá đến hàng trăm ngàn người trong khoảng thời gian ngắn.
+                            Tên thương hiệu sẽ hiển thị ở mục người gửi thay vì số điện thoại.<strongr></strongr>
+                        </p>
+                        <p dir="ltr">
+                            <strongr>“Muốn gửi tin nhắn có Brand Name cho khách hàng thì phải gửi nội dung cho nhà cung
+                                cấp bên thứ 3 (họ được ủy quyền bởi các nhà mạng) kiểm tra. Nếu gửi thông tin chương
+                                trình khuyến mãi thì phải có giấy xác nhận đăng ký chương trình với Sở Công Thương”, anh
+                                Trần Hạnh - Trưởng phòng dịch vụ SIM tại hệ thống bán lẻ ở TP.HCM chia sẻ.</strongr>
+                        </p>
+                        <table class="picture" align="center">
+                            <tbody>
+                                <tr>
+                                    <td class="pic"><img
+                                            alt="Gia mao Apple, lua chiem iPhone doi tien chuoc o Viet Nam hinh anh 4 "
+                                            src="https://znews-photo.zadn.vn/w480/Uploaded/neg_wpeczyr/2019_05_03/20190504_124043.jpg"
+                                            data-src="https://znews-photo.zadn.vn/Uploaded/neg_wpeczyr/2019_05_03/20190504_124043.jpg"
+                                            class="pic" /></td>
+                                </tr>
+                                <tr>
+                                    <td class="pCaption caption">Để đăng ký được SMS&nbsp;Brand Name phải qua nhiều khâu
+                                        kiểm duyệt nội dung.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p dir="ltr">Anh Hạnh cho biết thêm, việc các đối tượng xấu giả hệ thống tin nhắn của Apple,
+                            nhiều khả năng đã "ăn chia" trong nội bộ các nhà cung cấp bên thứ 3 vì phải qua kiểm duyệt
+                            mới gửi tin nhắn được.</p>
+                        <p dir="ltr">Trên website chính thức, Apple khuyến cáo người dùng “không nên cung cấp thông tin
+                            tài khoản cá nhân, bao gồm mật khẩu Apple ID, thông tin thẻ tín dụng hoặc các thông tin cá
+                            nhân khác qua email, tin nhắn và đặc biệt cảnh giác khi click vào các đường link lạ”.</p>
+                        <p dir="ltr">Hiện chưa có cách thức độc lập để kiểm tra xem nhà mạng nào đã "tiếp tay" cho kẻ
+                            gian mua những tổng đài gửi tin nhắn chứa tên gọi Apple, gây nhầm lẫn cho người dùng thiếu
+                            hiểu biết.</p>
+                        <figure class="video cms-video" false
+                            source-url="/video-nguoi-dung-bi-lua-lay-icloud-post942235.html"
+                            data-video-src="https://znews-video.zadn.vn/aka/2019_05_03/ctv_letrong/video1556856801.mp4?authen=exp=1557068056~acl=*/2019_05_03/ctv_letrong/video1556856801*~hmac=24d506c4b473062fb7dac03b196e7dd5">
+                            <div class="video-container formatted"
+                                style="background-image: url(https://znews-photo.zadn.vn/w660/Uploaded/neg_wpeczyr/2019_05_03/maxresdefault_3.jpg);"
+                                aspect="16:9"><video playsinline muted
+                                    src="https://znews-video.zadn.vn/aka/2019_05_03/ctv_letrong/video1556856801.mp4?authen=exp=1557068056~acl=*/2019_05_03/ctv_letrong/video1556856801*~hmac=24d506c4b473062fb7dac03b196e7dd5"
+                                    controls='controls' allowads='true' onlyvietnam='false'
+                                    poster="https://znews-photo.zadn.vn/w660/Uploaded/neg_wpeczyr/2019_05_03/maxresdefault_3.jpg"
+                                    preload='none' aspect='16:9' mediaId='adbd1f76b6315f6f0620' class="pic">
+                                    <source
+                                        src="https://znews-mcloud-mpl-s2.zadn.vn/G9MHy_xWwTE/whls/vod/0/H450wyXTNrz_Vtpy-tu/video1556856801.m3u8?authen=exp=1557173435~acl=/G9MHy_xWwTE/*~hmac=a6f206ce9f69e40ee19b146b259cb4dc"
+                                        type="application/x-mpegURL" label="Auto" />
+                                    <source
+                                        src="https://znews-video.zadn.vn/aka/2019_05_03/ctv_letrong/video1556856801.mp4?authen=exp=1557068056~acl=*/2019_05_03/ctv_letrong/video1556856801*~hmac=24d506c4b473062fb7dac03b196e7dd5"
+                                        type="video/mp4" label="SD" res="480" />
+                                    <source
+                                        src="https://znews-video.zadn.vn/aka/2019_05_03/ctv_letrong/video1556856801.mp4?authen=exp=1557068056~acl=*/2019_05_03/ctv_letrong/video1556856801*~hmac=24d506c4b473062fb7dac03b196e7dd5"
+                                        type="video/mp4" label="HD" res="720" /></video></div>
+                            <figcaption><strong><a href="/video-nguoi-dung-bi-lua-lay-icloud-post942235.html"
+                                        cate-id="476" cate-name="Công nghệ"
+                                        topic-id="seo-4592,company-4608,company-3474,company-4022,seo-4439"
+                                        target="_blank" class="autolink">Người dùng bị lừa lấy iCloud</a></strong> Anh
+                                Lê Việt cho biết, các kẻ xấu đã giả tin nhắn Apple, gửi tin nhắn tới người bị hại và nói
+                                rằng mình đang giữ thông tin tài khoản iCloud.</figcaption>
+                        </figure>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row  ">
+            <div class="detailBox">
+                <div class="titleBox">
+                    <h2> 3 Bình luận</h2>
+                </div>
+                <div class="actionBox">
+                    <ul class="commentList">
+                        <li>
+                            <div class="commenterImage">
+                                <img src="http://placekitten.com/50/50" />
+                            </div>
+                            <h3 class="namefb">Phạm Tiến Dũng</h3>
+                            <div class="commentText">
+                                <p class="">Skt đã quay trở lại! Hi vọng họ sẽ giữ phong độ đến chung kết thế giới
+                                </p>
+                                <a href="javascript:void(0)">Trả lời</a>
+                                <i class="fa fa-thumbs-up" aria-hidden="true">11</i>
+                                <a href="javascript:void(0)">Thích</a>
+                                <i class="fa fa-thumbs-down" aria-hidden="true">22</i>
+                                <a href="javascript:void(0)">Không thích</a>
+                                <span class="date sub-text">on March 5th, 2014</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="commenterImage">
+                                <img src="http://placekitten.com/45/45" />
+                            </div>
+                            <h3 class="namefb">Nguyễn Tuấn</h3>
+                            <div class="commentText">
+                                <p class="">Cảm thấy rất vui vì web có những bài viết về esport</p>
+                                <a href="javascript:void(0)">Trả lời</a>
+                                <i class="fa fa-thumbs-up" aria-hidden="true">121</i>
+                                <a href="javascript:void(0)">Thích</a>
+                                <i class="fa fa-thumbs-down" aria-hidden="true">232</i>
+                                <a href="javascript:void(0)">Không thích</a>
+                                <span class="date sub-text">on March 5th, 2014</span>
+
+                            </div>
+                        </li>
+                        <li>
+                            <div class="commenterImage">
+                                <img src="http://placekitten.com/40/40" />
+                            </div>
+                            <h3 class="namefb">Nguyễn Thanh Tuấn</h3>
+                            <div class="commentText">
+                                <p class="">Trận này hấp dẫn ghê</p>
+                                <a href="javascript:void(0)">Trả lời</a>
+                                <i class="fa fa-thumbs-up" aria-hidden="true">0</i>
+                                <a href="javascript:void(0)">Thích</a>
+                                <i class="fa fa-thumbs-down" aria-hidden="true">2</i>
+                                <a href="javascript:void(0)">Không thích</a>
+                                <span class="date sub-text">on March 5th, 2014</span>
+
+                            </div>
+                        </li>
+                    </ul>
+                    <form class="form-inline" role="form">
+                        <div class="form-group">
+
+                            <input class="form-control" type="text" placeholder="Bình luận" />
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-default">Gửi bình luận</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row content">
+            <h3 class="the-article-summary">Bài viết liên quan</h3>
+            <div class="row categorynew marginbottonrow ">
+                <div class="col-md-6">
+                    <p class="title1 CongNghe">Công nghệ </p>
+                    <img src="https://znews-photo.zadn.vn/w480/Uploaded/pcckpqmv/2019_05_04/ctmetaustinjonessexuallyexplicitvideos20190201.jpg"
+                        class="card-img  imghover" alt="...">
+                </div>
+                <div class="col-md-6">
+                    <div class="card-body  ">
+                        <a href="./DufannuguivideokhoethanYoutuberngoitu10nam.html" class="topnews_link">
+                            <h3>
+                                Dụ fan nữ gửi video khoe thân, YouTuber ngồi tù 10 năm
+                            </h3>
+                        </a>
+                        <p>YouTuber Austin Jones vừa bị tuyên án 10 năm tù với tội danh sản xuất và tiếp nhận phim khiêu
+                            dâm trẻ em, sau khi dụ dỗ hơn 30 fan nữ gửi video nhạy cảm cho mình.
+                        </p>
+                        <small class="text-muted">19:54 16/02/2019</small>
+                    </div>
+                </div>
+            </div>
+            <div class="row categorynew marginbottonrow">
+                <div class="col-md-6">
+                    <p class="title1 CongNghe">Công nghệ </p>
+                    <img src="https://znews-photo.zadn.vn/w480/Uploaded/lce_jwquc/2019_05_04/iphone_cover.jpg"
+                        class="card-img  imghover" alt="...">
+                </div>
+                <div class="col-md-6">
+                    <div class="card-body ">
+                        <a href="./ThoiluongpinIphonekemxaloiAplle.html" class="topnews_link">
+                            <h3>
+                                Thời lượng pin iPhone kém xa lời Apple 'chém gió'?
+                            </h3>
+                        </a>
+                        <p>Nhóm nghiên cứu và bảo vệ người tiêu dùng của Anh cho rằng Apple đã phóng đại thời lượng pin
+                            trên iPhone XR..</p>
+                        <small class="text-muted">13:54 26/04/2019</small>
+                    </div>
+                </div>
+            </div>
+            <div class="row categorynew marginbottonrow  ">
+                <div class="col-md-6">
+                    <p class="title1 CongNghe">Công nghệ </p>
+                    <img src="https://znews-photo.zadn.vn/w480/Uploaded/chuaplu/2019_05_04/58282165_23843321411620661_2723371666414501888_n.jpg"
+                        class="card-img  imghover" alt="...">
+                </div>
+                <div class="col-md-6">
+                    <div class="card-body ">
+                        <a href="./WeddenhangdauthegioivuabiDucdanhsap.html" class="topnews_link">
+                            <h3>
+                                Web đen hàng đầu thế giới vừa bị Đức đánh sập
+                            </h3>
+                        </a>
+                        <p>Nền tảng mã hóa phi pháp này có hơn 1 triệu tài khoản khách hàng, hơn 5.000 người bán và hơn
+                            60.000 lượt rao bán các mặt hàng cấm.
+                        </p>
+                        <small class="text-muted">06:15 22/02/2019</small>
+                    </div>
+                </div>
+            </div>
+            <div class="row categorynew marginbottonrow  ">
+                <div class="col-md-6">
+                    <p class="title1 CongNghe">Công nghệ </p>
+                    <img src="https://znews-photo.zadn.vn/w480/Uploaded/mdf_qsklky/2019_05_04/pingan1513323524779.jpg"
+                        class="card-img  imghover" alt="...">
+                </div>
+                <div class="col-md-6">
+                    <div class="card-body">
+                        <a href="./TQlamsieucamera.html" class="topnews_link">
+                            <h3>
+                                Giả mạo Apple, lừa chiếm iPhone đòi tiền chuộc ở Việt Nam
+                            </h3>
+                        </a>
+                        <p>
+                            Hệ thống quang học LIDAR cải tiến do ĐH Khoa học Công nghệ Trung Quốc phát triển. Nó có thể
+                            chụp con người trong điều kiện khói mù của thành phố từ khoảng cách rất lớn.
+                        </p>
+                        <small class="text-muted">06:15 22/02/2019</small>
+                    </div>
+                </div>
+            </div>
+            <div class="row categorynew marginbottonrow  ">
+                <div class="col-md-6">
+                    <p class="title1 CongNghe">Công nghệ </p>
+                    <img src="https://znews-photo.zadn.vn/w480/Uploaded/neg_wpeczyr/2019_05_03/1455937.jpg"
+                        class="card-img  imghover" alt="...">
+                </div>
+                <div class="col-md-6">
+                    <div class="card-body ">
+                        <a href="./Giamaoappleluachiemiphone.html" class="topnews_link">
+                            <h3>
+                                Giả mạo Apple, lừa chiếm iPhone đòi tiền chuộc ở Việt Nam
+                            </h3>
+                        </a>
+                        <p>Những kẻ lừa đảo đã mạo danh tin nhắn, website của Apple để lấy tài khoản iCloud từ người
+                            dùng sau đó đòi tiền chuộc.
+                            <small class="text-muted">06:15 22/02/2019</small>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- -------------------------------------Footer --------------------------------------------------------------------->
+    <div class="space">
+    </div>
+    <div class="jumbotron text-center footer" style="margin-bottom:0">
+        <img src="../../Img/baodientu.png" style="width:10%;height: 10%" alt="">
+        Copyright &copy; 2019 - Tin tức mới nhất - <a href="https://www.facebook.com/TuanPenSpinner"
+            target="_blank">Thông tin liên hệ</a>
+    </div>
+    <script src="../../Styles/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../../Styles/js.js"></script>
+    <script src="../../Styles/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>

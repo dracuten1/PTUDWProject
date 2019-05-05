@@ -8,6 +8,11 @@
     background-color: black;
     margin-top:10px;
 }
+.title1:hover{
+    background-color:rgb(65, 31, 31);
+    cursor:pointer;
+}
+
 a:hover{
     text-decoration:none;
 }

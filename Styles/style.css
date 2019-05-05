@@ -73,6 +73,10 @@ body {
     background-color:rgb(107, 36, 36);
     font-weight: bold;
 }
+.top-center:hover{
+    cursor:pointer;
+    background-color:rgb(44, 13, 13);
+}
 .top-left {
     color: #FFF;
     text-align: center;
@@ -83,6 +87,10 @@ body {
     padding: 5px;
     background-color:rgb(107, 36, 36);
     font-weight: bold;
+}
+.top-left:hover{
+    cursor:pointer;
+    background-color:rgb(44, 13, 13);
 }
 
 .bottom-left {
@@ -95,6 +103,11 @@ body {
     left: 0px;
     background-color: black;
 }
+.bottom-left:hover{
+    background-color: rgb(46, 32, 32);
+    cursor: pointer;
+}
+
 .bottom {
     font-weight: bold;
     color: #FFF;
@@ -179,6 +192,8 @@ width: 120px;
     text-align: center;
 }
 
+
+
 .categorytop10 {
     border: 2px solid red;
 }
@@ -210,6 +225,11 @@ width: 120px;
     right:0;
     background-color: black;
     margin:10px;
+}
+.topcenter:hover{
+    background-color: rgb(206, 24, 24);
+    cursor:pointer;
+
 }
 
 #login{
