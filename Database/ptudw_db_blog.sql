@@ -28,6 +28,7 @@ CREATE TABLE `blog` (
   `content` longtext CHARACTER SET utf8 COLLATE utf8_general_ci,
   `writer_id` int(11) DEFAULT NULL,
   `status` int(11) DEFAULT NULL,
+  `cat_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;

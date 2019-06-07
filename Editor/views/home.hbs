@@ -1,0 +1,36 @@
+<div class="card shadow">
+  <div class="card-header">
+    Tất cả bài báo đang chờ duyệt
+  </div>
+   {{#if empty}}
+          <div class="text-center m-3">Không có bài đăng nào.</div>
+      {{else}}
+    
+    <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col"  class="text-center" >Mã</th>
+        <th scope="col">Tiêu đề</th>
+        <th scope="col">Phóng viên</th>
+      </tr>
+    </thead>
+
+    <tbody>
+            {{#each this.news}}
+          <tr>
+            <th class="text-center" scope="row">{{id}}</th>
+            <td>{{title}}</td>
+            <td scope="row">{{username}}</td>
+            <td class="text-right">
+              <a class="btn btn-primary btn-sm" href="/{{cat_id}}/edit/{{id}}" role="button">
+                &nbsp;&nbsp;Duyệt&nbsp;&nbsp;&nbsp;
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+              </a>
+            </td>
+          </tr>
+          {{/each}}
+     
+    </tbody>
+  </table>
+   {{/if}}
+</div>
