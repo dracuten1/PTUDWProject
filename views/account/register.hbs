@@ -1,0 +1,113 @@
+{{#section 'js'}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
+<script>
+    $(document).ready(function()
+    {
+        $('#registerForm').validate({
+            rules:{
+                username:{
+                    required:true,
+                     minlength:2
+                },
+                fullname:{
+                    required:true,
+                },
+                email:{
+                    required:true,
+                    email:true
+                },
+                password:{
+                    required:true,
+                    minlength:8
+                },
+                confirmpassword:{
+                     required:true,
+                     equalTo:$('[name="password"]')
+                }
+                
+            },
+
+            messages:{
+                username:{
+                    required:'Nhập tên đăng nhập vào bạn ơi!Làm ơn hợp tác xíu đi bạn ơi!',
+                    minlength:'Tên đăng nhập phải có ít nhất 2 kí tự!Làm ơn hợp tác xíu đi bạn ơi!'
+                },
+                fullname:{
+                    required:'Nhập họ và tên vào bạn ơi!Làm ơn hợp tác xíu đi bạn ơi!',
+                },
+                email:{
+                    required:'Nhập email vào bạn ơi!Làm ơn hợp tác xíu đi bạn ơi!',
+                    email:'Email có định dạng không đúng'
+                },
+                password:{
+                    required:'Nhập mật khẩu vào bạn ơi!Làm ơn hợp tác xíu đi bạn ơi!',
+                    minlength:'Mật khẩu phải có ít nhất 8 kí tự!Làm ơn hợp tác xíu đi bạn ơi!'
+                },
+                confirmpassword:{
+                    required:'Nhập mật khẩu vào bạn ơi!Làm ơn hợp tác xíu đi bạn ơi!',
+                    equalTo:'Ấn nhầm mật khẩu rồi bạn ơi!'
+                }
+            },
+            
+            errorElement:'small',
+            errorClass:'help-block text-danger',
+            highlight: function(e){
+                $(e).removeClass('is-valid').addClass('is-invalid');
+            },
+            unhighlight: function(e){
+                $(e).removeClass('is-invalid').addClass('is-valid');
+            },
+        });
+    });
+</script>
+{{/section}}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="card card-signin flex-row my-5">
+                <div class="card-body">
+                    <form class="form-signin" method="POST" action="/account/register" id="registerForm">
+                        <img src="https://library.kissclipart.com/20180918/zew/kissclipart-register-now-clipart-logo-126ae008902d8827.png"
+                            class="mb-5" style="width:100%" alt="">
+
+                        <div class="form-label-group">
+                            <input type="text" name="username" id="inputUsername" class="form-control" placeholder="Username"  autofocus/>
+                            <label for="inputUsername">Username</label>
+                        </div>
+                        <div class="form-label-group">
+                            <input type="text" name="fullname" id="inputFullname" class="form-control" placeholder="Full name" />
+                            <label for="inputFullname">Full name</label>
+                        </div>
+
+                        <div class="form-label-group">
+                            <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Email address" >
+                            <label for="inputEmail">Email address</label>
+                        </div>
+
+                        <hr>
+
+                        <div class="form-label-group">
+                            <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password">
+                            <label for="inputPassword">Password</label>
+                        </div>
+
+                        <div class="form-label-group">
+                            <input type="password" name ="confirmpassword" id="inputConfirmPassword" class="form-control" placeholder="Password">
+                            <label for="inputConfirmPassword">Confirm password</label>
+                        </div>
+
+                        <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
+                        <a class="d-block text-center mt-2 small" href="/account/login">Sign In</a>
+                        <hr class="my-4">
+                        <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit">
+                            <i class="fa fa-google" aria-hidden="true"></i> Sign in with Google</button>
+                        <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit">
+                            <i class="fa fa-facebook-square" aria-hidden="true"></i> Sign in with Facebook</button>
+                    </form>
+            
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
