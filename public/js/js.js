@@ -15,3 +15,9 @@ $(document).ready(function () {
         return false;
     });
 });
+
+// Xủ lý sự kiện
+
+$(".CongNgheHome").click(function(){
+    window.open('/Phap','_self')
+  })

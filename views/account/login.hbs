@@ -1,29 +1,56 @@
- <div class="container">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/public/css/login.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.2/css/mdb.min.css" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+    <title>Login</title>
+</head>
+
+<body>
+    <div class="container">
         <div class="row">
             <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
                 <div class="card card-signin my-5">
+                    {{#if err_message}}
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        {{err_message}}
+                    </div>
+                    {{/if}}
                     <div class="card-body">
-                        <img src="http://pluspng.com/img-png/login-button-png-login-button-png-image-18028-872.png" class="card-img mb-5" alt="">
-                        <form class="form-signin">
-                                <div class="form-label-group">
-                                        <input type="text" id="inputUserame" class="form-control" placeholder="Username"
-                                            required autofocus>
-                                        <label for="inputUserame">Username</label>
-                                    </div>
-
+                        <img src="http://pluspng.com/img-png/login-button-png-login-button-png-image-18028-872.png"
+                            class="card-img mb-5" alt="">
+                        <form class="form-signin" method="POST" id="loginForm">
                             <div class="form-label-group">
-                                <input type="password" id="inputPassword" class="form-control" placeholder="Password"
-                                    required>
-                                <label for="inputPassword">Password</label>
+                                <input type="text" id="inputUserame" name="username" class="form-control"
+                                    placeholder="Username" autofocus>
+                                <label for="inputUserame">Username</label>
                             </div>
 
+                            <div class="form-label-group">
+                                <input type="password" id="inputPassword" name="password" class="form-control"
+                                    placeholder="Password">
+                                <label for="inputPassword">Password</label>
+                            </div>
                             <div class="custom-control custom-checkbox mb-3">
                                 <input type="checkbox" class="custom-control-input" id="customCheck1">
                                 <label class="custom-control-label" for="customCheck1">Remember password</label>
                             </div>
                             <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Login</button>
-                           
-                             <a class="d-block text-center mt-2 small" href="/account/register">Register</a>
+
+                            <a class="d-block text-center mt-2 small" href="/account/register">Register</a>
                             <hr class="my-4">
                             <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit">
                                 <i class="fa fa-google" aria-hidden="true"></i> Sign in with Google</button>
@@ -35,3 +62,55 @@
             </div>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
+    <script>
+        $(document).ready(function () {
+            
+            {{{alert}}}
+
+            {{close}}
+            
+            $('#loginForm').validate({
+                rules: {
+                    username: {
+                        required: true,
+                        minlength: 2,
+
+                    },
+                    password: {
+                        required: true,
+                        minlength: 3,
+
+                    }
+
+                },
+                messages: {
+                    username: {
+                        required: 'Nhập tên đăng nhập vào bạn ơi!Làm ơn hợp tác xíu đi bạn ơi!',
+                        minlength: 'Tên đăng nhập phải có ít nhất 2 kí tự!Hợp tác xíu đi bạn ơi!'
+                    },
+
+                    password: {
+                        required: 'Nhập mật khẩu vào bạn ơi!Làm ơn hợp tác xíu đi bạn ơi!',
+                        minlength: 'Mật khẩu phải có ít nhất 3 kí tự!Hợp tác xíu đi bạn ơi!'
+                    }
+
+                },
+
+                errorElement: 'small',
+                errorClass: 'help-block text-danger',
+                highlight: function (e) {
+                    $(e).removeClass('is-valid').addClass('is-invalid');
+                },
+                unhighlight: function (e) {
+                    $(e).removeClass('is-invalid').addClass('is-valid');
+                },
+            });
+        });
+    </script>
+
+</body>
+
+</html>

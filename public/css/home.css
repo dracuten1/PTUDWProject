@@ -2,6 +2,11 @@ body {
 
     background-color: #FFF;
 }
+.menutop{
+margin: 0;
+padding: 0;
+background-color: #000
+}
 
 .megamenu-li {
     position: static;
@@ -56,19 +61,28 @@ body {
 
 .resizeimgmostview {
     height: 200px;
-    width: 100%;
-    opacity: 1;
+    width: 100%;  
+}
+
+.resizeimgmostview1{
+    
+    -webkit-transform: scale(1);
+    transform: scale(1);
     -webkit-transition: .3s ease-in-out;
     transition: .3s ease-in-out;
 
 }
+.resizeimgmostview1:hover{
+    opacity: 1;
+    -webkit-animation: flash 3.0s;
+    animation: flash 3.0s;
+}
 
-.imghover {}
 
 .imghover:hover {
     opacity: 1;
-    -webkit-animation: flash 1.5s;
-    animation: flash 1.5s;
+    -webkit-animation: flash 3.0;
+    animation: flash 3.0s;
 }
 
 @-webkit-keyframes flash {
@@ -92,7 +106,9 @@ body {
 }
 
 .resizeimgmostview:hover {
-    opacity: .5;
+    opacity: 1;
+    -webkit-animation: flash 3.0;
+    animation: flash 3.0s;
 }
 
 .card-text {
@@ -325,7 +341,7 @@ body {
 }
 .img_blognew{
     width: 100%;
-    height: 160px;
+    height: 200px;
 }
 .time_publish{
     color: rgb(173, 106, 23);

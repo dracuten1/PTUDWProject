@@ -6,24 +6,24 @@ router.get('/home', (req, res) => {
     var p=blogModule.all();
     p.then(rows => {
         rows.forEach(element => {
-            element.date_publish=dateFormat(element.date_publish,"dd/mm/yyyy");
+            element.date_publish=dateFormat(element.date_publish,"hh:mm dd/mm/yyyy");
         });
-        first=rows.shift();
         res.render('home/home.hbs',
         {      
-          title:first.title,
-          link_img:first.link_img,
-          date:first.date_publish,
-          blogs:rows
+          title:rows[0].title,
+          link_img:rows[0].link_img,
+          date_publish:rows[0].date_publish,
+          link_blog_detail:rows[0].link_blog_detail 
         });
     }).catch(err=>{
         console.log(err);
     })
+
   
 })
 router.get('/', (req, res) => {
     res.render('home/home.hbs',{
-        css:'home'
+       
     });
 })
 

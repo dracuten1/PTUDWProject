@@ -1,8 +1,7 @@
-var blog =require("../services/blog_service");
+var blog =require("../services/service");
 
 module.exports={
     all:()=>{
-    
-        return blog.all('select * from blog');
+        return blog.load('select * from blog');
     }
 }
