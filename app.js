@@ -3,11 +3,13 @@ var morgan = require('morgan');
 var exphbs = require('express-handlebars');
 var router_h = require('./routes/home.router');
 var router_a = require('./routes/account.router');
-var router_b = require('./routes/blogs.route')
+var router_b = require('./routes/blogs.route');
+var router_w=require('./routes/writer.router');
 var hbs_sections = require('express-handlebars-sections');
-
-
 var app = express();
+
+require('./middlewares/passport')(app);
+require('./middlewares/session')(app);
 app.use(morgan('dev'));
 app.use(express.urlencoded({
     extended: true
@@ -20,13 +22,16 @@ app.engine('.hbs', exphbs({
         section: hbs_sections()
     }
 }))
+//
 app.set('view engine', '.hbs');
 app.use('/public', express.static('public'));
-require('./middlewares/passport')(app);
-require('./middlewares/session')(app);
+
+
+// Router
 app.use('/', router_h);
 app.use('/account', router_a);
 app.use('/', router_b);
+app.use('/writer', router_w);
 
 app.listen(3000, () => {
     console.log('listen port 3000');

@@ -1,0 +1,79 @@
+<div class="card shadow">
+  <h4 class="card-header">
+    Duyệt bài báo
+    <a class="btn btn-secondary float-right" href="/{{this.news.cat_id}}" role="button">
+               <i class="fa fa-backward" aria-hidden="true"></i>
+               Trở về
+              </a>
+  </h4>
+  <div class="card-body">
+    {{#if this.error}}
+    <div class="alert alert-danger" role="alert">
+      Địa chỉ không hợp lệ
+      <a href="/" class="alert-link">Về Trang chủ</a>
+    </div>
+    {{else}}
+    <form method="POST" >
+      <div class="form-group">
+          <div class="row">
+              <div class="col sm-2">
+                  <label for="txtNewsID">Mã bài báo</label>
+                 <input readonly type="text" class="form-control" id="txtNewsID" name="NewsID" value="{{this.news.id}}">
+              </div>
+               <div class="col sm-2">
+                    <label for="txtwriterID">Phóng viên</label>
+                 <input readonly type="text" class="form-control" id="txtwriterID" name="writerID" value="{{this.news.username}}">
+              </div>
+               <div class="col sm-2">
+                    <label for="txtwriterID">Chuyên mục</label>
+                 <input readonly type="text" class="form-control" id="txtwriterID" name="writerID" value="{{this.news.name}}">
+              </div>
+          </div>
+               
+      </div>
+           <label for="txttitle">Tiêu đề</label>
+                 <input readonly type="text" class="form-control" id="txttitle" name="title" value="{{this.news.title}}">
+         
+         
+         <label for="txttitle" class="pt-3">Nội dung dự kiến</label>
+
+          
+
+               <div class="border border-primary ">
+
+                   <div class="m-3">
+                {{{this.news.content}}}
+
+            </div>
+              </div>
+
+        
+            
+   
+      <div class="row pt-3">
+          <div class="col sm-5">
+              <div class="form-group">
+                <label for="exampleFormControlTextarea1">Lý do từ chối</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+            
+            <div class="d-flex justify-content-end">
+                   <button type="submit" class="btn btn-danger mr-4" formaction="/admin/categories/delete">
+                <i class="fa fa-ban" aria-hidden="true"></i>
+                    Từ chối
+            </button>
+               <button type="submit" class="btn btn-success ">
+            <i class="fa fa-check" aria-hidden="true"></i>
+            Duyệt
+            </button>
+            </div>
+            
+          </div>
+
+      </div>
+      
+    
+    </form>
+    {{/if}}
+  </div>
+</div>
