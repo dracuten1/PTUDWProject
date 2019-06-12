@@ -1,10 +1,13 @@
 var express = require('express');
 var morgan = require('morgan');
 var exphbs = require('express-handlebars');
-var router_h = require('./routes/home.router');
+
 var router_a = require('./routes/account.router');
-var router_b = require('./routes/blogs.route');
+var router_b = require('./routes/blogs.router');
+var router_e=require('./routes/editor.router');
+var router_h = require('./routes/home.router');
 var router_w=require('./routes/writer.router');
+
 var hbs_sections = require('express-handlebars-sections');
 var app = express();
 
@@ -28,9 +31,10 @@ app.use('/public', express.static('public'));
 
 
 // Router
-app.use('/', router_h);
 app.use('/account', router_a);
-app.use('/', router_b);
+app.use('/blogs', router_b);
+app.use('/', router_h);
+app.use('/editor', router_e);
 app.use('/writer', router_w);
 
 app.listen(3000, () => {
