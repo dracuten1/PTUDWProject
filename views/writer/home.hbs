@@ -8,23 +8,22 @@
         </tr>
     </thead>
     <tbody>
+        {{#each this.blogs}}
         <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
+            <th scope="row">{{id}}</th>
+            <td>{{title}}</td>
+            <td>{{status}}</td>
+            <td dispaly>
+                {{#if edit}}
+
+                <div class="btn-group">
+                    <a class="btn btn-primary" href="#" disabled style="margin-right:2px"><i
+                            class="fa fa-pencil"></i></a>
+                    <a class="btn btn-danger" href="#" disabled><i class="fa fa-trash"></i></a>
+                </div>
+                {{/if}}
+            </td>
         </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-        </tr>
+        {{/each}}
     </tbody>
 </table>

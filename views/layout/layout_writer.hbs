@@ -15,16 +15,16 @@
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
-
+    {{!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> --}}
 </head>
 
 <body>
 
 
     <div class="container-fluid">
-        <div class="row flex-container">
-            <div class="col-sm-3 bg-faded sidebar" style="height:200px">
-                <div class="card bg-light" style="max-width: 18rem; height:100%;">
+        <div class="row">
+            <div class="col-3 bg-faded sidebar" style="height:200px">
+                <div class="card bg-light" style="max-width: 18rem; height:100%;margin-left:40px">
                     <div class="card-body">
                         <ul class="nav nav-pills flex-column">
                             <li class="nav-item"><a href="/writer">Danh sách bài viết<span
@@ -36,62 +36,72 @@
                 </div>
 
             </div>
-            <div class="col-sm-8">
-                {{{body}}}
+            <div class="col-8">
+
+                <div class="card bg-light" style="height:100%;">
+                    <div class="card-body no-padding">
+                        {{{body}}}
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="container-fluid" style="margin-top:30px">
-            <footer class="page-footer font-small stylish-color-dark pt-4">
+        <div class="card bg-light" style="margin-top:30px">
+            <div class="card-body">
 
-                <!-- Call to action -->
-                <ul class="list-unstyled list-inline text-center py-2">
-                    <li class="list-inline-item">
-                        <h5 class="mb-1">Register for free</h5>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="#!" class="btn btn-danger btn-rounded">Sign up!</a>
-                    </li>
-                </ul>
-                <!-- Call to action -->
-                <hr>
-                <!-- Social buttons -->
-                <ul class="list-unstyled list-inline text-center">
-                    <li class="list-inline-item">
-                        <a class="btn-floating btn-fb mx-1">
-                            <i class="fa fa-facebook-official" style="font-size:48px;color:rgb(22, 25, 187)"></i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="btn-floating btn-tw mx-1">
-                            <i class="fa fa-twitter" style="font-size:48px;color:rgb(219, 63, 15)"></i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="btn-floating btn-gplus mx-1">
-                            <i class="fa fa-google-plus" style="font-size:48px;color:rgb(176, 204, 52)"></i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="btn-floating btn-li mx-1">
-                            <i class="fa fa-youtube" style="font-size:48px;color:red"></i>
-                        </a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a class="btn-floating btn-dribbble mx-1">
-                            <i class="fa fa-whatsapp" style="font-size:48px;color:rgb(226, 172, 25)"></i>
-                        </a>
-                    </li>
-                </ul>
-                <!-- Social buttons -->
+                <footer class="page-footer font-small stylish-color-dark pt-4">
 
-                <!-- Copyright -->
-                <div class="footer-copyright text-center py-3">© 2019 Copyright:
-                    <a href=""> news.com</a>
-                </div>
-                <!-- Copyright -->
+                    <!-- Call to action -->
+                    <ul class="list-unstyled list-inline text-center py-2">
+                        <li class="list-inline-item">
+                            <h5 class="mb-1">Register for free</h5>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#!" class="btn btn-danger btn-rounded">Sign up!</a>
+                        </li>
+                    </ul>
+                    <!-- Call to action -->
+                    <hr>
+                    <!-- Social buttons -->
+                    <ul class="list-unstyled list-inline text-center">
+                        <li class="list-inline-item">
+                            <a class="btn-floating btn-fb mx-1">
+                                <i class="fa fa-facebook-official" style="font-size:48px;color:rgb(22, 25, 187)"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="btn-floating btn-tw mx-1">
+                                <i class="fa fa-twitter" style="font-size:48px;color:rgb(219, 63, 15)"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="btn-floating btn-gplus mx-1">
+                                <i class="fa fa-google-plus" style="font-size:48px;color:rgb(176, 204, 52)"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="btn-floating btn-li mx-1">
+                                <i class="fa fa-youtube" style="font-size:48px;color:red"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="btn-floating btn-dribbble mx-1">
+                                <i class="fa fa-whatsapp" style="font-size:48px;color:rgb(226, 172, 25)"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- Social buttons -->
 
-            </footer>
+                    <!-- Copyright -->
+                    <div class="footer-copyright text-center py-3">© 2019 Copyright:
+                        <a href=""> news.com</a>
+                    </div>
+                    <!-- Copyright -->
+
+                </footer>
+            </div>
+
         </div>
+
     </div>
 
     <!-- JQuery -->
