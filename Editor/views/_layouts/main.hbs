@@ -6,14 +6,23 @@
   <title>Editor site</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+      body {
+      background-color: #F6F7B4
+    }
+
+  </style>
+  {{{_sections.css}}}
+
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow">
-    <a class="navbar-brand" href="#">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow mr-3 ml-3 rounded">
+
+    <a class="navbar-brand " href='/'>
       <i class="fa fa-home fa-lg" aria-hidden="true"></i>
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -21,54 +30,57 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href='/'>Home <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Dropdown
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li>
+      
+      
+     
       </ul>
     </div>
   </nav>
 
   <div class="container-fluid mt-4">
+    
     <div class="row">
       <div class="col-sm-3">
         <div class="card shadow">
           <h5 class="card-header">
-             Các chuyên mục quản lí
+             Các chuyên mục 
+             &nbsp;
+             <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
           </h5>
           <div class="list-group">
             {{#each lcCategories}}
             <a href="/{{id}}" class="list-group-item list-group-item-action {{#if isActive}} active {{/if}} " >
               {{name}}
                 {{#if num_of_blogs}}
-                            <span class="badge badge-danger float-right">{{num_of_blogs}}</span>
+                            <span class="badge badge-warning float-right">{{num_of_blogs}}</span>
                         {{/if}}
             </a>
             {{/each}}
+
+            {{!-- {{lcCategories.[0].[num_of_blogs]}} --}}
           </div>
         </div>
         <div class="card shadow mt-3">
-          <div class="card-header text-center">
-            Thông tin Editor
-          </div>
           <div class="card-body">
+            {{!-- <h5 class="card-title">Special title treatment</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> --}}
+            <a href="/applied" class="btn btn-success btn-sm mr-2">
+              <i class="fa fa-check" aria-hidden="true"></i>
+              Đã duyệt thành công
+           
+                <span class="badge badge-warning float-center ml-2">{{lcUnknow.[1].[total]}}</span>
+           
+              
+            </a>
+            <a href="/denied" class="btn btn-danger btn-sm mt-2">
+              <i class="fa fa-ban" aria-hidden="true"></i>
+              Đã từ chối
+              <span class="badge badge-warning float-center ml-2">{{lcUnknow.[2].[total]}}</span>
+            </a>
           </div>
+
         </div>
       </div>
       <div class="col-sm-9">
@@ -80,6 +92,8 @@
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  {{{_sections.js}}}
+
 </body>
 
 </html>
