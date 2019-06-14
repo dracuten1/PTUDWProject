@@ -3,6 +3,7 @@ var router = express.Router();
 var dateFormat = require('dateformat');
 var blogModule = require("../modules/blog_module");
 var statusModule = require("../modules/status_module");
+
 router.get("/", (req, res, next) => {
     var statusSelector = statusModule.all();
     var blogSelector = blogModule.select_by_writerId(1);
@@ -34,6 +35,19 @@ router.get("/", (req, res, next) => {
         console.log(err);
     });
 });
+router.get('/', (req, res, next) => {
+    var id = req.session.passport.user.id;
+    var role = req.session.passport.user.role;
+
+    if (role == 2) {
+        res.render('writer/home', {
+            layout: 'layout_writer'
+        })
+    } else {
+        res.redirect('/')
+    }
+
+})
 
 router.get("/editblogs", (req, res, next) => {
     res.render("writer/editblogs", {});

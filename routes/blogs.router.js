@@ -10,7 +10,7 @@ router.get('/Category', (req, res) => {
 
 router.get('/:Category/:Category_child/:id_blog', (req, res) => {
     var id_blog=req.params.id_blog;
-    console.log(id_blog[0]);
+    console.log(id_blog);
     var p = blogModule.select(id_blog); 
     p.then(rows => {
         rows.forEach(element => {
