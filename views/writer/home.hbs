@@ -15,11 +15,10 @@
             <td>{{status}}</td>
             <td dispaly>
                 {{#if edit}}
-
                 <div class="btn-group">
-                    <a class="btn btn-primary" href="#" disabled style="margin-right:2px"><i
+                    <a class="btn btn-primary" href="/writer/editblogs/{{id}}" style="margin-right:2px"><i
                             class="fa fa-pencil"></i></a>
-                    <a class="btn btn-danger" href="#" disabled><i class="fa fa-trash"></i></a>
+                    <a class="btn btn-danger" href="/writer/delete/{{id}}" disabled><i class="fa fa-trash"></i></a>
                 </div>
                 {{/if}}
             </td>
