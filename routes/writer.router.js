@@ -2,9 +2,19 @@ var express=require('express')
 var router=express.Router()
 
 router.get('/',(req,res,next)=>{
-    res.render('writer/home',{
-        layout: 'layout_writer'
-    })
+    var id=req.session.passport.user.id;
+    var role=req.session.passport.user.role;
+
+    if(role==2)
+    {
+        res.render('writer/home',{
+            layout: 'layout_writer'
+        })
+    }
+    else{
+        res.redirect('/')
+    }
+  
 })
 
 router.get('/editblogs',(req,res,next)=>{

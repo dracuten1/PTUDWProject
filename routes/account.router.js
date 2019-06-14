@@ -4,7 +4,7 @@ var bcrypt = require('bcrypt')
 var account_module = require('../modules/account_module')
 var passport = require('passport')
 var auth = require('../middlewares/auth')
-
+var auth_after_login=require('../middlewares/auth_after_login')
 
 
 router.get('/is-available', (req, res, next) => {
@@ -31,7 +31,7 @@ router.post('/register', (req, res, next) => {
   var saltRounds = 10;
   var hash = bcrypt.hashSync(req.body.password, saltRounds);
   var entity = {
-    role: 1,
+    role: 2,
     username: req.body.username,
     fullname: req.body.fullname,
     email: req.body.email,
@@ -40,10 +40,7 @@ router.post('/register', (req, res, next) => {
   var alert = "alert(\'Đăng kí thành công usename: \')";
   account_module.add(entity)
     .then(id => {
-      res.render('account/login', {
-        alert: alert,
-        layout: false
-      })
+      res.redirect('/account/login')
     })
     .catch(err => {
       console.log(err);
@@ -51,7 +48,7 @@ router.post('/register', (req, res, next) => {
 
 })
 
-router.get('/login', (req, res, next) => {
+router.get('/login',auth_after_login, (req, res, next) => {
   res.render('account/login', {
     layout: false
   })
@@ -72,10 +69,17 @@ router.post('/login', (req, res, next) => {
     req.logIn(user, err => {
       if (err)
         return next(err);
-
-      return res.redirect('/');
+      res.redirect('back');
+      req.session.user =user;
     });
+
   })(req, res, next);
+})
+
+router.get('/logout',(req,res,next)=>
+{
+  req.session.destroy();
+  res.redirect('/');
 })
 router.get('/admin', auth, (req, res, next) => {
   res.end('admin');

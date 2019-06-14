@@ -7,8 +7,6 @@ module.exports = function (app) {
   app.use(passport.initialize());
   app.use(passport.session());
 
-  
-
   var ls = new LocalStrategy({
     usernameField: 'username',
     passwordField: 'password'
