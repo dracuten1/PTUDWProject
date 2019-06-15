@@ -1,0 +1,81 @@
+{{#if empty}}
+
+<div class="card shadow">
+  <div class="card-header">
+    Tất cả bài báo đã duyệt thành công 
+    <span class="badge badge-success float-center ml-2">{{lcUnknow.[1].[total]}}</span>
+  </div>
+   
+          <div class="text-center m-3">Không có bài đăng nào.</div>
+</div>
+      {{else}}
+
+    <div class="card shadow">
+  <div class="card-header">
+    Tất cả bài báo đã duyệt thành công 
+    <span class="badge badge-success float-center ml-2">{{lcUnknow.[1].[total]}}</span>
+  </div>
+    <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col"  class="text-center" >Mã</th>
+        <th scope="col">Tiêu đề</th>
+        <th scope="col">Chuyên mục</th>
+        <th scope="col">Phóng viên</th>
+      </tr>
+    </thead>
+
+    <tbody>
+            {{#each this.news}}
+          <tr>
+            <th class="text-center" scope="row">{{id}}</th>
+            <td>{{title}}</td>
+            <td>{{name}}</td>
+            <td scope="row">{{username}}</td>
+            <td class="text-right">
+              <a class="btn btn-primary btn-sm" href="/editor/newApplied/{{id}}" role="button">
+                &nbsp; Xem &nbsp;
+                <i class="fa fa-eye" aria-hidden="true"></i>
+              </a>
+            </td>
+          </tr>
+          {{/each}}
+     
+    </tbody>
+  </table>
+   
+</div >
+<div class="row mt-4">
+      <div class="col-sm-12">
+        <nav aria-label="Page navigation example">
+          <ul class="pagination  mb-4  justify-content-center ">
+            <li class="page-item shadow">
+              <a class="page-link" href="?page={{this.prePage}}" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+          
+            {{#each this.pages}}
+            {{#if active}}
+            <li class="page-item active shadow" aria-current="page">
+              <a class="page-link" href="javascript:;">
+                {{value}} <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            {{else}}
+            <li class="page-item shadow">
+              <a class="page-link" href="?page={{value}}">{{value}}</a>
+            </li>
+            {{/if}}
+
+            {{/each}}
+            <li class="page-item shadow">
+              <a class="page-link" href="?page={{this.nextPage}}" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+{{/if}}

@@ -1,0 +1,118 @@
+<style>
+  #myBtn {
+  display: none;
+  position: fixed;
+  bottom: 150px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  border: circle;
+  outline: none;
+  background-color: #CBCCB8;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+#myBtn:hover {
+  background-color: #555;
+}
+</style>
+<button class="rounded-circle btn-lg" onclick="topFunction()" id="myBtn" title="Go to top">
+  <i class="fa fa-hand-o-up" aria-hidden="true"></i>
+</button>
+
+<div class="card shadow">
+  <h4 class="card-header">
+    Duyệt bài báo
+    <a class="btn btn-secondary float-right" href="#" role="button" onclick="goBack()">
+               <i class="fa fa-backward" aria-hidden="true"></i>
+               Trở về
+                
+              </a>
+  </h4>
+  <div class="card-body">
+    {{#if this.error}}
+    <div class="alert alert-danger" role="alert">
+      Địa chỉ không hợp lệ
+      <a href="/editor" class="alert-link">Về Trang chủ</a>
+    </div>
+    {{else}}
+    <form method="POST" action="/{{this.news.cat_id}}/apply/{{this.news.id}}" onsubmit="return confirm('Bạn có chắc chắn muốn thực hiện hành động này ?')">
+      <div class="form-group">
+          <div class="row">
+              <div class="col sm-2">
+                  <label for="txtNewsID">Mã bài báo</label>
+                 <input readonly type="text" class="form-control" id="txtNewsID" name="blog_id" value="{{this.news.id}}">
+              </div>
+               <div class="col sm-2">
+                    <label for="txtwriterID">Phóng viên</label>
+                 <input readonly type="text" class="form-control" id="txtwriterID" name="writer_username" value="{{this.news.username}}">
+              </div>
+               <div class="col sm-2">
+                    <label for="txtwriterID">Chuyên mục</label>
+                 <input readonly type="text" class="form-control" id="txtwriterID" name="cat_name" value="{{this.news.name}}">
+              </div>
+          </div>
+               
+      </div>
+           <label for="txttitle">Tiêu đề</label>
+                 <input readonly type="text" class="form-control" id="txttitle" name="title" value="{{this.news.title}}">
+         
+         
+         <label for="txttitle" class="pt-3">Nội dung dự kiến</label>
+
+          
+
+               <div class="border border-primary ">
+
+                   <div class="m-3">
+                {{{this.news.content}}}
+
+            </div>
+              </div>
+
+        
+            
+   
+      <div class="row pt-3">
+          <div class="col sm-5">
+              <div class="form-group">
+                <label for="exampleFormControlTextarea1">Lý do từ chối</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+            
+            
+          </div>
+
+      </div>
+      
+    
+    </form>
+    {{/if}}
+  </div>
+</div>
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
+
+<script>
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById("myBtn").style.display = "block";
+  } else {
+    document.getElementById("myBtn").style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
