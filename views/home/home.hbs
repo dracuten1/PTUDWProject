@@ -7,56 +7,49 @@
       <h4 class="title">Tin nổi bật</h4>
       <div id="demo" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
-          <div class="carousel-item active ">
-            <a href="{{link_blog_detail}}">
+
+          {{#each this.popular1}}
+          <div class="carousel-item active">
+            <a href="blogs/{{category}}/{{category_child}}/{{id_blog}}">
               <img src="{{link_img}}" class="resizeimgpopular" alt="Los Angeles">
             </a>
             <div class="carousel-caption">
               <div class="topnews">
-                <a href="{{link_blog_detail}}" class="topnews_link">
+                <a href="blogs/{{category}}/{{category_child}}/{{id_blog}}" class="topnews_link">
                   <h3>
                     {{title}}
                   </h3>
                 </a>
               </div>
             </div>
-            <a href="/CongNghe/eSport">
-              <p class="top-center" id="eSportHome">eSport</p>
+            <a href="blogs/{{category}}/{{category_child}}">
+              <p class="top-center" id="eSportHome">{{category_child}}</p>
             </a>
-           <span class="bottom-left"> <i class="fa fa-clock-o" aria-hidden="true"></i>{{date_publish}}</span>
+            <span class="bottom-left"> <i class="fa fa-clock-o" aria-hidden="true"></i>{{date_publish}}</span>
           </div>
-          <div class="carousel-item  ">
-            <a href=""><img
-                src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/d1pklzbuyaab0la-1552597012.jpg?crop=1.00xw:0.339xh;0,0.271xh&resize=1200:*"
-                class="resizeimgpopular" alt="Los Angeles"> </a>
-            <div class="carousel-caption">
-              <div class="topnews">
-                <a href="./Home/Phim_chieu_rap/Doi_no_kieu_Trung_Quoc_End_Game.html" class="topnews_link">
-                  <h3>Đòi nợ kiểu Trung Quốc: Bêu tên trong rạp phim 'Avengers: End Game'</h3>
-                </a>
-              </div>
-            </div>
-            <p class="top-center" id="PhimChieuRapHome">Phim chiếu rạp</p>
-            <span class="bottom-left"> <i class="fa fa-clock-o" aria-hidden="true"></i>4:37 PM
-              4/20/2019</span>
-          </div>
+          {{/each }}
 
-          <div class="carousel-item  ">
-            <a href=""> <img
-                src="https://cdn.trangcongnghe.com/uploads/posts/2018-09/tro-l253-ao-google-assistant-d227-c243-the-giao-tiep-bang-2-ng244n-ngu-c249ng-l250c_2.jpg"
-                class="resizeimgpopular" alt="Los Angeles">
+          {{#each this.popular}}
+          <div class="carousel-item ">
+            <a href="blogs/{{category}}/{{category_child}}/{{id_blog}}">
+              <img src="{{link_img}}" class="resizeimgpopular" alt="Los Angeles">
             </a>
             <div class="carousel-caption">
               <div class="topnews">
-                <a href="./Home/Cong_nghe/GoogleAssitantdacothphiendichtructieptiengviet.html" class="topnews_link">
-                  <h3>Google Assistant đã có thể phiên dịch trực tiếp tiếng Việt</h3>
+                <a href="blogs/{{category}}/{{category_child}}/{{id_blog}}" class="topnews_link">
+                  <h3>
+                    {{title}}
+                  </h3>
                 </a>
               </div>
             </div>
-            <p class="top-center" id="CongNgheHome">Mobile</p>
-            <span class="bottom-left"> <i class="fa fa-clock-o" aria-hidden="true"></i>4:37 PM
-              4/20/2019</span>
+            <a href="blogs/{{category}}/{{category_child}}">
+              <p class="top-center" id="eSportHome">{{category_child}}</p>
+            </a>
+            <span class="bottom-left"> <i class="fa fa-clock-o" aria-hidden="true"></i>{{date_publish}}</span>
           </div>
+          {{/each }}
+
         </div>
 
         <a class="carousel-control-prev" href="#demo" data-slide="prev">
