@@ -21,12 +21,14 @@ router.get('/is-available', (req, res, next) => {
   })
 
 })
+
 router.get('/register', (req, res, next) => {
   res.render('account/register', {
     layout: false,
 
   })
 })
+
 router.post('/register', (req, res, next) => {
   var saltRounds = 10;
   var hash = bcrypt.hashSync(req.body.password, saltRounds);
@@ -81,6 +83,7 @@ router.get('/logout',(req,res,next)=>
   req.session.destroy();
   res.redirect('/');
 })
+
 router.get('/admin', auth, (req, res, next) => {
   res.end('admin');
 })
