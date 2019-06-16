@@ -1,1 +1,51 @@
-<h5>edit writer Tự thêm nha</h5>
+<section id="main-content" class="panel" sytle="border:10px;margin:10px;">
+    <header class="panel-heading">
+        Danh sách bài viết
+    </header>
+    <h2>Thêm bài viết mới</h2>
+    <br>
+    <form style="border:10px;margin:5px" method="POST" action="/writer/editblogs">
+        <div class="form-row">
+            <div class="col-md-6">
+                <input type="text" name="title" class="form-control" placeholder="Tiêu đề bài viết"
+                    value="{{this.blog.title}}">
+            </div>
+            <input type="hidden" name="id" class="form-control" value="{{this.blog.id}}">
+            <div class="col-md-6">
+                <select id="inputCategory" class="form-control" name="category">
+                    <option selected value={{this.blog.category_id}}>{{this.blog.name}}</option>
+                    {{#each this.categories}}
+                    <option {{#if currentCategory}} selected {{/if}} value={{id}}>{{name}}</option>
+                    {{/each}}
+                </select>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="form-row">
+            <label for="inputSumary">Tóm tắt</label>
+            <textarea class="form-control" rows="5" id="inputSumary" name="sumary">{{this.blog.sumary}}</textarea>
+        </div>
+        <br>
+        <div class="form-row">
+            <label class="col-md-2" for="inputTag">Tag</label>
+            <input type="text" class="form-control" id="inputTag" name="tag" value="{{this.blog.tag}}"
+                data-role="tagsinput">
+        </div>
+
+        <br>
+        <div class="form-row">
+            <textarea name="editor1" id="editor">{{this.blog.content}}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Lưu</button>
+        <button type="reset" class="btn btn-danger" value="Reset">Reset</button>
+        <a href="/writer" class="btn btn-secondary" role="button">Quay lại</a>
+    </form>
+</section>
+<script>
+    ClassicEditor
+        .create(document.querySelector('#editor'))
+        .catch(error => {
+            console.error(error);
+        });
+</script>

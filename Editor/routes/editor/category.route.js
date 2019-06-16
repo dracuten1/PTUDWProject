@@ -4,72 +4,217 @@ var categoryModel = require('../../models/category.model');
 var router = express.Router();
 
 router.get('/', (req, res, next) => {
-  categoryModel.allCat().then(rows => {
+  var limit = 10;
+  // var catId = req.params.id;
+
+  var page = req.query.page || 1;
+  if (page < 1) page = 1;
+  var offset = (page - 1) * limit;
+ 
+  if (isNaN(page)) {
+    res.render('error', {layout : false});
+    return;
+  }
+
+  Promise.all([
+    categoryModel.countChecking(),
+    categoryModel.pageChecking(limit, offset)
+  ]).then(([count_rows, rows]) => {
+
+
+    var pages = [];
+    var total = count_rows[0].total;
+    var nPages = Math.floor(total / limit);
 
     
-      if (rows.length > 0) {
-        res.render('home',
-              {
-                empty : false,
-                news : rows,
-                })
-                // layout: 'main2.hbs'
+  
+    
+    if (total % limit > 0) nPages++;
+    for (i = 1; i <= nPages; i++) {
+      var active = false;
+      if (+page === i) active = true;
+
+      var obj = {
+        value: i,
+        active
       }
-      else
-      {
-        res.render('home',
-        {
-          empty : true,
-          })
-      }
-    }).catch(err => {
-      console.log(err);
-    }).catch(next);
-  // res.render('home');
+      pages.push(obj);
+    }
+
+    var prePage =  parseInt(page) - 1;
+    if (prePage <=0 ) prePage = 1
+
+    var nextPage = parseInt(page) + 1;
+    if (nextPage > nPages ) nextPage = parseInt(nPages);
+
+    if (rows.length > 0)
+    res.render('./home/edit_home', {
+      news : rows,
+      empty : false,
+      pages,
+      nextPage,
+      prePage,
+      layout: 'layout_editor'
+      
+    })
+    else
+    res.render('./home/edit_home', {
+    
+      empty : true,
+      layout: 'layout_editor'
+    })
+  }).catch(next);
+  // categoryModel.allCat().then(rows => {
+
+    
+  //     if (rows.length > 0) {
+  //       res.render('./home/edit_home',
+  //             {
+  //               empty : false,
+  //               news : rows,
+  //               layout: 'layout_editor'
+  //               })
+        
+  //     }
+  //     else
+  //     {
+  //       res.render('./home/edit_home',
+  //       {
+  //         empty : true,
+  //         layout: 'layout_editor'
+  //         })
+  //     }
+  //   }).catch(err => {
+  //     console.log(err);
+  //   }).catch(next);
 })
 
 router.get('/applied', (req, res, next) => {
-  categoryModel.allApplied().then(rows => {
+  var limit = 10;
+  // var catId = req.params.id;
+
+  var page = req.query.page || 1;
+  if (page < 1) page = 1;
+  var offset = (page - 1) * limit;
+ 
+  if (isNaN(page)) {
+    res.render('error', {layout : false});
+    return;
+  }
+
+  Promise.all([
+    categoryModel.countApplied(),
+    categoryModel.pageApplied(limit, offset)
+  ]).then(([count_rows, rows]) => {
+
+
+    var pages = [];
+    var total = count_rows[0].total;
+    var nPages = Math.floor(total / limit);
 
     
-    if (rows.length > 0) {
-      res.render('editor/vwCategories/allApplied',
-            {
-              empty : false,
-              news : rows,})
+  
+    
+    if (total % limit > 0) nPages++;
+    for (i = 1; i <= nPages; i++) {
+      var active = false;
+      if (+page === i) active = true;
+
+      var obj = {
+        value: i,
+        active
+      }
+      pages.push(obj);
     }
+
+    var prePage =  parseInt(page) - 1;
+    if (prePage <=0 ) prePage = 1
+
+    var nextPage = parseInt(page) + 1;
+    if (nextPage > nPages ) nextPage = parseInt(nPages);
+
+    if (rows.length > 0)
+    res.render('editor/vwCategories/allApplied', {
+      news : rows,
+      empty : false,
+      pages,
+      nextPage,
+      prePage,
+      layout: 'layout_editor'
+      
+    })
     else
-    {
-      res.render('editor/vwCategories/allApplied',
-      {
-        empty : true,
-        })
-    }
-  }).catch(err => {
-    console.log(err);
+    res.render('editor/vwCategories/allApplied', {
+    
+      empty : true,
+      layout: 'layout_editor'
+    })
   }).catch(next);
+
 })
 
 router.get('/denied', (req, res, next) => {
-  categoryModel.allDenied().then(rows => {
+  var limit = 10;
+  // var catId = req.params.id;
+
+  var page = req.query.page || 1;
+  if (page < 1) page = 1;
+  var offset = (page - 1) * limit;
+ 
+  if (isNaN(page)) {
+    res.render('error', {layout : false});
+    return;
+  }
+
+  Promise.all([
+    categoryModel.countDenied(),
+    categoryModel.pageDenied(limit, offset)
+  ]).then(([count_rows, rows]) => {
+
+
+    var pages = [];
+    var total = count_rows[0].total;
+    var nPages = Math.floor(total / limit);
 
     
-    if (rows.length > 0) {
-      res.render('editor/vwCategories/allDenied',
-            {
-              empty : false,
-              news : rows,})
+  
+    
+    if (total % limit > 0) nPages++;
+    for (i = 1; i <= nPages; i++) {
+      var active = false;
+      if (+page === i) active = true;
+
+      var obj = {
+        value: i,
+        active
+      }
+      pages.push(obj);
     }
+
+    var prePage =  parseInt(page) - 1;
+    if (prePage <=0 ) prePage = 1
+
+    var nextPage = parseInt(page) + 1;
+    if (nextPage > nPages ) nextPage = parseInt(nPages);
+
+    if (rows.length > 0)
+    res.render('editor/vwCategories/allDenied', {
+      news : rows,
+      empty : false,
+      pages,
+      nextPage,
+      prePage,
+      layout: 'layout_editor'
+      
+    })
     else
-    {
-      res.render('editor/vwCategories/allDenied',
-      {
-        empty : true,
-        })
-    }
-  }).catch(err => {
-    console.log(err);
+    res.render('editor/vwCategories/allDenied', {
+    
+      empty : true,
+      layout: 'layout_editor'
+    })
   }).catch(next);
+
 })
 
 
@@ -135,13 +280,15 @@ router.get('/:cat_id', (req, res, next) => {
       empty : false,
       pages,
       nextPage,
-      prePage
+      prePage,
+      layout: 'layout_editor'
       
     })
     else
     res.render('editor/vwCategories/byCat', {
     
       empty : true,
+      layout: 'layout_editor'
     })
   }).catch(next);
 
@@ -164,29 +311,33 @@ router.get('/:cat_id/edit/:id', (req, res) => {
         c.isActive = true;
       }
     }
-
+    console.log(rows);
+    
     if (rows.length > 0) {
       res.render('editor/vwNews/edit',
             {
               error : false,
-              news : rows[0]})
+              news : rows[0],
+              layout: 'layout_editor'
+              })
     }
     else
     {
       res.render('editor/vwNews/edit',
       {
         error : true,
+        layout: 'layout_editor'
         })
     }
   }
   )
 })
 
-router.get('/:cat_id/onlyread/:id', (req, res) => {
+router.get('/onlyread/:id', (req, res) => {
   var id = req.params.id;
-  var catId = req.params.cat_id;
+  // var catId = req.params.cat_id;
 
-  if (isNaN(id) || isNaN(catId)) {
+  if (isNaN(id)) {
     res.render('error', {layout : false});
     return;
   }
@@ -198,13 +349,79 @@ router.get('/:cat_id/onlyread/:id', (req, res) => {
       res.render('editor/vwNews/onlyRead',
             {
               error : false,
-              news : rows[0]})
+              news : rows[0],
+              layout: 'layout_editor'})
     }
     else
     {
       res.render('editor/vwNews/onlyRead',
       {
         error : true,
+        layout: 'layout_editor'
+        })
+    }
+  }
+  )
+})
+
+router.get('/newApplied/:id', (req, res) => {
+  var id = req.params.id;
+  // var catId = req.params.cat_id;
+
+  if (isNaN(id)) {
+    res.render('error', {layout : false});
+    return;
+  }
+
+
+  categoryModel.single(id).then( rows => {
+    console.log(rows);
+    if (rows.length > 0) {
+      res.render('editor/vwNews/newApplied',
+            {
+              error : false,
+              news : rows[0],
+              layout: 'layout_editor'})
+    }
+    else
+    {
+      res.render('editor/vwNews/newApplied',
+      {
+        error : true,
+        layout: 'layout_editor'
+        })
+    }
+  }
+  )
+})
+
+router.get('/newDenied/:id', (req, res) => {
+  var id = req.params.id;
+  // var catId = req.params.cat_id;
+  
+  
+  if (isNaN(id)) {
+    res.render('error', {layout : false});
+    return;
+  }
+
+
+  categoryModel.single(id).then( rows => {
+    console.log(rows);
+    
+    if (rows.length > 0) {
+      res.render('editor/vwNews/newDenied',
+            {
+              error : false,
+              news : rows[0],
+              layout: 'layout_editor'})
+    }
+    else
+    {
+      res.render('editor/vwNews/newDenied',
+      {
+        error : true,
+        layout: 'layout_editor'
         })
     }
   }
@@ -217,7 +434,7 @@ router.post('/:cat_id/apply/:id', (req, res) => {
   categoryModel.updateStatus(id, 2)
     .then(n => 
       {
-        res.redirect(`/${catId}`);
+        res.redirect(`/editor/${catId}`);
 
 
     }).catch(err => {
@@ -228,15 +445,23 @@ router.post('/:cat_id/apply/:id', (req, res) => {
 router.post('/:cat_id/deny/:id', (req, res) => {
   var catId = req.params.cat_id;
   var id = req.params.id;
+
+  var reason = "'" +req.body.reason + "'";
+  console.log(reason);
  categoryModel.updateStatus(id, 3)
    .then(n => 
      { 
-        res.redirect(`/${catId}`);
+        res.redirect(`/editor/${catId}`);
      
 
    }).catch(err => {
      console.log(err);
    })
+   categoryModel.updateReason(id, reason)
+    .catch(err => {
+     console.log(err);
+   })
+  
 })
 
 module.exports = router;

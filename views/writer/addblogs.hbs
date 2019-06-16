@@ -1,1 +1,48 @@
-<h5>Add write Tự thêm nha</h5>
+<section id="main-content" class="panel" sytle="border:10px;margin:10px;">
+    <header class="panel-heading">
+        Danh sách bài viết
+    </header>
+    <h2>Thêm bài viết mới</h2>
+    <br>
+    <form style="border:10px;margin:5px" method="POST">
+        <div class="form-row">
+            <div class="col-md-6">
+                <input type="text" name="title" class="form-control" placeholder="Tiêu đề bài viết">
+            </div>
+            <div class="col-md-6">
+                <select id="inputCategory" class="form-control" name="category">
+                    <option selected value={{this.firstCat.id}}>{{this.firstCat.name}}</option>
+                    {{#each this.categories}}
+                    <option value={{id}}>{{name}}</option>
+                    {{/each}}
+                </select>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="form-row">
+            <label for="inputSumary">Tóm tắt</label>
+            <textarea class="form-control" rows="5" id="inputSumary" name="sumary">{{sumary}}</textarea>
+        </div>
+        <br>
+        <div class="form-row">
+            <label class="col-md-2" for="inputTag">Tag</label>
+            <input type="text" class="form-control" id="inputTag" name="tag" value="{{tag}}" data-role="tagsinput">
+        </div>
+
+        <br>
+        <div class="form-row">
+            <textarea name="editor1" id="editor"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Lưu</button>
+        <button type="reset" class="btn btn-danger" value="Reset">Xóa trắng</button>
+        <a href="/writer" class="btn btn-secondary" role="button">Quay lại</a>
+    </form>
+</section>
+<script>
+    ClassicEditor
+        .create(document.querySelector('#editor'))
+        .catch(error => {
+            console.error(error);
+        });
+</script>
