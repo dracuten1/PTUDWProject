@@ -4,7 +4,7 @@ var createConnection = () => {
     return mysql.createConnection({
         host: 'localhost',
         user: 'root',
-        // password: 'password',
+        password: 'password',
         database: 'ptudw_db'
 
     });
@@ -65,4 +65,19 @@ module.exports = {
             });
         });
     },
-}
+    delete: (tableName, idField, id) => {
+        return new Promise((resolve, reject) => {
+            var sql = `delete from ${tableName} where ${idField} = ?`;
+            var connection = createConnection();
+            connection.connect();
+            connection.query(sql, id, (error, value) => {
+                if (error)
+                    reject(error);
+                else {
+                    resolve(value.affectedRows);
+                }
+                connection.end();
+            });
+        });
+    },
+};

@@ -14,9 +14,9 @@
             <div class="col-md-6">
                 <select id="inputCategory" class="form-control" name="category">
                     <option selected value={{this.blog.category_id}}>{{this.blog.name}}</option>
-                    {{!-- {{#each this.categories}}
-                    <option value={{id}}>{{name}}</option>
-                    {{/each}} --}}
+                    {{#each this.categories}}
+                    <option {{#if currentCategory}} selected {{/if}} value={{id}}>{{name}}</option>
+                    {{/each}}
                 </select>
             </div>
         </div>
@@ -29,7 +29,8 @@
         <br>
         <div class="form-row">
             <label class="col-md-2" for="inputTag">Tag</label>
-            <input type="text" class="form-control" id="inputTag" name="tag" value="" data-role="tagsinput">
+            <input type="text" class="form-control" id="inputTag" name="tag" value="{{this.blog.tag}}"
+                data-role="tagsinput">
         </div>
 
         <br>
