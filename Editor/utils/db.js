@@ -5,7 +5,7 @@ var createConnection = () => {
     host: 'localhost',
     port: '3306',
     user: 'root',
-    password: 'root',
+    password: 'password',
     database: 'ptudw_db'
   });
 }
@@ -40,5 +40,5 @@ module.exports = {
       });
     });
   },
-  
+
 };

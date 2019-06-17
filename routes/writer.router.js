@@ -4,6 +4,7 @@ var dateFormat = require("dateformat");
 var blogModule = require("../modules/blog_module");
 var statusModule = require("../modules/status_module");
 var categoryModule = require("../modules/category_module");
+var router_uploadImg = require("./uploadImg.router");
 
 router.get("/", (req, res, next) => {
   console.log("get params");
@@ -115,13 +116,16 @@ router.post("/addblogs", (req, res, next) => {
   console.log("post add blog");
   //console.log(req.body);
   var newBlog = {
+    sumary: req.body.sumary,
+    tag: req.body.tag,
+    link_img: req.body.imgLink,
     title: req.body.title,
     content: req.body.editor1,
     writer_id: 1,
     status: 1,
     category_id: +req.body.category
   };
-  //console.log(newBlog);
+  console.log(newBlog);
   blogModule
     .add(newBlog)
     .then(id => {
@@ -172,5 +176,6 @@ router.post("/delete/:id", (req, res, next) => {
       });
     });
 });
+router.use("/uploadImg", router_uploadImg);
 
 module.exports = router;
