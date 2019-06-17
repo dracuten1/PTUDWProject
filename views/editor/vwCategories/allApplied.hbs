@@ -21,7 +21,9 @@
         <th scope="col"  class="text-center" >Mã</th>
         <th scope="col">Tiêu đề</th>
         <th scope="col">Chuyên mục</th>
+        <th scope="col">Ngày xuất bản</th>
         <th scope="col">Phóng viên</th>
+
       </tr>
     </thead>
 
@@ -31,7 +33,8 @@
             <th class="text-center" scope="row">{{id}}</th>
             <td>{{title}}</td>
             <td>{{name}}</td>
-            <td scope="row">{{username}}</td>
+            <td>{{date_publish}}</td>
+            <td>{{username}}</td>
             <td class="text-right">
               <a class="btn btn-primary btn-sm" href="/editor/newApplied/{{id}}" role="button">
                 &nbsp; Xem &nbsp;

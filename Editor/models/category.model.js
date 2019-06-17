@@ -25,7 +25,7 @@ module.exports = {
 
   // Lấy thông tin 1 blog theo id
   single : id => {
-    return db.load(`select b.id, b.date_publish, b.reason, b.title, b.content, c.name, u.username, b.category_id as cat_id
+    return db.load(`select b.id, date_format(b.date_publish, '%d/%m/%Y') as date_publish, b.reason, b.title, b.content, c.name, u.username, b.category_id as cat_id
     from blog b, users u, category c
     where b.id = ${id}
           && c.id = b.category_id
@@ -38,7 +38,10 @@ module.exports = {
   // },
 
   // Update status của blog 
-  updateStatus : (id, newStatus) => {
+  updateStatus : (id, newStatus, dpb) => {
+    if (newStatus == 2)
+    return db.updateStatus(`update blog set status = ${newStatus}, date_publish = '${dpb}' where id = ${id} `);
+    else
     return db.updateStatus(`update blog set status = ${newStatus} where id = ${id} `);
   },
 
@@ -50,7 +53,7 @@ module.exports = {
   // Lấy page & số page các blog đã duyệt
   pageApplied : (limit, offset) => {
     return db.load(`
-    select b.id, b.title, u.username, c.name from blog b, users u, category c where b.status = 2 && c.id = b.category_id && u.id = b.writer_id limit ${limit} offset ${offset}
+    select b.id, b.title, u.username, date_format(b.date_publish, '%d/%m/%Y') as date_publish, c.name from blog b, users u, category c where b.status = 2 && c.id = b.category_id && u.id = b.writer_id limit ${limit} offset ${offset}
    `);
   },
   countApplied : () => {

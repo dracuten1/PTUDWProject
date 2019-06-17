@@ -1,5 +1,6 @@
 var express = require('express');
 var categoryModel = require('../../models/category.model');
+var moment = require('moment');
 
 var router = express.Router();
 
@@ -311,7 +312,7 @@ router.get('/:cat_id/edit/:id', (req, res) => {
         c.isActive = true;
       }
     }
-    console.log(rows);
+   
     
     if (rows.length > 0) {
       res.render('editor/vwNews/edit',
@@ -375,7 +376,7 @@ router.get('/newApplied/:id', (req, res) => {
 
 
   categoryModel.single(id).then( rows => {
-    console.log(rows);
+    
     if (rows.length > 0) {
       res.render('editor/vwNews/newApplied',
             {
@@ -407,7 +408,7 @@ router.get('/newDenied/:id', (req, res) => {
 
 
   categoryModel.single(id).then( rows => {
-    console.log(rows);
+   
     
     if (rows.length > 0) {
       res.render('editor/vwNews/newDenied',
@@ -429,11 +430,16 @@ router.get('/newDenied/:id', (req, res) => {
 })
 
 router.post('/:cat_id/apply/:id', (req, res) => {
+
    var catId = req.params.cat_id;
    var id = req.params.id;
-  categoryModel.updateStatus(id, 2)
+   var dpb = moment(req.body.date_publish, 'DD/MM/YYYY').format('YYYY-MM-DD');
+  
+   
+  categoryModel.updateStatus(id, 2, dpb)
     .then(n => 
       {
+        
         res.redirect(`/editor/${catId}`);
 
 
@@ -447,8 +453,9 @@ router.post('/:cat_id/deny/:id', (req, res) => {
   var id = req.params.id;
 
   var reason = "'" +req.body.reason + "'";
-  console.log(reason);
- categoryModel.updateStatus(id, 3)
+  var dpb;
+
+ categoryModel.updateStatus(id, 3, dpb)
    .then(n => 
      { 
         res.redirect(`/editor/${catId}`);
