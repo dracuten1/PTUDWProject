@@ -36,8 +36,6 @@ router.get('/:Category_child/:id_blog', (req, res) => {
         console.log(err);
     })
 
-
-
 })
 
 

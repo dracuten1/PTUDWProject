@@ -65,7 +65,7 @@ router.get("/editblogs/:id", (req, res, next) => {
     });
     return;
   }
-  Promise.all([categoryModule.all(), blogModule.select(id)]).then(([cateArr, rows]) => {
+  Promise.all([categoryModule.w_all(), blogModule.select(id)]).then(([cateArr, rows]) => {
       if (rows.length > 0 && rows[0].writer_id == 1 && rows[0].status != 2) {
         cateArr.forEach(c => {
           c.currentCategory = false;
@@ -92,11 +92,12 @@ router.get("/editblogs/:id", (req, res, next) => {
 router.post("/editblogs", (req, res, next) => {
   console.log("post edit blog");
   var newBlog = {
-    id: req.body.id,
+    id_blog: req.body.id,
+    summary: req.body.summary,
+    tag: req.body.tag,
+    link_img: req.body.imgLink,
     title: req.body.title,
     content: req.body.editor1,
-    sumary: req.body.sumary,
-    tag: req.body.tag,
     writer_id: 1,
     status: 1,
     category_id: +req.body.category
@@ -116,7 +117,7 @@ router.post("/addblogs", (req, res, next) => {
   console.log("post add blog");
   //console.log(req.body);
   var newBlog = {
-    sumary: req.body.sumary,
+    summary: req.body.sumary,
     tag: req.body.tag,
     link_img: req.body.imgLink,
     title: req.body.title,
@@ -138,7 +139,7 @@ router.post("/addblogs", (req, res, next) => {
 });
 
 router.get("/addblogs", (req, res, next) => {
-  var categorySelector = categoryModule.all();
+  var categorySelector = categoryModule.w_all();
   var cateArr = Array;
   categorySelector
     .then(c => {

@@ -1,21 +1,21 @@
 <div class="container ">
     <div class="blog_menu">
-       
+
         <a href="">
-            <h1 class="mt-5 font-weight-bold font-italic">{{category}}</h1>
+            <h1 class="mt-5 font-weight-bold font-italic">{{pName}}</h1>
         </a>
-       
+
         <ul>
             {{#each category_child }}
             <li><a href="/category/{{category}}/{{category_child}}">
-                    <h3 class="category_child">{{category_child}}</h3>
+                    <h3 class="category_child" {{#if active}}style="color:red" {{/if}}>{{Name}}</h3>
                 </a> </li>
-             {{/each }}
+            {{/each }}
         </ul>
 
     </div>
     {{!-- ---------------------------------------------------Bài viết nổi bật----------------------------------------------------------------}}
-    <h3 class="title">Bài viết nổi bật</h3>
+
     <div class="ListBlog ">
         <div class="row  ">
             {{#each mostview1}}
@@ -76,7 +76,7 @@
                 <div class="row">
                     <p class="col-sm-4 time_publish">{{date_publish}}</p>
                     <a class="col-sm-8 Name_blogs" href="/category/{{category}}/{{category_child}}">
-                        <p>{{category_child}}</p>
+                        <p>{{Name}}</p>
                     </a>
                 </div>
                 <p class="card-text">{{summary}}</p>

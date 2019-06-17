@@ -62,7 +62,9 @@ router.get('/home', (req, res, next) => {
     var newblogs = [];
     var topcategory = [];
     var p = blogModule.all();
+    
     p.then(rows => {
+
         rows.forEach(element => {
             if (element.id_part == 1) popular.push(element);
             if (element.id_part == 2) mostview.push(element);
@@ -72,6 +74,7 @@ router.get('/home', (req, res, next) => {
         });
         popular1.push(popular[0]);
         popular.shift();
+        
 
         mostview1.push(mostview[0]);
         mostview.shift();
@@ -80,12 +83,10 @@ router.get('/home', (req, res, next) => {
             mostviewrow1.push(mostview[i]);
             mostview.shift();
         }
-
         mostview.forEach(element => {
             mostviewrow2.push(element);
 
         });
-
 
         res.render('home/home.hbs', {
             popular1: popular1,

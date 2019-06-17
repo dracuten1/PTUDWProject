@@ -39,7 +39,9 @@
     function statusChange() {
         var x = document.getElementById("status").value;
         console.log(x);
-        window.location.replace(UpdateQueryString('status', x));
+
+        var url = window.location.replace(UpdateQueryString('status', x));
+        console.log(url);
     }
     function UpdateQueryString(key, value, url) {
         if (!url) url = window.location.href;

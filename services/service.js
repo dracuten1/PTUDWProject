@@ -6,7 +6,6 @@ var createConnection = () => {
         port: '3306',
         user: 'root',
         database: 'ptudw_db'
-
     });
 }
 module.exports = {
