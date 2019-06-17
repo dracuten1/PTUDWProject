@@ -6,6 +6,9 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser')
 
 var router_a = require('./routes/account.router');
+var router_bs = require('./routes/blogs.router');
+var router_b = require('./routes/blog.router');
+var router_e=require('./routes/editor.router');
 var router_b = require('./routes/blogs.router');
 var router_e = require('./routes/editor.router');
 var router_h = require('./routes/home.router');
@@ -39,6 +42,8 @@ app.engine('.hbs', exphbs({
 //Set view
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', '.hbs');
+app.use('/public', express.static( 'public'))
+
 
 //
 app.use(require('./Editor/middlewares/locals.mdw'));
@@ -66,12 +71,12 @@ app.use('/editor', require('./Editor/routes/editor/category.route'));
 
 app.use('/public', express.static('public'));
 
-app.use('/public', express.static(path.join(__dirname, 'public')))
 
 
 // Router
 app.use('/account', router_a);
-app.use('/blogs', router_b);
+app.use('/blogs', router_bs);
+app.use('/blog', router_b);
 app.use('/', router_h);
 app.use('/editor', router_e);
 app.use('/writer', [authWriter, router_w]);
