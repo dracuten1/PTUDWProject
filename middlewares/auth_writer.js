@@ -1,3 +1,10 @@
 module.exports = (req, res, next) => {
-    next();
+    if (req.session.passport) {
+        if (req.session.passport.user.role == 2) {
+            next();
+        } else
+            res.send('Ban khong the truy cap vao trang nay');
+    } else {
+        res.redirect('/account/login');
+    }
 }
