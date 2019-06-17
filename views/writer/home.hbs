@@ -26,7 +26,7 @@
                     <div class="btn-group">
                         <a class="btn btn-primary" href="/writer/editblogs/{{id}}" style="margin-right:2px"><i
                                 class="fa fa-pencil"></i></a>
-                        <a class="btn btn-danger" href="/writer/delete/{{id}}" disabled><i class="fa fa-trash"></i></a>
+                        <a class="btn btn-danger" onclick="confirmDelete({{id}})"><i class="fa fa-trash"></i></a>
                     </div>
                     {{/if}}
                 </td>
@@ -70,6 +70,19 @@
             }
             else
                 return url;
+        }
+
+    }
+    function confirmDelete(id) {
+
+        var r = confirm("Bạn thật sự muốn xóa!");
+        if (r == true) {
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("POST", `/writer/delete/${id}`, true);
+            xhttp.send();
+            location.reload();
+        } else {
+
         }
     }
 </script>

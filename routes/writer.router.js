@@ -15,10 +15,10 @@ router.get("/", (req, res, next) => {
   if (+selectedStatus !== 0) {
     currentStatus = +selectedStatus;
     console.log("get by status");
-    promise = Promise.all([statusModule.all(), blogModule.select_by_writerId_status(1, currentStatus)]);
+    promise = Promise.all([statusModule.all(), blogModule.select_by_writerId_status(req.session.passport.user.id, currentStatus)]);
   } else {
     console.log("get all");
-    promise = Promise.all([statusModule.all(), blogModule.select_by_writerId(1)]);
+    promise = Promise.all([statusModule.all(), blogModule.select_by_writerId(req.session.passport.user.id)]);
   };
 
   promise.then(([status, rows]) => {
@@ -66,7 +66,7 @@ router.get("/editblogs/:id", (req, res, next) => {
     return;
   }
   Promise.all([categoryModule.w_all(), blogModule.select(id)]).then(([cateArr, rows]) => {
-      if (rows.length > 0 && rows[0].writer_id == 1 && rows[0].status != 2) {
+      if (rows.length > 0 && rows[0].writer_id == req.session.passport.user.id && rows[0].status != 2) {
         cateArr.forEach(c => {
           c.currentCategory = false;
           if (rows[0].category_id == c.id) {
@@ -80,9 +80,10 @@ router.get("/editblogs/:id", (req, res, next) => {
           blog: rows[0]
         });
       } else {
-        res.render("/writer", {
-          error: true
-        });
+        // res.render("/writer", {
+        //   error: true
+        // });
+        res.send('ban khong co quyen truy cap');
       }
     })
     .catch(err => {
@@ -90,6 +91,7 @@ router.get("/editblogs/:id", (req, res, next) => {
     });
 });
 router.post("/editblogs", (req, res, next) => {
+  //Cam hack
   console.log("post edit blog");
   var newBlog = {
     id_blog: req.body.id,
@@ -98,7 +100,7 @@ router.post("/editblogs", (req, res, next) => {
     link_img: req.body.imgLink,
     title: req.body.title,
     content: req.body.editor1,
-    writer_id: 1,
+    writer_id: req.session.passport.user.id,
     status: 1,
     category_id: +req.body.category
   };
@@ -122,7 +124,7 @@ router.post("/addblogs", (req, res, next) => {
     link_img: req.body.imgLink,
     title: req.body.title,
     content: req.body.editor1,
-    writer_id: 1,
+    writer_id: req.session.passport.user.id,
     status: 1,
     category_id: +req.body.category
   };
