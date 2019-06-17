@@ -1,5 +1,13 @@
-<div class="container" style="background-color: #FFF;">
-    {{{content}}}
+<div class="container">
+
+
+
+    <div class=" col-8 text-center">
+        {{{content}}}
+    </div>
+
+
+
     <div class="row BinhLuan">
         <div class="detailBox">
             <div class="titleBox">
@@ -67,123 +75,29 @@
             </div>
         </div>
     </div>
+
     <div class="row  BaiVietLienQuan mb-5">
         <h3 class="the-article-summary col-sm-9">Bài viết liên quan</h3>
-        <div class="Baivietmoinhat col-sm-9 mt-3">
-            <div class="row mt-5">
-                <div class="col-sm-4">
-                    <a> <img src="https://znews-photo.zadn.vn/w480/Uploaded/pcckpqmv/2019_06_05/MWHF909_king_z_20190318185600_ZH.jpg "
-                            alt="" class="card-img img_blognew" /></a>
-                </div>
-                <div class="col-sm-8">
-                    <a class="title_link " href="">
-                        <h3>Trừ khi tự nguyện, không ai có thể loại Mark Zuckerberg khỏi Facebook</h3>
-                    </a>
-                    <div class="row">
-                        <p class="col-sm-4 time_publish">16:01 03/05/2019</p>
-                        <a class="col-sm-8 Name_blogs" href="">
-                            <p>Công nghệ</p>
-                        </a>
-                    </div>
-                    <p class="card-text">UBND tỉnh Khánh Hòa yêu cầu cơ quan ban ngành thường xuyên theo
-                        dõi tình hình biến động đất đai để tham mưu xem xét, giải quyết,...</p>
-
-                </div>
-
+        {{#each relate}}
+        <div class="row mt-5 col-sm-9">
+            <div class="col-sm-4">
+                <a href="/blogs/{{category_child}}/{{id_blog}}"> <img src="{{link_img}} " alt=""
+                        class="card-img img_blognew" /></a>
             </div>
-            <hr>
-
-            <div class="row mt-5">
-                <div class="col-sm-4">
-                    <a> <img src="https://znews-photo.zadn.vn/w480/Uploaded/pcckpqmv/2019_06_05/MWHF909_king_z_20190318185600_ZH.jpg "
-                            alt="" class="card-img img_blognew" /></a>
-                </div>
-                <div class="col-sm-8">
-                    <a class="title_link " href="">
-                        <h3>Trừ khi tự nguyện, không ai có thể loại Mark Zuckerberg khỏi Facebook</h3>
+            <div class="col-sm-8">
+                <a class="title_link " href="/blogs/{{category_child}}/{{id_blog}}">
+                    <h3>{{title}}</h3>
+                </a>
+                <div class="row">
+                    <p class="col-sm-4 time_publish">{{date_publish}}</p>
+                    <a class="col-sm-8 Name_blogs" href="/category/{{category}}/{{category_child}}">
+                        <p>{{Name}}</p>
                     </a>
-                    <div class="row">
-                        <p class="col-sm-4 time_publish">16:01 03/05/2019</p>
-                        <a class="col-sm-8 Name_blogs" href="">
-                            <p>Công nghệ</p>
-                        </a>
-                    </div>
-                    <p class="card-text">UBND tỉnh Khánh Hòa yêu cầu cơ quan ban ngành thường xuyên theo
-                        dõi tình hình biến động đất đai để tham mưu xem xét, giải quyết,...</p>
-
                 </div>
-
+                <p class="card-text">{{summary}}</p>
             </div>
-            <hr>
-
-            <div class="row mt-5">
-                <div class="col-sm-4">
-                    <a> <img src="https://znews-photo.zadn.vn/w480/Uploaded/pcckpqmv/2019_06_05/MWHF909_king_z_20190318185600_ZH.jpg "
-                            alt="" class="card-img img_blognew" /></a>
-                </div>
-                <div class="col-sm-8">
-                    <a class="title_link " href="">
-                        <h3>Trừ khi tự nguyện, không ai có thể loại Mark Zuckerberg khỏi Facebook</h3>
-                    </a>
-                    <div class="row">
-                        <p class="col-sm-4 time_publish">16:01 03/05/2019</p>
-                        <a class="col-sm-8 Name_blogs" href="">
-                            <p>Công nghệ</p>
-                        </a>
-                    </div>
-                    <p class="card-text">UBND tỉnh Khánh Hòa yêu cầu cơ quan ban ngành thường xuyên theo
-                        dõi tình hình biến động đất đai để tham mưu xem xét, giải quyết,...</p>
-
-                </div>
-
-            </div>
-            <hr>
-
-            <div class="row mt-5">
-                <div class="col-sm-4">
-                    <a> <img src="https://znews-photo.zadn.vn/w480/Uploaded/pcckpqmv/2019_06_05/MWHF909_king_z_20190318185600_ZH.jpg "
-                            alt="" class="card-img img_blognew" /></a>
-                </div>
-                <div class="col-sm-8">
-                    <a class="title_link " href="">
-                        <h3>Trừ khi tự nguyện, không ai có thể loại Mark Zuckerberg khỏi Facebook</h3>
-                    </a>
-                    <div class="row">
-                        <p class="col-sm-4 time_publish">16:01 03/05/2019</p>
-                        <a class="col-sm-8 Name_blogs" href="">
-                            <p>Công nghệ</p>
-                        </a>
-                    </div>
-                    <p class="card-text">UBND tỉnh Khánh Hòa yêu cầu cơ quan ban ngành thường xuyên theo
-                        dõi tình hình biến động đất đai để tham mưu xem xét, giải quyết,...</p>
-
-                </div>
-
-            </div>
-            <hr>
-
-            <div class="row mt-5">
-                <div class="col-sm-4">
-                    <a> <img src="https://znews-photo.zadn.vn/w480/Uploaded/pcckpqmv/2019_06_05/MWHF909_king_z_20190318185600_ZH.jpg "
-                            alt="" class="card-img img_blognew" /></a>
-                </div>
-                <div class="col-sm-8">
-                    <a class="title_link " href="">
-                        <h3>Trừ khi tự nguyện, không ai có thể loại Mark Zuckerberg khỏi Facebook</h3>
-                    </a>
-                    <div class="row">
-                        <p class="col-sm-4 time_publish">16:01 03/05/2019</p>
-                        <a class="col-sm-8 Name_blogs" href="">
-                            <p>Công nghệ</p>
-                        </a>
-                    </div>
-                    <p class="card-text">UBND tỉnh Khánh Hòa yêu cầu cơ quan ban ngành thường xuyên theo
-                        dõi tình hình biến động đất đai để tham mưu xem xét, giải quyết,...</p>
-
-                </div>
-
-            </div>
-
         </div>
+        <hr>
+        {{/each }}
     </div>
 </div>

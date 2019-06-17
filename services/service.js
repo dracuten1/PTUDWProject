@@ -5,9 +5,7 @@ var createConnection = () => {
         host: 'localhost',
         port: '3306',
         user: 'root',
-        password: 'root',
         database: 'ptudw_db'
-
     });
 }
 module.exports = {
@@ -66,4 +64,19 @@ module.exports = {
             });
         });
     },
-}
+    delete: (tableName, idField, id) => {
+        return new Promise((resolve, reject) => {
+            var sql = `delete from ${tableName} where ${idField} = ?`;
+            var connection = createConnection();
+            connection.connect();
+            connection.query(sql, id, (error, value) => {
+                if (error)
+                    reject(error);
+                else {
+                    resolve(value.affectedRows);
+                }
+                connection.end();
+            });
+        });
+    },
+};

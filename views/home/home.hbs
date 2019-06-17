@@ -10,20 +10,20 @@
 
           {{#each this.popular1}}
           <div class="carousel-item active">
-            <a href="blogs/{{category}}/{{category_child}}/{{id_blog}}">
+            <a href="blogs/{{category_child}}/{{id_blog}}">
               <img src="{{link_img}}" class="resizeimgpopular" alt="Los Angeles">
             </a>
             <div class="carousel-caption">
               <div class="topnews">
-                <a href="blogs/{{category}}/{{category_child}}/{{id_blog}}" class="topnews_link">
+                <a href="blogs/{{category_child}}/{{id_blog}}" class="topnews_link">
                   <h3>
                     {{title}}
                   </h3>
                 </a>
               </div>
             </div>
-            <a href="blogs/{{category}}/{{category_child}}">
-              <p class="top-center" id="eSportHome">{{category_child}}</p>
+            <a href="category/{{category}}/{{category_child}}">
+              <p class="top-center" id="eSportHome">{{Name}}</p>
             </a>
             <span class="bottom-left"> <i class="fa fa-clock-o" aria-hidden="true"></i>{{date_publish}}</span>
           </div>
@@ -31,20 +31,20 @@
 
           {{#each this.popular}}
           <div class="carousel-item ">
-            <a href="blogs/{{category}}/{{category_child}}/{{id_blog}}">
+            <a href="blogs/{{category_child}}/{{id_blog}}">
               <img src="{{link_img}}" class="resizeimgpopular" alt="Los Angeles">
             </a>
             <div class="carousel-caption">
               <div class="topnews">
-                <a href="blogs/{{category}}/{{category_child}}/{{id_blog}}" class="topnews_link">
+                <a href="blogs/{{category_child}}/{{id_blog}}" class="topnews_link">
                   <h3>
                     {{title}}
                   </h3>
                 </a>
               </div>
             </div>
-            <a href="blogs/{{category}}/{{category_child}}">
-              <p class="top-center" id="eSportHome">{{category_child}}</p>
+            <a href="category/{{category}}/{{category_child}}">
+              <p class="top-center" id="eSportHome">{{Name}}</p>
             </a>
             <span class="bottom-left"> <i class="fa fa-clock-o" aria-hidden="true"></i>{{date_publish}}</span>
           </div>
@@ -76,83 +76,45 @@
   <!------------------------------------------------------Bài viết được xem nhiều nhất-------------------------------------------------------------------- -->
   <div class="XemNhieuNhat">
     <h3 class="title">Bài viết được xem nhiều nhất</h3>
-
     <div class="row  ">
+      {{#each mostview1}}
       <div class=" col-sm-6 mt-3">
-        <a href=""><img class="card-img resizeimgmostview1"
-            src="https://cf-images.us-east-1.prod.boltdns.net/v1/static/769341148/bc8a28bb-c7bd-46ed-bb18-e874d9e80374/38c9aa16-938a-400f-a0c5-f9d38a24754a/1280x720/match/image.jpg"></img>
+        <a href="blogs/{{category_child}}/{{id_blog}}"><img class="card-img resizeimgmostview1"
+            src="{{link_img}}"></img>
         </a>
         <div class="carousel-caption">
           <div class="topnews">
-            <a href="./Home/eSport/Ha_guc_GRF.html" class="topnews_link">
-              <h4>Title của bài viết</h4>
+            <a href="blogs/{{category_child}}/{{id_blog}}" class="topnews_link">
+              <h4>{{title}}</h4>
             </a>
           </div>
         </div>
       </div>
+      {{/each }}
 
+      {{#each mostviewrow1}}
       <div class=" col-sm-3 mt-3">
-        <a href=""> <img class="card-img resizeimgmostview"
-            src="https://assets1.ignimgs.com/2019/05/18/avengersendgame-thor-2weapons-1280-1558142343257_1280w.jpg">
+        <a href="blogs/{{category_child}}/{{id_blog}}"> <img class="card-img resizeimgmostview" src="{{link_img}}">
           </img>
         </a>
-        <a class="title_link" href="">
-          <h5>Title của bài viết</h5>
+        <a class="title_link" href="blogs/{{category_child}}/{{id_blog}}">
+          <h5>{{title}}</h5>
         </a>
       </div>
+      {{/each}}
 
-      <div class=" col-sm-3 mt-3">
-        <a href=""> <img class="card-img resizeimgmostview"
-            src="https://assets1.ignimgs.com/2019/05/18/avengersendgame-thor-2weapons-1280-1558142343257_1280w.jpg">
-          </img>
-        </a>
-        <a class="title_link" href="">
-          <h5>Title của bài viết</h5>
-        </a>
-      </div>
     </div>
-
     <div class="row">
-
+      {{#each mostviewrow2}}
       <div class=" col-sm-3 mt-3">
-        <a href=""> <img class="card-img resizeimgmostview"
-            src="https://assets1.ignimgs.com/2019/05/18/avengersendgame-thor-2weapons-1280-1558142343257_1280w.jpg">
+        <a href="blogs/{{category_child}}/{{id_blog}}"> <img class="card-img resizeimgmostview" src="{{link_img}}">
           </img>
         </a>
-        <a class="title_link" href="">
-          <h5>Title của bài viết</h5>
+        <a class="title_link" href="blogs/{{category_child}}/{{id_blog}}">
+          <h5>{{title}}</h5>
         </a>
       </div>
-
-      <div class=" col-sm-3 mt-3">
-        <a href=""> <img class="card-img resizeimgmostview"
-            src="https://assets1.ignimgs.com/2019/05/18/avengersendgame-thor-2weapons-1280-1558142343257_1280w.jpg">
-          </img>
-        </a>
-        <a class="title_link" href="">
-          <h5>Title của bài viết</h5>
-        </a>
-      </div>
-
-      <div class=" col-sm-3 mt-3">
-        <a href=""> <img class="card-img resizeimgmostview"
-            src="https://assets1.ignimgs.com/2019/05/18/avengersendgame-thor-2weapons-1280-1558142343257_1280w.jpg">
-          </img>
-        </a>
-        <a class="title_link" href="">
-          <h5>Title của bài viết</h5>
-        </a>
-      </div>
-
-      <div class=" col-sm-3 mt-3">
-        <a href=""> <img class="card-img resizeimgmostview"
-            src="https://assets1.ignimgs.com/2019/05/18/avengersendgame-thor-2weapons-1280-1558142343257_1280w.jpg">
-          </img>
-        </a>
-        <a class="title_link" href="">
-          <h5>Title của bài viết</h5>
-        </a>
-      </div>
+      {{/each }}
     </div>
 
   </div>
@@ -161,420 +123,49 @@
     <!--------------------------------------------------Bài viết mới nhất-------------------------------------- -->
     <div class="Baivietmoinhat col-sm-9 mt-3">
       <h3 class="title col-sm-9">Bài viết mới nhất</h3>
-
+      {{#each newblogs}}
       <div class="row mt-5">
         <div class="col-sm-4">
-          <a> <img
-              src="https://znews-photo.zadn.vn/w480/Uploaded/pcckpqmv/2019_06_05/MWHF909_king_z_20190318185600_ZH.jpg "
-              alt="" class="card-img img_blognew" /></a>
+          <a href="blogs/{{category_child}}/{{id_blog}}"> <img src="{{link_img}} " alt=""
+              class="card-img img_blognew" /></a>
         </div>
         <div class="col-sm-8">
-          <a class="title_link " href="">
-            <h3>Trừ khi tự nguyện, không ai có thể loại Mark Zuckerberg khỏi Facebook</h3>
+          <a class="title_link " href="blogs/{{category_child}}/{{id_blog}}">
+            <h3>{{title}}</h3>
           </a>
           <div class="row">
-            <p class="col-sm-4 time_publish">16:01 03/05/2019</p>
-            <a class="col-sm-8 Name_blogs" href="">
-              <p>Công nghệ</p>
+            <p class="col-sm-4 time_publish">{{date_publish}}</p>
+            <a class="col-sm-8 Name_blogs" href="category/{{category}}/{{category_child}}">
+              <p>{{category_child}}</p>
             </a>
           </div>
-          <p class="card-text">UBND tỉnh Khánh Hòa yêu cầu cơ quan ban ngành thường xuyên theo
-            dõi tình hình biến động đất đai để tham mưu xem xét, giải quyết,...</p>
-
+          <p class="card-text">{{summary}}</p>
         </div>
-
       </div>
       <hr>
-
-      <div class="row mt-5">
-        <div class="col-sm-4">
-          <a> <img
-              src="https://znews-photo.zadn.vn/w480/Uploaded/pcckpqmv/2019_06_05/MWHF909_king_z_20190318185600_ZH.jpg "
-              alt="" class="card-img img_blognew" /></a>
-        </div>
-        <div class="col-sm-8">
-          <a class="title_link " href="">
-            <h3>Trừ khi tự nguyện, không ai có thể loại Mark Zuckerberg khỏi Facebook</h3>
-          </a>
-          <div class="row">
-            <p class="col-sm-4 time_publish">16:01 03/05/2019</p>
-            <a class="col-sm-8 Name_blogs" href="">
-              <p>Công nghệ</p>
-            </a>
-          </div>
-          <p class="card-text">UBND tỉnh Khánh Hòa yêu cầu cơ quan ban ngành thường xuyên theo
-            dõi tình hình biến động đất đai để tham mưu xem xét, giải quyết,...</p>
-
-        </div>
-
-      </div>
-      <hr>
-
-      <div class="row mt-5">
-        <div class="col-sm-4">
-          <a> <img
-              src="https://znews-photo.zadn.vn/w480/Uploaded/pcckpqmv/2019_06_05/MWHF909_king_z_20190318185600_ZH.jpg "
-              alt="" class="card-img img_blognew" /></a>
-        </div>
-        <div class="col-sm-8">
-          <a class="title_link " href="">
-            <h3>Trừ khi tự nguyện, không ai có thể loại Mark Zuckerberg khỏi Facebook</h3>
-          </a>
-          <div class="row">
-            <p class="col-sm-4 time_publish">16:01 03/05/2019</p>
-            <a class="col-sm-8 Name_blogs" href="">
-              <p>Công nghệ</p>
-            </a>
-          </div>
-          <p class="card-text">UBND tỉnh Khánh Hòa yêu cầu cơ quan ban ngành thường xuyên theo
-            dõi tình hình biến động đất đai để tham mưu xem xét, giải quyết,...</p>
-
-        </div>
-
-      </div>
-      <hr>
-
-      <div class="row mt-5">
-        <div class="col-sm-4">
-          <a> <img
-              src="https://znews-photo.zadn.vn/w480/Uploaded/pcckpqmv/2019_06_05/MWHF909_king_z_20190318185600_ZH.jpg "
-              alt="" class="card-img img_blognew" /></a>
-        </div>
-        <div class="col-sm-8">
-          <a class="title_link " href="">
-            <h3>Trừ khi tự nguyện, không ai có thể loại Mark Zuckerberg khỏi Facebook</h3>
-          </a>
-          <div class="row">
-            <p class="col-sm-4 time_publish">16:01 03/05/2019</p>
-            <a class="col-sm-8 Name_blogs" href="">
-              <p>Công nghệ</p>
-            </a>
-          </div>
-          <p class="card-text">UBND tỉnh Khánh Hòa yêu cầu cơ quan ban ngành thường xuyên theo
-            dõi tình hình biến động đất đai để tham mưu xem xét, giải quyết,...</p>
-
-        </div>
-
-      </div>
-      <hr>
-
-      <div class="row mt-5">
-        <div class="col-sm-4">
-          <a> <img
-              src="https://znews-photo.zadn.vn/w480/Uploaded/pcckpqmv/2019_06_05/MWHF909_king_z_20190318185600_ZH.jpg "
-              alt="" class="card-img img_blognew" /></a>
-        </div>
-        <div class="col-sm-8">
-          <a class="title_link " href="">
-            <h3>Trừ khi tự nguyện, không ai có thể loại Mark Zuckerberg khỏi Facebook</h3>
-          </a>
-          <div class="row">
-            <p class="col-sm-4 time_publish">16:01 03/05/2019</p>
-            <a class="col-sm-8 Name_blogs" href="">
-              <p>Công nghệ</p>
-            </a>
-          </div>
-          <p class="card-text">UBND tỉnh Khánh Hòa yêu cầu cơ quan ban ngành thường xuyên theo
-            dõi tình hình biến động đất đai để tham mưu xem xét, giải quyết,...</p>
-
-        </div>
-
-      </div>
-      <hr>
-
-      <div class="row mt-5">
-        <div class="col-sm-4">
-          <a> <img
-              src="https://znews-photo.zadn.vn/w480/Uploaded/pcckpqmv/2019_06_05/MWHF909_king_z_20190318185600_ZH.jpg "
-              alt="" class="card-img img_blognew" /></a>
-        </div>
-        <div class="col-sm-8">
-          <a class="title_link " href="">
-            <h3>Trừ khi tự nguyện, không ai có thể loại Mark Zuckerberg khỏi Facebook</h3>
-          </a>
-          <div class="row">
-            <p class="col-sm-4 time_publish">16:01 03/05/2019</p>
-            <a class="col-sm-8 Name_blogs" href="">
-              <p>Công nghệ</p>
-            </a>
-          </div>
-          <p class="card-text">UBND tỉnh Khánh Hòa yêu cầu cơ quan ban ngành thường xuyên theo
-            dõi tình hình biến động đất đai để tham mưu xem xét, giải quyết,...</p>
-
-        </div>
-
-      </div>
-      <hr>
-
-      <div class="row mt-5">
-        <div class="col-sm-4">
-          <a> <img
-              src="https://znews-photo.zadn.vn/w480/Uploaded/pcckpqmv/2019_06_05/MWHF909_king_z_20190318185600_ZH.jpg "
-              alt="" class="card-img img_blognew" /></a>
-        </div>
-        <div class="col-sm-8">
-          <a class="title_link " href="">
-            <h3>Trừ khi tự nguyện, không ai có thể loại Mark Zuckerberg khỏi Facebook</h3>
-          </a>
-          <div class="row">
-            <p class="col-sm-4 time_publish">16:01 03/05/2019</p>
-            <a class="col-sm-8 Name_blogs" href="">
-              <p>Công nghệ</p>
-            </a>
-          </div>
-          <p class="card-text">UBND tỉnh Khánh Hòa yêu cầu cơ quan ban ngành thường xuyên theo
-            dõi tình hình biến động đất đai để tham mưu xem xét, giải quyết,...</p>
-
-        </div>
-
-      </div>
-      <hr>
-
-      <div class="row mt-5">
-        <div class="col-sm-4">
-          <a> <img
-              src="https://znews-photo.zadn.vn/w480/Uploaded/pcckpqmv/2019_06_05/MWHF909_king_z_20190318185600_ZH.jpg "
-              alt="" class="card-img img_blognew" /></a>
-        </div>
-        <div class="col-sm-8">
-          <a class="title_link " href="">
-            <h3>Trừ khi tự nguyện, không ai có thể loại Mark Zuckerberg khỏi Facebook</h3>
-          </a>
-          <div class="row">
-            <p class="col-sm-4 time_publish">16:01 03/05/2019</p>
-            <a class="col-sm-8 Name_blogs" href="">
-              <p>Công nghệ</p>
-            </a>
-          </div>
-          <p class="card-text">UBND tỉnh Khánh Hòa yêu cầu cơ quan ban ngành thường xuyên theo
-            dõi tình hình biến động đất đai để tham mưu xem xét, giải quyết,...</p>
-
-        </div>
-
-      </div>
-      <hr>
-
-      <div class="row mt-5">
-        <div class="col-sm-4">
-          <a> <img
-              src="https://znews-photo.zadn.vn/w480/Uploaded/pcckpqmv/2019_06_05/MWHF909_king_z_20190318185600_ZH.jpg "
-              alt="" class="card-img img_blognew" /></a>
-        </div>
-        <div class="col-sm-8">
-          <a class="title_link " href="">
-            <h3>Trừ khi tự nguyện, không ai có thể loại Mark Zuckerberg khỏi Facebook</h3>
-          </a>
-          <div class="row">
-            <p class="col-sm-4 time_publish">16:01 03/05/2019</p>
-            <a class="col-sm-8 Name_blogs" href="">
-              <p>Công nghệ</p>
-            </a>
-          </div>
-          <p class="card-text">UBND tỉnh Khánh Hòa yêu cầu cơ quan ban ngành thường xuyên theo
-            dõi tình hình biến động đất đai để tham mưu xem xét, giải quyết,...</p>
-
-        </div>
-
-      </div>
-      <hr>
-
-      <div class="row mt-5">
-        <div class="col-sm-4">
-          <a> <img
-              src="https://znews-photo.zadn.vn/w480/Uploaded/pcckpqmv/2019_06_05/MWHF909_king_z_20190318185600_ZH.jpg "
-              alt="" class="card-img img_blognew" /></a>
-        </div>
-        <div class="col-sm-8">
-          <a class="title_link " href="">
-            <h3>Trừ khi tự nguyện, không ai có thể loại Mark Zuckerberg khỏi Facebook</h3>
-          </a>
-          <div class="row">
-            <p class="col-sm-4 time_publish">16:01 03/05/2019</p>
-            <a class="col-sm-8 Name_blogs" href="">
-              <p>Công nghệ</p>
-            </a>
-          </div>
-          <p class="card-text">UBND tỉnh Khánh Hòa yêu cầu cơ quan ban ngành thường xuyên theo
-            dõi tình hình biến động đất đai để tham mưu xem xét, giải quyết,...</p>
-
-        </div>
-
-      </div>
-      <hr>
-
-      <div class="row mt-5">
-        <div class="col-sm-4">
-          <a> <img
-              src="https://znews-photo.zadn.vn/w480/Uploaded/pcckpqmv/2019_06_05/MWHF909_king_z_20190318185600_ZH.jpg "
-              alt="" class="card-img img_blognew" /></a>
-        </div>
-        <div class="col-sm-8">
-          <a class="title_link " href="">
-            <h3>Trừ khi tự nguyện, không ai có thể loại Mark Zuckerberg khỏi Facebook</h3>
-          </a>
-          <div class="row">
-            <p class="col-sm-4 time_publish">16:01 03/05/2019</p>
-            <a class="col-sm-8 Name_blogs" href="">
-              <p>Công nghệ</p>
-            </a>
-          </div>
-          <p class="card-text">UBND tỉnh Khánh Hòa yêu cầu cơ quan ban ngành thường xuyên theo
-            dõi tình hình biến động đất đai để tham mưu xem xét, giải quyết,...</p>
-
-        </div>
-
-      </div>
-      <hr>
-
-      <div class="row mt-5">
-        <div class="col-sm-4">
-          <a> <img
-              src="https://znews-photo.zadn.vn/w480/Uploaded/pcckpqmv/2019_06_05/MWHF909_king_z_20190318185600_ZH.jpg "
-              alt="" class="card-img img_blognew" /></a>
-        </div>
-        <div class="col-sm-8">
-          <a class="title_link " href="">
-            <h3>Trừ khi tự nguyện, không ai có thể loại Mark Zuckerberg khỏi Facebook</h3>
-          </a>
-          <div class="row">
-            <p class="col-sm-4 time_publish">16:01 03/05/2019</p>
-            <a class="col-sm-8 Name_blogs" href="">
-              <p>Công nghệ</p>
-            </a>
-          </div>
-          <p class="card-text">UBND tỉnh Khánh Hòa yêu cầu cơ quan ban ngành thường xuyên theo
-            dõi tình hình biến động đất đai để tham mưu xem xét, giải quyết,...</p>
-
-        </div>
-
-      </div>
+      {{/each }}
 
     </div>
     <!--------------------------------------------------Top 10 chuyên mục-------------------------------------- -->
     <div class="Top10chuyenmuc col-sm-3">
       <h3 class="title ">Top 10 News</h3>
-
-      <div class="card">
-        <a href=""> <img class="card-img img_top10news"
-            src="https://znews-photo.zadn.vn/w960/Uploaded/jopluat/2019_06_05/anh12.jpg" alt="Card image cap">
-          <p class="top_left">
-            Thể thao
-          </p>
-          <a class="title_link " href="">
-            <p>HLV Park: 'Thắng Thái Lan không phải điều đặc biệt với Việt Nam'</p>
+      {{#each topcategory }}
+      <div class="card mt-5">
+        <a href="blogs/{{category_child}}/{{id_blog}}"> <img  src="{{link_img}}" class="card-img img_top10news "
+            alt="Card image cap">
+          <a href="category/{{category}}/{{category_child}}">
+            <p class="top_left">
+              {{{Name}}}
+            </p>
+          </a>
+          <a class="title_link " href="blogs/{{category_child}}/{{id_blog}}">
+            <p>{{title}}</p>
           </a>
 
       </div>
-
-      <div class="card">
-        <a href=""> <img class="card-img img_top10news"
-            src="https://znews-photo.zadn.vn/w960/Uploaded/jopluat/2019_06_05/anh12.jpg" alt="Card image cap">
-          <p class="top_left">
-            Thể thao
-          </p>
-          <a class="title_link " href="">
-            <p>HLV Park: 'Thắng Thái Lan không phải điều đặc biệt với Việt Nam'</p>
-          </a>
-
-      </div>
-
-      <div class="card">
-        <a href=""> <img class="card-img img_top10news"
-            src="https://znews-photo.zadn.vn/w960/Uploaded/jopluat/2019_06_05/anh12.jpg" alt="Card image cap">
-          <p class="top_left">
-            Thể thao
-          </p>
-          <a class="title_link " href="">
-            <p>HLV Park: 'Thắng Thái Lan không phải điều đặc biệt với Việt Nam'</p>
-          </a>
-
-      </div>
-
-      <div class="card">
-        <a href=""> <img class="card-img img_top10news"
-            src="https://znews-photo.zadn.vn/w960/Uploaded/jopluat/2019_06_05/anh12.jpg" alt="Card image cap">
-          <p class="top_left">
-            Thể thao
-          </p>
-          <a class="title_link " href="">
-            <p>HLV Park: 'Thắng Thái Lan không phải điều đặc biệt với Việt Nam'</p>
-          </a>
-
-      </div>
-
-      <div class="card">
-        <a href=""> <img class="card-img img_top10news"
-            src="https://znews-photo.zadn.vn/w960/Uploaded/jopluat/2019_06_05/anh12.jpg" alt="Card image cap">
-          <p class="top_left">
-            Thể thao
-          </p>
-          <a class="title_link " href="">
-            <p>HLV Park: 'Thắng Thái Lan không phải điều đặc biệt với Việt Nam'</p>
-          </a>
-
-      </div>
-
-      <div class="card">
-        <a href=""> <img class="card-img img_top10news"
-            src="https://znews-photo.zadn.vn/w960/Uploaded/jopluat/2019_06_05/anh12.jpg" alt="Card image cap">
-          <p class="top_left">
-            Thể thao
-          </p>
-          <a class="title_link " href="">
-            <p>HLV Park: 'Thắng Thái Lan không phải điều đặc biệt với Việt Nam'</p>
-          </a>
-
-      </div>
-
-      <div class="card">
-        <a href=""> <img class="card-img img_top10news"
-            src="https://znews-photo.zadn.vn/w960/Uploaded/jopluat/2019_06_05/anh12.jpg" alt="Card image cap">
-          <p class="top_left">
-            Thể thao
-          </p>
-          <a class="title_link " href="">
-            <p>HLV Park: 'Thắng Thái Lan không phải điều đặc biệt với Việt Nam'</p>
-          </a>
-
-      </div>
-
-      <div class="card">
-        <a href=""> <img class="card-img img_top10news"
-            src="https://znews-photo.zadn.vn/w960/Uploaded/jopluat/2019_06_05/anh12.jpg" alt="Card image cap">
-          <p class="top_left">
-            Thể thao
-          </p>
-          <a class="title_link " href="">
-            <p>HLV Park: 'Thắng Thái Lan không phải điều đặc biệt với Việt Nam'</p>
-          </a>
-
-      </div>
-
-      <div class="card">
-        <a href=""> <img class="card-img img_top10news"
-            src="https://znews-photo.zadn.vn/w960/Uploaded/jopluat/2019_06_05/anh12.jpg" alt="Card image cap">
-          <p class="top_left">
-            Thể thao
-          </p>
-          <a class="title_link " href="">
-            <p>HLV Park: 'Thắng Thái Lan không phải điều đặc biệt với Việt Nam'</p>
-          </a>
-
-      </div>
-
-      <div class="card">
-        <a href=""> <img class="card-img img_top10news"
-            src="https://znews-photo.zadn.vn/w960/Uploaded/jopluat/2019_06_05/anh12.jpg" alt="Card image cap">
-          <p class="top_left">
-            Thể thao
-          </p>
-          <a class="title_link " href="">
-            <p>HLV Park: 'Thắng Thái Lan không phải điều đặc biệt với Việt Nam'</p>
-          </a>
-
-      </div>
-
+      {{/each }}
     </div>
+
   </div>
   <!------------------------------------------------------Phân trang--------------------------------------------- -->
   <div class="page mb-5 mt-5 ">

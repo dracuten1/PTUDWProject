@@ -5,18 +5,29 @@
     <h2>Thêm bài viết mới</h2>
     <br>
     <form style="border:10px;margin:5px" method="POST" action="/writer/editblogs">
+        <div class="form-row row" class="d-flex justify-content-center">
+            <img class="col-7" id="blogImg" src="{{this.blog.link_img}}" style="height: 300px;width:340px;" />
+            <input class="col-5" type="file" id="blogImgLink">
+        </div>
+
+        <div class="form-row mt-5">
+            <label for="inputTitle">Tiêu đề bài viết</label>
+            <input id="inputTitle" type="text" name="title" class="form-control" placeholder="Tiêu đề bài viết"
+                value="{{this.blog.title}}">
+        </div>
+        <input type="text" id="imgLink" name="imgLink" class="form-control" value="{{this.blog.link_img}}" hidden>
+        <br>
+        <br>
+        <label for="inputCategory">Danh mục</label>
         <div class="form-row">
-            <div class="col-md-6">
-                <input type="text" name="title" class="form-control" placeholder="Tiêu đề bài viết"
-                    value="{{this.blog.title}}">
-            </div>
-            <input type="hidden" name="id" class="form-control" value="{{this.blog.id}}">
-            <div class="col-md-6">
+            <input type="hidden" name="id" class="form-control" value="{{this.blog.id_blog}}">
+
+            <div class="">
                 <select id="inputCategory" class="form-control" name="category">
                     <option selected value={{this.blog.category_id}}>{{this.blog.name}}</option>
-                    {{!-- {{#each this.categories}}
-                    <option value={{id}}>{{name}}</option>
-                    {{/each}} --}}
+                    {{#each this.categories}}
+                    <option {{#if currentCategory}} selected {{/if}} value={{id}}>{{name}}</option>
+                    {{/each}}
                 </select>
             </div>
         </div>
@@ -24,12 +35,13 @@
         <br>
         <div class="form-row">
             <label for="inputSumary">Tóm tắt</label>
-            <textarea class="form-control" rows="5" id="inputSumary" name="sumary">{{this.blog.sumary}}</textarea>
+            <textarea class="form-control" rows="5" id="inputSumary" name="summary">{{this.blog.summary}}</textarea>
         </div>
         <br>
         <div class="form-row">
             <label class="col-md-2" for="inputTag">Tag</label>
-            <input type="text" class="form-control" id="inputTag" name="tag" value="" data-role="tagsinput">
+            <input type="text" class="form-control" id="inputTag" name="tag" value="{{this.blog.tag}}"
+                data-role="tagsinput">
         </div>
 
         <br>
@@ -47,4 +59,28 @@
         .catch(error => {
             console.error(error);
         });
+    ClassicEditor
+        .create(document.querySelector('#editor'))
+        .catch(error => {
+            console.error(error);
+        });
+    var inputImgLink = document.getElementById("blogImgLink");
+    inputImgLink.onchange = function () {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                console.log(this.responseText);
+                document.getElementById("blogImg").src =
+                    this.responseText;
+                document.getElementById("imgLink").value =
+                    this.responseText;
+            }
+        };
+        var formData = new FormData();
+        var photo = inputImgLink.files[0];
+        formData.append("myFile", photo);
+        var url = inputImgLink.value;
+        xhttp.open("POST", "/writer/uploadImg/fileUpload", true);
+        xhttp.send(formData);
+    };
 </script>

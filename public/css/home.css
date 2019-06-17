@@ -355,6 +355,7 @@ background-color: #000
 }
 .img_top10news{
    height: 150px;
+   width: 100%;
 }
 .top_left {
     color: #FFF;

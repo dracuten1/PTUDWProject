@@ -17,7 +17,7 @@ $(document).ready(function () {
 });
 
 // Xủ lý sự kiện
-
-$(".CongNgheHome").click(function(){
-    window.open('/Phap','_self')
-  })
+$('.category_child').click(function()
+{
+    
+})
