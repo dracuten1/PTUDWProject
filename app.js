@@ -22,6 +22,8 @@ var app = express();
 require('./middlewares/passport')(app);
 require('./middlewares/session')(app);
 
+
+
 app.use(cookieParser());
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({
@@ -42,7 +44,9 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', '.hbs');
 app.use('/public', express.static( 'public'))
 
-
+app.use(require('./Editor/middlewares/locals.mdw'));
+app.use(require('./Editor/middlewares/locals.mdw2'));
+//app.use('/editor', require('./Editor/routes/editor/category.route'))
 
 // app.use((req, res, next) => {
 //     next(createError(404));
