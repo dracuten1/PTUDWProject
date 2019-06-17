@@ -17,3 +17,7 @@ $(document).ready(function () {
 });
 
 // Xủ lý sự kiện
+$('.category_child').click(function()
+{
+    
+})

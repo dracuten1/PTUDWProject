@@ -7,10 +7,8 @@ var cookieParser = require('cookie-parser')
 
 var router_a = require('./routes/account.router');
 var router_bs = require('./routes/blogs.router');
-var router_b = require('./routes/blog.router');
+var router_c = require('./routes/category.router');
 var router_e=require('./routes/editor.router');
-var router_b = require('./routes/blogs.router');
-var router_e = require('./routes/editor.router');
 var router_h = require('./routes/home.router');
 var router_w = require('./routes/writer.router');
 var authWriter = require("./middlewares/auth_writer");
@@ -44,42 +42,13 @@ app.set('view engine', '.hbs');
 app.use('/public', express.static( 'public'))
 
 
-//
-app.use(require('./Editor/middlewares/locals.mdw'));
-app.use(require('./Editor/middlewares/locals.mdw2'));
-app.use('/editor', require('./Editor/routes/editor/category.route'));
-// app.use((req, res, next) => {
-//     next(createError(404));
-//   })
-  
-//   app.use((err, req, res, next) => {
-//     var status = err.status;
-//     var errorView = 'error';
-  
-//     var msg = err.message;
-//     var error = err;
-//     res.status(status).render(errorView, {
-//       layout: false,
-//       msg,
-//       error
-//     })
-//   })
-//
-
-
-
-app.use('/public', express.static('public'));
-
-
-
 // Router
 app.use('/account', router_a);
 app.use('/blogs', router_bs);
-app.use('/blog', router_b);
+app.use('/category', router_c);
 app.use('/', router_h);
 app.use('/editor', router_e);
 app.use('/writer', [authWriter, router_w]);
-
 
 
 app.listen(3000, () => {

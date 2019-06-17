@@ -2,11 +2,19 @@ var blog = require("../services/service");
 
 module.exports = {
     all: () => {
-        return blog.load('select * from blog');
+        return blog.load('select * from blogs');
     },
     select: (id_blog) => {
         return blog.load('select * from blogs where id_blog = ' + id_blog);
 
+    },
+    select_category_child: (category_child) => { 
+    
+        return blog.load('select * from blogs where category_child = '+'\''+category_child+'\'' );
+    },
+    select_category: (category) => { 
+    
+        return blog.load('select * from blogs where category = '+'\''+category+'\'' );
     },
     select_part: (id_blog, id_part) => {
         return blog.load('select * from blogs where id = ' + id_blog);
