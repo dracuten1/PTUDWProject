@@ -22,30 +22,20 @@ router.get('/', (req, res, next) => {
             if (element.id_part == 4) topcategory.push(element);
             element.date_publish = dateFormat(element.date_publish, "hh:mm dd/mm/yyyy");
         });
+    
         popular1.push(popular[0]);
         popular.shift();
-
         mostview1.push(mostview[0]);
         mostview.shift();
 
-        for (var i = 0; i < 2; i++) {
-            mostviewrow1.push(mostview[i]);
-            mostview.shift();
-        }
-
-        mostview.forEach(element => {
-            mostviewrow2.push(element);
-
-        });
-
+        console.log(mostviewrow1);
 
         res.render('home/home.hbs', {
             close:false,
             popular1: popular1,
             popular: popular,
             mostview1:mostview1,
-            mostviewrow1:mostviewrow1,
-            mostviewrow2:mostviewrow2,
+            mostview:mostview,
             newblogs: newblogs,
             topcategory: topcategory
         });
@@ -53,8 +43,8 @@ router.get('/', (req, res, next) => {
         console.log(err);
     })
 })
-router.get('/home', (req, res, next) => {
 
+router.get('/home', (req, res, next) => {
     var popular = [];
     var popular1 = [];
     var mostview = [];
@@ -64,9 +54,7 @@ router.get('/home', (req, res, next) => {
     var newblogs = [];
     var topcategory = [];
     var p = blogModule.all();
-    
     p.then(rows => {
-
         rows.forEach(element => {
             if (element.id_part == 1) popular.push(element);
             if (element.id_part == 2) mostview.push(element);
@@ -74,29 +62,18 @@ router.get('/home', (req, res, next) => {
             if (element.id_part == 4) topcategory.push(element);
             element.date_publish = dateFormat(element.date_publish, "hh:mm dd/mm/yyyy");
         });
+    
         popular1.push(popular[0]);
         popular.shift();
-        
-
         mostview1.push(mostview[0]);
         mostview.shift();
-
-        for (var i = 0; i < 2; i++) {
-            mostviewrow1.push(mostview[i]);
-            mostview.shift();
-        }
-        mostview.forEach(element => {
-            mostviewrow2.push(element);
-
-        });
 
         res.render('home/home.hbs', {
             close:false,
             popular1: popular1,
             popular: popular,
             mostview1:mostview1,
-            mostviewrow1:mostviewrow1,
-            mostviewrow2:mostviewrow2,
+            mostview:mostview,
             newblogs: newblogs,
             topcategory: topcategory
         });
@@ -104,8 +81,5 @@ router.get('/home', (req, res, next) => {
         console.log(err);
     })
 })
-
-
-
 
 module.exports = router;

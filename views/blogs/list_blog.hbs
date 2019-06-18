@@ -5,14 +5,16 @@
             <h1 class="mt-5 font-weight-bold font-italic">{{pName}}</h1>
         </a>
 
-        <ul>
-            {{#each category_child }}
-            <li><a href="/category/{{category}}/{{category_child}}">
-                    <h3 class="category_child" {{#if active}}style="color:red" {{/if}}>{{Name}}</h3>
-                </a> </li>
-            {{/each }}
-        </ul>
+        <nav aria-label="breadcrumb">
 
+            <ol class="breadcrumb black h3 lighten-2">
+                {{#each category_child }}
+                <li class="breadcrumb-item"><a class="" {{#if active}} style="color:gold"  {{else}}  style="color:white" {{/if}}  href="/category/{{category}}/{{category_child}}"> <i
+                            class="fa fa-home" aria-hidden="true"></i> {{Name}}</a></li>
+                {{/each }}
+            </ol>
+        </nav>
+        
     </div>
     {{!-- ---------------------------------------------------Bài viết nổi bật----------------------------------------------------------------}}
 

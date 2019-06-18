@@ -24,7 +24,6 @@ function change_alias(alias) {
 router.get('/:Category/:Category_child', (req, res) => {
     var category = req.params.Category;
     var category_child = req.params.Category_child;
-    console.log(category);
 
     var p = category_module.select_category_child(category);
     var b = blog_module.select_category_child(category_child);
@@ -44,8 +43,6 @@ router.get('/:Category/:Category_child', (req, res) => {
     });
 
     p.then(rows => {
-        console.log(rows);
-
         rows.forEach(element => {
             element.active = false;
             if (element.category_child == category_child) {
@@ -84,7 +81,6 @@ router.get('/:Category/', (req, res) => {
     });
 
     p.then(rows => {
-        console.log(rows);
         res.render('blogs/list_blog', {
             category: rows[0].category,
             category_child: rows,

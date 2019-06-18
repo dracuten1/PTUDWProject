@@ -5,15 +5,20 @@
     <h2>Thêm bài viết mới</h2>
     <br>
     <form style="border:10px;margin:5px" method="POST">
-        <div class="form-row" class="d-flex justify-content-center">
-            <img id="blogImg" src="#" style="height: 100px;width:100px;" />
-            <input type="file" id="blogImgLink">
+
+        <div class="form-row row" class="d-flex justify-content-center">
+            <img class="col-5" id="blogImg" src="_" style="height: 300px;width:340px;" />
+            <input class="col-5" type="file" id="blogImgLink">
         </div>
+
         <div class="form-row">
-            <div class="col-md-6">
+            
+            <div class="col-md-6 mt-5">
+                <label for="inputTitle">Tiêu đề bài viết</label>
                 <input type="text" name="title" class="form-control" placeholder="Tiêu đề bài viết">
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 mt-5">
+                <label for="inputCategory">Danh mục</label>
                 <select id="inputCategory" class="form-control" name="category">
                     <option selected value={{this.firstCat.id}}>{{this.firstCat.name}}</option>
                     {{#each this.categories}}
