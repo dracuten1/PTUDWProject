@@ -23,8 +23,8 @@
 
 <body>
     <!-- --------------------------------------------------------Menu---------------------------------------------- -->
-    <div class=" sticky-top menutop bg-dark  ">
-        <div class="menu container">
+    <div class=" sticky-top menutop bg-dark   ">
+        <div class="menu container ">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark  ">
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -162,9 +162,9 @@
                         </li>
 
                     </ul>
-                    <form class="form-inline my-2 my-lg-0">
+                    <form class="form-inline my-2 my-lg-0" action="/blogs/search" method="POST">
 
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <input class="form-control mr-sm-2" name="keyword" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-success my-2 my-sm-0" type="submit"><i class="fa fa-search"
                                 aria-hidden="true"></i>Search</button>
                     </form>
@@ -219,7 +219,7 @@
 
     {{{body}}}
     <!----------------------------------------------------------Footer------------------------------------------------- -->
-    <footer class="page-footer font-small stylish-color-dark pt-4">
+    <footer class="page-footer font-small stylish-color-dark pt-4 ">
 
         <!-- Call to action -->
         <ul class="list-unstyled list-inline text-center py-2">
@@ -288,7 +288,6 @@
         window.close();
         close = false;
     </script>
-
     {{/if}}
 
 </body>
