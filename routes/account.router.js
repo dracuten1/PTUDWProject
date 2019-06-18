@@ -4,9 +4,7 @@ var bcrypt = require('bcrypt')
 var account_module = require('../modules/account_module')
 var passport = require('passport')
 var auth = require('../middlewares/auth')
-var auth_after_login = require('../middlewares/auth_after_login')
-
-
+var auth_after_login = require('../middlewares/auth_after_login') 
 
 router.get('/is-available', (req, res, next) => {
   var username = req.query.username;

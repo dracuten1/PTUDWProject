@@ -5,13 +5,16 @@
             <h1 class="mt-5 font-weight-bold font-italic">{{pName}}</h1>
         </a>
 
-        <ul>
-            {{#each category_child }}
-            <li><a href="/category/{{category}}/{{category_child}}">
-                    <h3 class="category_child" {{#if active}}style="color:red" {{/if}}>{{Name}}</h3>
-                </a> </li>
-            {{/each }}
-        </ul>
+        <nav aria-label="breadcrumb">
+
+            <ol class="breadcrumb black h3 lighten-2">
+                {{#each category_child }}
+                <li class="breadcrumb-item"><a class="" {{#if active}} style="color:gold" {{else}} style="color:white"
+                        {{/if}} href="/category/{{category}}/{{category_child}}"> <i class="fa fa-home"
+                            aria-hidden="true"></i> {{Name}}</a></li>
+                {{/each }}
+            </ol>
+        </nav>
 
     </div>
     {{!-- ---------------------------------------------------Bài viết nổi bật----------------------------------------------------------------}}
@@ -89,18 +92,17 @@
     <div class="page mb-5 mt-5 ">
         <nav aria-label="Page navigtion example">
             <ul class="pagination pagination-circle pg-blue">
-                <li class="page-item "><a class="page-link text-danger font-weight-bold">First</a></li>
-                <li class="page-item ">
-                    <a class="page-link" aria-label="Previous">
+                <li class="page-item "><a class="page-link text-danger font-weight-bold " href="?page=1" >First</a></li>
+                <li class="page-item   ">
+                    <a class="page-link" aria-label="Previous" >
                         <span aria-hidden="true">&laquo;</span>
                         <span class="sr-only">Previous</span>
                     </a>
                 </li>
-                <li class="page-item active"><a class="page-link">1</a></li>
-                <li class="page-item"><a class="page-link">2</a></li>
-                <li class="page-item"><a class="page-link">3</a></li>
-                <li class="page-item"><a class="page-link">4</a></li>
-                <li class="page-item"><a class="page-link">5</a></li>
+
+                {{#each this.pages}}
+                <li class="page-item {{#if active}} active {{/if}} "><a class="page-link" href="?page={{value}}">{{value}}</a></li>
+                {{/each }}
                 <li class="page-item">
                     <a class="page-link" aria-label="Next">
                         <span aria-hidden="true">&raquo;</span>

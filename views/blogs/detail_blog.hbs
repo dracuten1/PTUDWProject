@@ -1,11 +1,32 @@
-<div class="container">
+<div class="container " style="margin-top:100px">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb black h3 lighten-2">
+            <li class="breadcrumb-item"><a class="white-text" href="/home"> <i class="fa fa-home"
+                        aria-hidden="true"></i>  Home</a></li>
+            <li class="breadcrumb-item"><a class="white-text" href="/category/{{category}}">{{pname}}</a></li>
+            <li class="breadcrumb-item active"> <a style="color:gold"
+                    href="/category/{{category}}/{{category_child}}">{{name}}</a>
+            </li>
+        </ol>
+    </nav>
+
+    <a href="/category/{{category}}/{{category_child}}">
+        <p class="title1">{{category_child}} </p>
+    </a>
+    <p class=" font-weight-bold text-danger " style="font-size: 70px;">{{title}}</p>
+    <p class=" font-weight-bold"> Người đăng: {{writer}}</p>
+    <small>Đăng lúc: {{date_publish}} </small>
+
+    <p>Tag: <a href="/category/{{category}}/{{category_child}}">{{tag}}</a></p>
 
 
+    <div class="row">
+        <div class=" col-lg-10 col-sm-12  ">
+            <h1>{{summary}}</h1>
+            {{{content}}}
+        </div>
 
-    <div class=" col-8 text-center">
-        {{{content}}}
     </div>
-
 
 
     <div class="row BinhLuan">

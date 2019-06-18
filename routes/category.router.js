@@ -24,12 +24,34 @@ function change_alias(alias) {
 router.get('/:Category/:Category_child', (req, res) => {
     var category = req.params.Category;
     var category_child = req.params.Category_child;
-    console.log(category);
+    var page = req.query.page || 1;
+    if (page < 1) page = 1;
 
     var p = category_module.select_category_child(category);
-    var b = blog_module.select_category_child(category_child);
     var blog = [];
-
+    var limit = 5;
+    var offset = (page - 1) * limit;
+    var b = blog_module.select_category_child(category_child, limit, offset);
+    var pages = [];
+    Promise.all([
+            blog_module.select_category_child(category_child, limit, offset),
+            blog_module.select_category_child_count(category_child),
+        ])
+        .then(([rows, count_rows]) => {
+            var total = count_rows[0].total;
+            var nPages = Math.floor(total / limit);
+            if (total % limit >0) nPages++;
+            for (i = 1; i <= nPages; i++) {
+                var obj = {
+                    value: i,
+                    active:i===+page
+                };
+                pages.push(obj);
+            }
+        })
+        .catch((err) => {
+            console.log(err)
+        })
     b.then(rows => {
         rows.forEach(element => {
             element.date_publish = dateFormat(element.date_publish, "hh:mm dd/mm/yyyy");
@@ -44,8 +66,6 @@ router.get('/:Category/:Category_child', (req, res) => {
     });
 
     p.then(rows => {
-        console.log(rows);
-
         rows.forEach(element => {
             element.active = false;
             if (element.category_child == category_child) {
@@ -56,7 +76,8 @@ router.get('/:Category/:Category_child', (req, res) => {
             category: rows[0].category,
             category_child: rows,
             blog: blog,
-            pName: rows[0].pName
+            pName: rows[0].pName,
+            pages
 
         });
     }).catch(err => {
@@ -64,12 +85,37 @@ router.get('/:Category/:Category_child', (req, res) => {
     })
 
 })
+
 router.get('/:Category/', (req, res) => {
     var category = req.params.Category;
-    var p = category_module.select_category_child(category);
-    var b = blog_module.select_category(category);
-    var blog = [];
+    var page = req.query.page || 1;
+    if (page < 1) page = 1;
 
+    var p = category_module.select_category_child(category);
+    var blog = [];
+    var limit = 5;
+    var offset = (page - 1) * limit;
+    var b = blog_module.select_category(category, limit, offset);
+    var pages = [];
+    Promise.all([
+            blog_module.select_category(category, limit, offset),
+            blog_module.select_category_count(category),
+        ])
+        .then(([rows, count_rows]) => {
+            var total = count_rows[0].total;
+            var nPages = Math.floor(total / limit);
+            if (total % limit >0) nPages++;
+            for (i = 1; i <= nPages; i++) {
+                var obj = {
+                    value: i,
+                    active:i===+page
+                };
+                pages.push(obj);
+            }
+        })
+        .catch((err) => {
+            console.log(err)
+        })
     b.then(rows => {
         rows.forEach(element => {
             element.date_publish = dateFormat(element.date_publish, "hh:mm dd/mm/yyyy");
@@ -84,17 +130,19 @@ router.get('/:Category/', (req, res) => {
     });
 
     p.then(rows => {
-        console.log(rows);
+     
         res.render('blogs/list_blog', {
             category: rows[0].category,
             category_child: rows,
             blog: blog,
-            pName: rows[0].pName
+            pName: rows[0].pName,
+            pages
 
         });
     }).catch(err => {
         console.log(err);
     })
+
 })
 
 module.exports = router;
