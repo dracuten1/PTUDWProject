@@ -1,23 +1,46 @@
 var express = require('express');
 var router = express.Router();
-var blogService = require('../services/blog_service');
+var helpers = require('../helpers/adminHelper');
 
-var statusModule = require("../../modules/status_module");
-var blogModule = require('../../modules/blog_module');
 router.get('/', (req, res, next) => {
-    var options = {
-        blogId: 1,
-        writerId: 2,
-        statusName: true,
-    }
-    blogService.loadBlog().then(result => {
+    helpers.loadAllBlogPreview().then(result => {
+        result.forEach(element => {
+            element.canExport = true;
+            if (element.status == 4)
+                element.canExport = false;
+        });
         res.render("admin/index", {
-            layout: "layout_writer"
+            blogs: result,
+            layout: "layout_admin"
         });
     }).catch(err => {
         res.send(err);
-    })
-})
+    });
+});
+router.post('/export/:blogId', (req, res, next) => {
+    var blogId = req.params.blogId;
+    if (req.params.blogId == undefined) {
+        res.send(false);
+    }
+    helpers.exportBlog(blogId).then(result => {
+        res.send(true);
+    }).catch(err => {
+        res.send(false);
+    });
+
+});
+router.post('/delete/:blogId', (req, res, next) => {
+    var blogId = req.params.blogId;
+    if (req.params.blogId == undefined) {
+        res.send(false);
+    }
+    helpers.deleteBlog(blogId).then(result => {
+        res.send(true);
+    }).catch(err => {
+        res.send(false);
+    });
+
+});
 
 
 module.exports = router;

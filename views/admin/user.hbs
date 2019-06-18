@@ -3,23 +3,28 @@
         <thead>
             <tr>
                 <th scope="col">ID</th>
-                <th scope="col" style="width: 50%">Tiêu đề</th>
+                <th scope="col" style="width: 30%">Tên</th>
                 <th scope="col">
-                    Trạng thái
+                    Username
                 </th>
-                <th scope="col">
-                    Người đăng
+                <th scope="col" style="width: 15%">
+                    Role
                 </th>
                 <th scope="col">Xử lí</th>
             </tr>
         </thead>
         <tbody>
-            {{#each this.blogs}}
+            {{#each this.users}}
             <tr>
                 <th scope="row">{{id}}</th>
-                <td>{{title}}</td>
-                <td>{{name}}</td>
-                <td>{{writer}}</td>
+                <td>{{fullname}}</td>
+                <td>{{username}}</td>
+                <td>
+                    <select id="roles{{id}}" class="form-control" name="role" onchange="confirmChangeRole({{id}})">
+                        {{#each roles}}
+                        <option {{#if current}} selected {{/if}} value={{role_id}}>{{role_name}}</option>
+                        {{/each}}
+                    </select></td>
                 <td display>
                     <div class="btn-group">
                         {{#if canExport}}
@@ -74,10 +79,26 @@
         }
 
     }
-    function confirmExport(id, action) {
+    function confirmChange(id, action) {
         var r = confirm("Bạn thật sự xuất bản bài viết!");
         if (r == true) {
             $.post(`/admin/blog/${action}/${id}`, {}, function (result) {
+                console.log(result);
+                if (result == true) {
+                    console.log(result);
+                    location.reload();
+                }
+            });
+        } else {
+
+        }
+    }
+    function confirmChangeRole(id) {
+        var roleId = document.getElementById(`roles${id}`).value;
+        console.log(roleId);
+        var r = confirm("Bạn thật sự thay đổi role?");
+        if (r == true) {
+            $.post(`/admin/users/changeRole/${id}`, { 'newRoleId': roleId }, function (result) {
                 console.log(result);
                 if (result == true) {
                     console.log(result);
