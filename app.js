@@ -44,8 +44,8 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', '.hbs');
 app.use('/public', express.static('public'))
 
-app.use(require('./Editor/middlewares/locals.mdw'));
-app.use(require('./Editor/middlewares/locals.mdw2'));
+// app.use(require('./Editor/middlewares/locals.mdw'));
+// app.use(require('./Editor/middlewares/locals.mdw2'));
 //app.use('/editor', require('./Editor/routes/editor/category.route'))
 
 // app.use((req, res, next) => {
@@ -65,8 +65,6 @@ app.use(require('./Editor/middlewares/locals.mdw2'));
 //     })
 //   })
 //
-
-
 
 
 // Router

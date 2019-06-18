@@ -4,7 +4,12 @@ var bcrypt = require('bcrypt')
 var account_module = require('../modules/account_module')
 var passport = require('passport')
 var auth = require('../middlewares/auth')
-var auth_after_login = require('../middlewares/auth_after_login')
+var auth_after_login = require('../middlewares/auth_after_login') <<
+  << << < HEAD
+
+  ===
+  === = >>>
+  >>> > ed54ade48c5613ba8aabbcf40b141501ea2ebe25
 
 
 router.get('/is-available', (req, res, next) => {
@@ -85,7 +90,7 @@ router.post('/register', (req, res, next) => {
   var saltRounds = 10;
   var hash = bcrypt.hashSync(req.body.password, saltRounds);
   var entity = {
-    role: 2,
+    role: 1,
     username: req.body.username,
     fullname: req.body.fullname,
     email: req.body.email,
@@ -128,7 +133,6 @@ router.post('/login', (req, res, next) => {
 
   })(req, res, next);
 });
-
 router.get('/logout', (req, res, next) => {
   req.session.destroy();
   res.redirect('/');
@@ -137,5 +141,15 @@ router.get('/logout', (req, res, next) => {
 router.get('/admin', auth, (req, res, next) => {
   res.end('admin');
 })
+
+router.get('/auth/google', passport.authenticate('google', {
+  scope: ['profile', 'email']
+}));
+
+router.get('/auth/google/callback',
+  passport.authenticate('google', {
+    successRedirect: '/',
+    failureRedirect: '/account/login'
+  }));
 
 module.exports = router;
