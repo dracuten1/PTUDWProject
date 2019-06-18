@@ -8,7 +8,7 @@ var cookieParser = require('cookie-parser')
 var router_a = require('./routes/account.router');
 var router_bs = require('./routes/blogs.router');
 var router_c = require('./routes/category.router');
-var router_e=require('./routes/editor.router');
+var router_e = require('./routes/editor.router');
 var router_h = require('./routes/home.router');
 var router_w = require('./routes/writer.router');
 var router_i = require('./routes/image.router');
@@ -42,7 +42,7 @@ app.engine('.hbs', exphbs({
 //Set view
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', '.hbs');
-app.use('/public', express.static( 'public'))
+app.use('/public', express.static('public'))
 
 app.use(require('./Editor/middlewares/locals.mdw'));
 app.use(require('./Editor/middlewares/locals.mdw2'));
@@ -76,6 +76,7 @@ app.use('/category', router_c);
 app.use('/', router_h);
 app.use('/editor', router_e);
 app.use('/writer', [authWriter, router_w]);
+// app.use('/writer', router_w);
 app.use('/image', router_i);
 
 app.listen(3000, () => {

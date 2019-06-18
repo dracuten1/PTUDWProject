@@ -1,7 +1,8 @@
-.ck-editor__editable {
-    min-height: 500px;
+#cke_editor {
+
+    width: 100%;
 }
 
-.ck.ck-editor {
-    width: 100%;
+#cke1_contents {
+    height: 500px;
 }
