@@ -4,7 +4,7 @@ var bcrypt = require('bcrypt')
 var account_module = require('../modules/account_module')
 var passport = require('passport')
 var auth = require('../middlewares/auth')
-var auth_after_login=require('../middlewares/auth_after_login')
+var auth_after_login = require('../middlewares/auth_after_login')
 
 
 router.get('/is-available', (req, res, next) => {
@@ -28,7 +28,59 @@ router.get('/register', (req, res, next) => {
 
   })
 })
+router.post('/apiLogin', (req, res, next) => {
+  console.log("FB login");
+  console.log(req.body);
+  if (!req.body.id) {
+    res.send(false);
+  }
+  var user = {
+    facebookId: req.body.id,
+    role: 1,
+    username: req.body.id,
+    fullname: req.body.name,
+  };
+  account_module.singleFbId(req.body.id).then(account => {
+    console.log(account);
+    if (account.length == 0) {
+      console.log("no account");
 
+
+      account_module.add(user).then(id => {
+        user.id = id;
+
+        passport.authenticate('local', (err, user, info) => {
+          if (err)
+            return next(err);
+
+          req.logIn(user, err => {
+            if (err)
+              return next(err);
+            res.redirect('back');
+          });
+
+        })(req, res, next);
+      }).catch(err => {
+        res.send(false);
+      })
+    }
+
+    user = account[0];
+
+    passport.authenticate('local', (err, user, info) => {
+      if (err)
+        return next(err);
+      console.log("Errorrrrrrrrrr");
+
+      req.logIn(user, err => {
+        if (err)
+          return next(err);
+        res.redirect('back');
+      });
+
+    })(req, res, next);
+  });
+});
 router.post('/register', (req, res, next) => {
   var saltRounds = 10;
   var hash = bcrypt.hashSync(req.body.password, saltRounds);
@@ -50,7 +102,7 @@ router.post('/register', (req, res, next) => {
 
 })
 
-router.get('/login',auth_after_login, (req, res, next) => {
+router.get('/login', auth_after_login, (req, res, next) => {
   res.render('account/login', {
     layout: false
   })
@@ -72,14 +124,12 @@ router.post('/login', (req, res, next) => {
       if (err)
         return next(err);
       res.redirect('back');
-      req.session.user =user;
     });
 
   })(req, res, next);
-})
+});
 
-router.get('/logout',(req,res,next)=>
-{
+router.get('/logout', (req, res, next) => {
   req.session.destroy();
   res.redirect('/');
 })
