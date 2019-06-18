@@ -12,6 +12,7 @@ var router_e = require('./routes/editor.router');
 var router_h = require('./routes/home.router');
 var router_w = require('./routes/writer.router');
 var router_i = require('./routes/image.router');
+var router_admin = require('./admin/admin.router');
 var authWriter = require("./middlewares/auth_writer");
 var hbs_sections = require('express-handlebars-sections');
 //
@@ -74,6 +75,7 @@ app.use('/category', router_c);
 app.use('/', router_h);
 app.use('/editor', router_e);
 app.use('/writer', [authWriter, router_w]);
+app.use('/admin', router_admin);
 // app.use('/writer', router_w);
 app.use('/image', router_i);
 

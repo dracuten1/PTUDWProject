@@ -4,12 +4,8 @@ var bcrypt = require('bcrypt')
 var account_module = require('../modules/account_module')
 var passport = require('passport')
 var auth = require('../middlewares/auth')
-var auth_after_login = require('../middlewares/auth_after_login') <<
-  << << < HEAD
+var auth_after_login = require('../middlewares/auth_after_login')
 
-  ===
-  === = >>>
-  >>> > ed54ade48c5613ba8aabbcf40b141501ea2ebe25
 
 
 router.get('/is-available', (req, res, next) => {
