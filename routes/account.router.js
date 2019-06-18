@@ -44,7 +44,6 @@ router.post('/apiLogin', (req, res, next) => {
     if (account.length == 0) {
       console.log("no account");
 
-
       account_module.add(user).then(id => {
         user.id = id;
 
@@ -122,7 +121,9 @@ router.post('/login', (req, res, next) => {
     req.logIn(user, err => {
       if (err)
         return next(err);
-      res.redirect('back');
+      res.render('home/home',{
+        close:true
+      });
     });
 
   })(req, res, next);
