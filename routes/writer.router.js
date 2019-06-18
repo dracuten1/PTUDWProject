@@ -66,6 +66,8 @@ router.get("/editblogs/:id", (req, res, next) => {
     return;
   }
   Promise.all([categoryModule.w_all(), blogModule.select(id)]).then(([cateArr, rows]) => {
+      console.log(rows[0]);
+
       if (rows.length > 0 && rows[0].writer_id == req.session.passport.user.id && rows[0].status != 2) {
         cateArr.forEach(c => {
           c.currentCategory = false;
