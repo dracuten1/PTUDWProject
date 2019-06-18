@@ -53,12 +53,13 @@
         <a href="/writer" class="btn btn-secondary" role="button">Quay lại</a>
     </form>
 </section>
+<script src="../../public/ckeditor/ckeditor.js"></script>
 <script>
-    ClassicEditor
-        .create(document.querySelector('#editor'))
-        .catch(error => {
-            console.error(error);
-        });
+    CKEDITOR.replace('editor1', {
+        uiColor: '#CCEAEE',
+    });
+</script>
+<script>
     var inputImgLink = document.getElementById("blogImgLink");
     inputImgLink.onchange = function () {
         var xhttp = new XMLHttpRequest();
