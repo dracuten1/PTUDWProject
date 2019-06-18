@@ -12,6 +12,10 @@ module.exports = {
 
         return blog.load(`SELECT blogs.*,categoryChild.title as category_child,categoryChild.name as Name,categoryParent.name as pName,categoryParent.title as category FROM ptudw_db.blogs blogs, ptudw_db.category categoryChild, ptudw_db.category categoryParent WHERE categoryChild.title='${category_child}' AND blogs.category_id=categoryChild.id AND categoryParent.id=categoryChild.parent_id`);
     },
+    select_blogs_relate: (category_child,id_blog) => {
+
+        return blog.load(`SELECT blogs.*,categoryChild.title as category_child,categoryChild.name as Name,categoryParent.name as pName,categoryParent.title as category FROM ptudw_db.blogs blogs, ptudw_db.category categoryChild, ptudw_db.category categoryParent WHERE categoryChild.title='${category_child}' AND blogs.category_id=categoryChild.id AND categoryParent.id=categoryChild.parent_id AND blogs.id_blog <> ${id_blog}`);
+    },
     select_category: (category) => {
 
         return blog.load(`SELECT blogs.*,categoryChild.title as category_child,categoryChild.name as Name,categoryParent.name as pName,categoryParent.title as category FROM ptudw_db.blogs blogs, ptudw_db.category categoryChild, ptudw_db.category categoryParent WHERE categoryParent.title='${category}' AND categoryParent.id=categoryChild.parent_id AND blogs.category_id=categoryChild.id`);

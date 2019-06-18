@@ -40,6 +40,7 @@ router.get('/', (req, res, next) => {
 
 
         res.render('home/home.hbs', {
+            close:false,
             popular1: popular1,
             popular: popular,
             mostview1:mostview1,
@@ -53,6 +54,7 @@ router.get('/', (req, res, next) => {
     })
 })
 router.get('/home', (req, res, next) => {
+
     var popular = [];
     var popular1 = [];
     var mostview = [];
@@ -89,6 +91,7 @@ router.get('/home', (req, res, next) => {
         });
 
         res.render('home/home.hbs', {
+            close:false,
             popular1: popular1,
             popular: popular,
             mostview1:mostview1,

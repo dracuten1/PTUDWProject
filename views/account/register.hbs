@@ -23,7 +23,7 @@
             <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
                 <div class="card card-signin flex-row my-5">
                     <div class="card-body">
-                        <form class="form-signin" method="POST" action="/account/register" id="registerForm">
+                        <form class="form-signin" method="POST" action="/account/register" id="registerForm" onsubmit="return submitUserForm()"; >
                             <img src="https://library.kissclipart.com/20180918/zew/kissclipart-register-now-clipart-logo-126ae008902d8827.png"
                                 class="mb-5" style="width:100%" alt="">
 
@@ -57,7 +57,9 @@
                                     class="form-control" placeholder="Password">
                                 <label for="inputConfirmPassword">Confirm password</label>
                             </div>
-
+                            <div class="g-recaptcha mt-5 " data-sitekey="6LfxTakUAAAAAOzmrFdgeSYwAfsuftQGKcjBxdo4">
+                            </div>
+                            <div id="g-recaptcha-error" class="mb-5"></div>
                             <button class="btn btn-lg btn-primary btn-block text-uppercase"
                                 type="submit">Register</button>
                             <a class="d-block text-center mt-2 small" href="/account/login">Sign In</a>
@@ -76,6 +78,21 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"
         integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js?hl=vi'></script>
+    <script>
+        function submitUserForm() {
+            var response = grecaptcha.getResponse();
+            if (response.length == 0) {
+                document.getElementById('g-recaptcha-error').innerHTML = '<span style="color:red;">Chưa nhập captcha</span>';
+                return false;
+            }
+            return true;
+        }
+
+        function verifyCaptcha() {
+            document.getElementById('g-recaptcha-error').innerHTML = '';
+        }
+    </script>
     <script>
         $(document).ready(function () {
             $('#registerForm').validate({
