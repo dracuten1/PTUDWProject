@@ -55,5 +55,20 @@ module.exports = {
     },
     deleteUser: (userID) => {
         return userModule.deleteU(userID);
-    }
+    },
+    getEditorTask: (editorId) => {
+        return new Promise((resolve, reject) => {
+            Promise.all([userModule.getEditorTask(editorId), userModule.single_editor(editorId)])
+                .then(([userTask, user]) => {
+                    if (user.lenght == 0) {
+                        reject("Editor not found");
+                    }
+                    var returnRes = {
+                        task: userTask,
+                        user: user[0],
+                    }
+                    resolve(returnRes);
+                });
+        });
+    },
 };
