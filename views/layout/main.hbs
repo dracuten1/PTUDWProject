@@ -52,14 +52,14 @@
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link text-light" href="/Category/PhapLuat">Pháp luật</a>
-                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="/Category/PhapLuat/PhapDinh">Pháp đình</a>
                                 <a class="dropdown-item" href="/Category/PhapLuat/VuAn">Vụ án</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link text-light" href="/Category/TheGioi">Thế giới</a>
-                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="/Category/TheGioi/QuanSu">Quân sự</a>
                                 <a class="dropdown-item" href="/Category/TheGioi/PhanTich">Phân Tích</a>
                                 <a class="dropdown-item" href="/Category/TheGioi/TuLieu">Tư liệu</a>
@@ -67,7 +67,7 @@
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link text-light" href="/Category/KinhDoanh">Kinh doanh</a>
-                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="/Category/KinhDoanh/BatDongSan">Bất động sản</a>
                                 <a class="dropdown-item" href="/Category/KinhDoanh/HangKhong">Hàng không</a>
                                 <a class="dropdown-item" href="/Category/KinhDoanh/TaiChinh">Tài chính</a>
@@ -75,7 +75,7 @@
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link text-light" href="/Category/CongNghe">Công nghệ</a>
-                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="/Category/CongNghe/Mobile">Mobile</a>
                                 <a class="dropdown-item" href="/Category/CongNghe/Internet">Internet</a>
                                 <a class="dropdown-item" href="/Category/CongNghe/eSport">eSport</a>
@@ -155,7 +155,6 @@
                                         <a class="dropdown-item text-light color_item_megamennu"
                                             href="/Category/PhimAnh/PhimTruyenHinh">Phim truyền
                                             hình</a>
-
                                     </div>
                                 </div>
                             </div>
@@ -164,7 +163,8 @@
                     </ul>
                     <form class="form-inline my-2 my-lg-0" action="/blogs/search" method="POST">
 
-                        <input class="form-control mr-sm-2" name="keyword" type="search" placeholder="Search" aria-label="Search">
+                        <input class="form-control mr-sm-2" name="keyword" type="search" placeholder="Search"
+                            aria-label="Search">
                         <button class="btn btn-success my-2 my-sm-0" type="submit"><i class="fa fa-search"
                                 aria-hidden="true"></i>Search</button>
                     </form>
@@ -198,6 +198,10 @@
                                     style="width: 32px; height:32px; border-radius: 100%" alt="Paris">
                                 <h5 class=" text-danger ">{{fullname}}</h5>
                             </div>
+                            <div class="dropdown-item">
+                                <i class="fa fa-user" aria-hidden="true"></i>
+                                <a href="/account/profile" class=" font-weight-bold ">Quản lý cá nhân</a>
+                            </div>
                             <div class=" dropdown-item ">
                                 <i class="fa fa-sign-out" aria-hidden="true"></i>
                                 <a href="/account/logout" class=" font-weight-bold ">Đăng xuất</a>
@@ -211,7 +215,7 @@
                         <i class="fa fa-user-circle-o fa-2x mr-0 text-warning" aria-hidden="true"></i>
                     </a>
                     {{/if}}
-                    
+
                 </div>
             </nav>
         </div>

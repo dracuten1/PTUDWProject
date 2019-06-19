@@ -4,7 +4,7 @@ var bcrypt = require('bcrypt')
 var account_module = require('../modules/account_module')
 var passport = require('passport')
 var auth = require('../middlewares/auth')
-var auth_after_login = require('../middlewares/auth_after_login') 
+var auth_after_login = require('../middlewares/auth_after_login')
 
 router.get('/is-available', (req, res, next) => {
   var username = req.query.username;
@@ -121,8 +121,8 @@ router.post('/login', (req, res, next) => {
     req.logIn(user, err => {
       if (err)
         return next(err);
-      res.render('home/home',{
-        close:true
+      res.render('home/home', {
+        close: true
       });
     });
 
@@ -146,5 +146,39 @@ router.get('/auth/google/callback',
     successRedirect: '/',
     failureRedirect: '/account/login'
   }));
+
+router.get('/profile',auth, (req, res, next) => {
+  var fullname = req.session.passport.user.fullname;
+  var email = req.session.passport.user.email;
+  res.render('account/profile', {
+    fullname: fullname,
+    email: email,
+  })
+})
+router.post('/profile', (req, res, next) => {
+  var fullname = req.body.fullname;
+  var email = req.body.email;
+  id = req.session.passport.user.id;
+
+  var entity = {
+    id: id,
+    fullname: fullname,
+    email: email
+  }
+  var p = account_module.updateProfile(entity)
+  p.then(rows=>{
+    req.session.passport.user.fullname = fullname;
+    req.session.passport.user.fullname = email;
+    res.render('account/profile', {
+      fullname:fullname,
+      email:email,
+      success: true,
+    })  
+  }).catch(err=>{
+    console.log(err);
+  })
+  
+})
+
 
 module.exports = router;
