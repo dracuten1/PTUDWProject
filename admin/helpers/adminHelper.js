@@ -52,5 +52,8 @@ module.exports = {
     },
     changeUserRole: (userId, roleId) => {
         return userModule.change_role(userId, roleId);
+    },
+    deleteUser: (userID) => {
+        return userModule.deleteU(userID);
     }
 };

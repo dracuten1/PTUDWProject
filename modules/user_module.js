@@ -13,5 +13,8 @@ module.exports = {
             role: newRoles,
         }
         return service.update(`users`, 'id', user);
-    }
+    },
+    deleteU: (id) => {
+        return service.delete(`users`, 'id', id);
+    },
 }

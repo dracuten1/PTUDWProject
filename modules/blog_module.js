@@ -2,16 +2,16 @@ var blog = require("../services/service");
 
 module.exports = {
     all: () => {
-        return blog.load('SELECT blogs.*,categoryChild.title as category_child,categoryChild.name as Name,categoryParent.name as pName, categoryParent.title as category FROM ptudw_db.blogs blogs, ptudw_db.category categoryChild, ptudw_db.category categoryParent WHERE blogs.category_id=categoryChild.id  and categoryParent.id=categoryChild.parent_id');
+        return blog.load('SELECT blogs.*,categoryChild.title as category_child,categoryChild.name as Name,categoryParent.name as pName, categoryParent.title as category FROM ptudw_db.blogs blogs, ptudw_db.category categoryChild, ptudw_db.category categoryParent WHERE blogs.category_id=categoryChild.id  and categoryParent.id=categoryChild.parent_id and blogs.status=4');
     },
     select: (id_blog) => {
         return blog.load('select * from blogs where id_blog = ' + id_blog);
     },
     full_text_search: (key_word) => {
-        return blog.load(`SELECT  blogs.*,categoryChild.title as category_child,categoryChild.name as Name,categoryParent.name as pName,categoryParent.title as category FROM ptudw_db.blogs blogs, ptudw_db.category categoryChild, ptudw_db.category categoryParent  WHERE  blogs.category_id=categoryChild.id and categoryChild.parent_id=categoryParent.id and( MATCH (blogs.content) AGAINST ('"${key_word}"' IN BOOLEAN MODE) or MATCH (blogs.title,blogs.summary) AGAINST ('"${key_word}"' IN BOOLEAN MODE))`)
+        return blog.load(`SELECT  blogs.*,categoryChild.title as category_child,categoryChild.name as Name,categoryParent.name as pName,categoryParent.title as category FROM ptudw_db.blogs blogs, ptudw_db.category categoryChild, ptudw_db.category categoryParent  WHERE  blogs.category_id=categoryChild.id and categoryChild.parent_id=categoryParent.id and( MATCH (blogs.content) AGAINST ('"${key_word}"' IN BOOLEAN MODE) or MATCH (blogs.title,blogs.summary) AGAINST ('"${key_word}"' IN BOOLEAN MODE))  and blogs.status=4 `)
     },
     count_full_text_search: (key_word) => {
-        return blog.load(`SELECT count(*) as count FROM ptudw_db.blogs blogs, ptudw_db.category categoryChild, ptudw_db.category categoryParent  WHERE  blogs.category_id=categoryChild.id and categoryChild.parent_id=categoryParent.id and( MATCH (blogs.content) AGAINST ('"${key_word}"' IN BOOLEAN MODE) or  MATCH (blogs.title,blogs.summary) AGAINST ('"${key_word}"' IN BOOLEAN MODE))`)
+        return blog.load(`SELECT count(*) as count FROM ptudw_db.blogs blogs, ptudw_db.category categoryChild, ptudw_db.category categoryParent  WHERE  blogs.category_id=categoryChild.id and categoryChild.parent_id=categoryParent.id and( MATCH (blogs.content) AGAINST ('"${key_word}"' IN BOOLEAN MODE) or  MATCH (blogs.title,blogs.summary) AGAINST ('"${key_word}"' IN BOOLEAN MODE))  and blogs.status=4 `)
     },
 
     select_detail_blog: (id_blog) => {
@@ -19,7 +19,7 @@ module.exports = {
     },
     select_category_child: (category_child, limit, offset) => {
 
-        return blog.load(`SELECT blogs.*,categoryChild.title as category_child,categoryChild.name as Name,categoryParent.name as pName,categoryParent.title as category FROM ptudw_db.blogs blogs, ptudw_db.category categoryChild, ptudw_db.category categoryParent WHERE categoryChild.title='${category_child}' AND blogs.category_id=categoryChild.id AND categoryParent.id=categoryChild.parent_id limit  ${limit} offset  ${offset}`);
+        return blog.load(`SELECT blogs.*,categoryChild.title as category_child,categoryChild.name as Name,categoryParent.name as pName,categoryParent.title as category FROM ptudw_db.blogs blogs, ptudw_db.category categoryChild, ptudw_db.category categoryParent WHERE categoryChild.title='${category_child}' AND blogs.category_id=categoryChild.id AND categoryParent.id=categoryChild.parent_id and blogs.status=4 limit  ${limit} offset  ${offset}`);
     },
     select_category_child_count: (category_child) => {
 
@@ -31,7 +31,7 @@ module.exports = {
         return blog.load(`SELECT blogs.*,categoryChild.title as category_child,categoryChild.name as Name,categoryParent.name as pName,categoryParent.title as category FROM ptudw_db.blogs blogs, ptudw_db.category categoryChild, ptudw_db.category categoryParent WHERE categoryChild.title='${category_child}' AND blogs.category_id=categoryChild.id AND categoryParent.id=categoryChild.parent_id AND blogs.id_blog <> ${id_blog}`);
     },
     select_category: (category, limit, offset) => {
-        return blog.load(`SELECT blogs.*,categoryChild.title as category_child,categoryChild.name as Name,categoryParent.name as pName,categoryParent.title as category FROM ptudw_db.blogs blogs, ptudw_db.category categoryChild, ptudw_db.category categoryParent WHERE categoryParent.title='${category}' AND categoryParent.id=categoryChild.parent_id AND blogs.category_id=categoryChild.id limit  ${limit} offset  ${offset}`);
+        return blog.load(`SELECT blogs.*,categoryChild.title as category_child,categoryChild.name as Name,categoryParent.name as pName,categoryParent.title as category FROM ptudw_db.blogs blogs, ptudw_db.category categoryChild, ptudw_db.category categoryParent WHERE categoryParent.title='${category}' AND categoryParent.id=categoryChild.parent_id AND blogs.category_id=categoryChild.id  and blogs.status=4  limit ${limit} offset  ${offset}`);
     },
     select_category_count: (category) => {
         return blog.load(`SELECT count(*) as total FROM ptudw_db.blogs blogs, ptudw_db.category categoryChild, ptudw_db.category categoryParent WHERE categoryParent.title='${category}' AND categoryParent.id=categoryChild.parent_id AND blogs.category_id=categoryChild.id`);

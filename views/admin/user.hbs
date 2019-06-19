@@ -32,7 +32,7 @@
                             style="margin-right:2px">Xuất
                             bản</a>
                         {{/if}}
-                        <a class="btn btn-danger" onclick="confirmExport({{id}},'delete')"><i
+                        <a class="btn btn-danger" onclick="confirmChange({{id}},'delete')"><i
                                 class="fa fa-trash"></i></a>
                     </div>
                 </td>
@@ -80,9 +80,9 @@
 
     }
     function confirmChange(id, action) {
-        var r = confirm("Bạn thật sự xuất bản bài viết!");
+        var r = confirm("Bạn thật sự muốn xóa user!");
         if (r == true) {
-            $.post(`/admin/blog/${action}/${id}`, {}, function (result) {
+            $.post(`/admin/users/${action}/${id}`, {}, function (result) {
                 console.log(result);
                 if (result == true) {
                     console.log(result);

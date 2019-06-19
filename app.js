@@ -23,8 +23,6 @@ var app = express();
 require('./middlewares/passport')(app);
 require('./middlewares/session')(app);
 
-
-
 app.use(cookieParser());
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({

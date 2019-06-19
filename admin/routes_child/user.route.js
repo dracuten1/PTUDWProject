@@ -53,13 +53,12 @@ router.post('/delete/:userId', (req, res, next) => {
     if (req.params.userId == undefined) {
         res.send(false);
     }
-    helpers.deleteBlog(userId).then(result => {
+    helpers.deleteUser(userId).then(result => {
         res.send(true);
     }).catch(err => {
         res.send(false);
     });
 
 });
-
 
 module.exports = router;
