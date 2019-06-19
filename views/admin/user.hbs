@@ -34,6 +34,7 @@
                         {{/if}}
                         <a class="btn btn-danger" onclick="confirmExport({{id}},'delete')"><i
                                 class="fa fa-trash"></i></a>
+                        <a class="btn btn-primary" href="/admin/users/editor/{{id}}"><i class="fa fa-pencil"></i></a>
                     </div>
                 </td>
             </tr>
@@ -80,7 +81,7 @@
 
     }
     function confirmChange(id, action) {
-        var r = confirm("Bạn thật sự xuất bản bài viết!");
+        var r = confirm(`Bạn thật sự ${action} user`);
         if (r == true) {
             $.post(`/admin/blog/${action}/${id}`, {}, function (result) {
                 console.log(result);
@@ -94,7 +95,9 @@
         }
     }
     function confirmChangeRole(id) {
+
         var roleId = document.getElementById(`roles${id}`).value;
+
         console.log(roleId);
         var r = confirm("Bạn thật sự thay đổi role?");
         if (r == true) {
@@ -106,7 +109,7 @@
                 }
             });
         } else {
-
+            location.reload();
         }
     }
 </script>
