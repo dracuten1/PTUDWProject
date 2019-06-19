@@ -10,5 +10,8 @@ module.exports = {
     },
     singleFbId: (fbId) => {
         return account.load(`select * from users where facebookId = '${fbId}'`);
+    },
+    updateProfile:(entity)=>{
+        return account.update('users', 'id', entity);
     }
 }
